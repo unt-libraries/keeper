@@ -1,0 +1,5 @@
+-r base.txt
+tox
+pytest>=2.8.5
+pytest-django>=2.9.1
+factory_boy>=2.6.0

@@ -1,0 +1,37 @@
+{% extends 'keeper/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <p class="text-muted">
+        Keeper is a web application for submitting digital archival materials to the UNT Special
+        Collections and University Archive.
+    </p>
+
+    {% include 'keeper/_form.html' %}
+
+{% endblock content %}
+
+{% block scripts_footer %}
+    {{ block.super }}
+
+    <script>
+        {# accepted file types for dropzone #}
+        window.acceptedFiles = {{ accepted_file_types|safe }};
+        window.acceptedFileTypes = Object.keys(acceptedFiles).join(',');
+    </script>
+
+    <script src="{% static 'keeper/js/scripts.min.js' %}"></script>
+    <script>
+    // Callback function necessary to load and require reCaptcha.
+    function onloadCallback() {
+        grecaptcha.render('grecaptcha',
+                {'sitekey': '6LfQFhETAAAAABopDQ0TfxRwDZ1_DYLzlPd61icH'}
+        );
+        $('#g-recaptcha-response').parsley({'required': 'true'});
+    }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+{% endblock scripts_footer %}

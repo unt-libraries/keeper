@@ -1,0 +1,22 @@
+.results-container {
+  padding: 20px;
+}
+
+.results {
+  @extend .form !optional;
+}
+
+.results__field {
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.results__label {
+  font-weight: bold;
+}
+
+.results__value {
+
+}

@@ -1,0 +1,96 @@
+// Insert your styling here.
+
+#main-footer {
+	background: @unt_charcoal;
+	color: #FFF;
+	border-top: 5px solid @library_light_green;
+	
+	#footer-content {
+		padding: 30px 0;
+	
+		.footer-col-inner {
+			margin-bottom: 15px;
+			
+			i.fa {
+				color: lighten(@unt_charcoal, 20%);
+			}
+		}
+		hr {
+			border-top:1px dashed @library_light_green;
+		}
+	}
+	
+	a {
+		text-decoration:none;
+		color: @library_light_green;
+
+		&:hover {
+			text-decoration: underline;
+			color: @brand-info;
+		}
+	}
+	
+	#government-logos {
+		.row {
+			margin-bottom:25px;
+		}
+	}
+
+
+}
+#bottom-bar {
+	background: 	darken(@unt_charcoal, 13.5%);;
+	padding: 		9px 0;
+	border-top: 	1px solid #FFF;	
+
+
+	#required-links a {
+		color: lighten(@library_hunter_green, 10%);
+		font-size: 11px;
+		line-height:3;
+		
+		&:hover {
+			color: #FFF;
+		}
+	}
+	
+	#footer-social a {
+		color: @unt_dark_teal;
+		font-size:18px;
+		margin-right:8px;
+		
+		&:hover {
+			color: #FFF;
+		}
+	}
+}
+
+#topcontrol {
+  background: @unt_dark_teal;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+#topcontrol:hover {
+  background: @unt_green;
+}
+#topcontrol .fa {
+  position: relative;
+  top: 3px;
+  font-size: 25px;
+}

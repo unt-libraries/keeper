@@ -1,0 +1,40 @@
+.parsley-error-label {
+  float: right;
+}
+
+.parsley-errors-list {
+  list-style-type: none;
+  margin-bottom: 5px !important;
+
+  li {
+    color: #a94442;
+    margin-bottom: 0 !important;
+  }
+}
+
+.checkbox {
+  margin-bottom: 15px;
+}
+
+.g-recaptcha {
+  margin-bottom: 15px;
+}
+
+.has-feedback label ~
+.form-control-feedback {
+  top: 35px;
+}
+
+.col-sm-6 {
+  .form-control-feedback {
+    right: 30px;
+  }
+}
+
+#checkboxTooltip {
+  visibility: hidden;
+}
+
+#total-progress {
+  min-width: 2em;
+}

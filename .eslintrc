@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "func-names": ["error", "never"],
+    "func-style": ["off"],
+    "indent": ["off"],
+    "import/no-extraneous-dependencies": ["off"]
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jquery": true
+  },
+  "globals": {
+    "$": true,
+    "jQuery": true,
+    "Parsley":true,
+    "ParsleyUI": true,
+    "Dropzone": true
+  }
+}

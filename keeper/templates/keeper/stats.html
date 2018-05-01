@@ -1,0 +1,19 @@
+{% extends 'keeper/base.html' %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">Accession statistics</h3>
+        </div>
+
+        <div class="panel-body">
+            <p>Accession count: {{ accession_count }}</p>
+            <p>File count: {{ file_count }}</p>
+        </div>
+
+    </div>
+
+
+{% endblock content %}

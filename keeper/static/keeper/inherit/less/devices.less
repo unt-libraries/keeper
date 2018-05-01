@@ -1,0 +1,219 @@
+/*****************************************/
+/*      Screen-dependent variations      */
+/*****************************************/
+
+@media screen and (max-width: @screen-xs-max){
+	#home-features {
+		padding-bottom:35px;
+		border-bottom: 1px solid @gray-lighter;
+	}
+	.demarcated {
+		margin-top:25px;
+	}
+	
+	.view-unt-staff-directory th,
+	.view-unt-staff-directory td,
+	.view-unt-department-directories th,
+	.view-unt-department-directories td{
+		display:block;
+	}
+	.navbar-right {
+		.secondary {
+			float: none;
+		}
+	}
+}
+
+@media screen and (max-width: @screen-md-max){
+	
+	#home-todays-hours  {
+		.widget.has-divider {
+			border-bottom:none;
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	#tech-buttons {
+		i.fa {
+			.hidden();
+		}
+	}
+}
+
+@media screen and (min-width: @screen-sm-min) and (max-width: @screen-sm-max){
+	
+	#site-name {
+		font-size: 26px;
+	}
+	
+	#unt-primary-site-menu {
+		.navbar-left {
+			.last {
+				.hidden();
+			}
+		}
+	}
+	.page-header h1 {
+		font-size:24px;
+		margin-top:10px;
+	}
+	h2 {
+		font-size:20px;
+		color: @unt_charcoal;
+		font-weight:bold;
+		a {
+			font-weight: normal;
+		}
+	}
+	h3 {
+		font-size:18px;
+		color: @unt_charcoal;
+		font-weight:bold;
+		a {
+			font-weight: normal;
+		}	
+	}
+	h4,h5,h6 {
+		font-size:16px;
+		font-weight:bold;	
+	}
+
+}
+
+@media screen and (max-width: @screen-xs-max){
+	
+	.demarcated {
+		padding-bottom:0;
+	}
+	
+	#home-features {
+		padding-bottom:0;
+	}
+	
+	body.front #home-featured-listings-bottom {
+		padding-top:25px;
+		
+		.group {
+			padding-bottom:0;
+		}
+	}
+	
+	#search-all {
+		a.launch-help,
+		i.fa {
+			.hidden();
+		}
+	}
+	
+	#search-box .tab-content {
+		
+		margin-bottom:0;
+		
+		label.main{
+			.hidden();
+		}
+		.row {
+			padding:0;
+		}
+	}
+	#home-giving-libraries {
+		.hidden();
+	}
+	.breadcrumb {
+		.hidden();
+	}	
+	
+	.page-header {
+		background-color: @unt_charcoal;
+		border-top: 1px solid @gray-lighter;
+		.bw-gradient(@color_s: darken(@unt_charcoal, 10%), @color_e: @unt_charcoal);
+		
+		h1 {
+			color: #FFF;
+			font-weight: bold;
+			font-size: 20px;
+			margin:12px 0;
+			border-bottom:none;
+		}
+	}
+	#jump-region,
+	#site-content-region {
+		padding-top:0;
+		font-size:14px;
+	
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: bold;
+		}
+		
+		h1, h2, h3 {
+			font-size: 19px !important;
+		}
+		h4, h5, h6 {
+			font-size: 18px !important;
+		}
+	
+	}
+
+	#tech-buttons .btn-group,
+	#other-contact-buttons {
+        width:100%;
+			i.fa {
+				.hidden();
+			}
+	}
+	
+	#phone-contact-button {
+		width: 100%;
+		margin-bottom:25px;
+		#talk-button-phone-default {
+			width:85%;
+		}
+		#talk-button-phone-dropdown {
+			width: 15%;
+		}
+	}
+	#acquisitions-buttons a.btn {
+		display:inline-block;
+		width:50%;
+		margin-left:0;
+		
+		i.fa {
+			.hidden();
+		}
+	}
+	
+	#problems-contact-button {
+		position: relative;
+		span.caret {
+			.hidden();
+		}
+		#problems {
+			right:0;
+		}
+	}
+	
+	#study-create {
+		margin-top: 100px;
+		border-top: 1px solid @gray-lighter;
+	}
+	
+	.view-staff-directory-2 {
+		border:none;
+	}	
+
+}
+
+@media screen and (min-width: @screen-md-min) and (max-width: @screen-md-max){
+	#quick-links {
+		ul {
+			font-size:11px;
+		}
+	}
+}
+
+@media screen and (min-width: @screen-sm-min){
+	#talk-other {
+		padding-left:0;
+	}
+}
