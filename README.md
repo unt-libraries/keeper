@@ -5,7 +5,7 @@ About
 -----
 
 Keeper is a Django project and app that provides a form for submission of files to
-the UNT Libraries Special Collections. It can be found at [https://www.library.unt.edu/special-collections/keeper]()
+the UNT Libraries Special Collections. It can be found at [https://www.library.unt.edu/special-collections/keeper](https://www.library.unt.edu/special-collections/keeper)
 
 
 Requirements
