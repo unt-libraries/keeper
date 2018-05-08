@@ -50,13 +50,13 @@ ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
 
 INSTALLED_APPS = (
     'keeper',
+    'private_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'private_storage',
     'parsley',
     'captcha',
 )
