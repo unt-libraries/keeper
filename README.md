@@ -119,7 +119,7 @@ Some (not all) notable directories and files:
   - `static/` - Static files JavaScript, CSS, and image files.
   - `templates/` - Admin and app templates.
   - `constants.py` - File types accepted by Dropzone.js and form validation
-- `private-media/` - Directory where user files are uploaded
+- `private-media/` - Directory where user files are uploaded. Only accessible to administrators.
 - `src/` - Source files for static JavaScript and CSS.
 - `tests/` - Django project directory.
   - `settings/` - Settings files for each environment, but most customization should be in secrets.json.
