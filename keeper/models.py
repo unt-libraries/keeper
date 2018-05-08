@@ -2,6 +2,8 @@ import os
 
 from django.db import models
 
+from private_storage.fields import PrivateFileField
+
 from constants import ACCEPTED_FILE_TYPES
 from validators import validate_file_type
 
@@ -66,7 +68,7 @@ def file_upload_location(instance, filename):
 
 
 class File(models.Model):
-    file = models.FileField(upload_to=file_upload_location, validators=[validate_file_type])
+    file = PrivateFileField(upload_to=file_upload_location, validators=[validate_file_type])
     accession = models.ForeignKey('Accession')
     file_description = models.TextField(blank=True)
     content_type = models.CharField(max_length=255, blank=True)

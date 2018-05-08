@@ -73,3 +73,4 @@ target/
 
 # User uploaded files
 /media/uploads
+/private-media/uploads

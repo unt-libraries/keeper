@@ -9,6 +9,10 @@ BASE_DIR = Path(__file__).ancestor(3)
 MEDIA_ROOT = BASE_DIR.child('media')
 MEDIA_URL = '/media/'
 
+# Settings for Django Private Storage
+PRIVATE_STORAGE_ROOT = BASE_DIR.child('private-media')
+PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_staff'
+
 # Gets the site root (same level that project, apps, and templates lives on)
 SITE_ROOT = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
 
@@ -46,6 +50,7 @@ ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
 
 INSTALLED_APPS = (
     'keeper',
+    'private_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
