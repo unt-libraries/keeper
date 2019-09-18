@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<head profile="https://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}Keeper by UNT Libraries{% endblock %} | University of North Texas Libraries</title>
+
+  <link rel="icon" type="image/png" href="{% static "keeper/img/favicon.png" %}">
+
+  <!-- CSS -->
+  {% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'keeper/inherit/css/style.css' %}" media="all" />
+    <link rel="stylesheet" href="{% static 'keeper/css/style.min.css' %}">
+  {% endblock stylesheets %}
+
+  <!-- fonts -->
+  {% block fonts %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" media="all" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" />
+  {% endblock fonts %}
+
+  <!-- scripts -->
+  {% block scripts %}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="public/js/vendor/html5shiv.min.js"></script>
+      <script src="public/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+  {% endblock scripts %}
+
+  {% block favicons %}
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'keeper/img/apple-touch-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'keeper/img/apple-touch-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'keeper/img/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'keeper/img/apple-touch-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'keeper/img/apple-touch-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'keeper/img/apple-touch-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'keeper/img/apple-touch-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'keeper/img/apple-touch-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'keeper/img/apple-touch-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-32x32.png" sizes="32x32' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/android-chrome-192x192.png" sizes="192x192' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-96x96.png" sizes="96x96' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-16x16.png" sizes="16x16' %}">
+    <link rel="manifest" href="{% static 'keeper/img/manifest.json' %}">
+    <link rel="mask-icon" href="{% static 'keeper/img/safari-pinned-tab.svg" color="#00853f' %}">
+    <link rel="shortcut icon" href="{% static 'keeper/img/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#00853f">
+    <meta name="msapplication-TileImage" content="{% static 'keeper/img/mstile-144x144.png' %}">
+    <meta name="msapplication-config" content="{% static 'keeper/img/browserconfig.xml' %}">
+    <meta name="theme-color" content="#00853f">
+  {% endblock favicons %}
+</head>
