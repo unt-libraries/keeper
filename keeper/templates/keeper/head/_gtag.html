@@ -1,0 +1,19 @@
+<script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', '{{ GA_TRACKING_ID }}', 'auto');
+  ga('require', 'eventTracker');
+  ga('require', 'maxScrollTracker');
+  ga('require', 'pageVisibilityTracker');
+  ga('require', 'outboundLinkTracker', {
+    linkSelector: '#ip a',
+    fieldsObj: {
+      "eventCategory": "link - content - external",
+      "eventAction": "Keeper app"
+    }
+  });
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script async src="/assets/vendor/autotrack/autotrack.js"></script>

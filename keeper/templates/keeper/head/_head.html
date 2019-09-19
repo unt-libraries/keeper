@@ -1,11 +1,19 @@
 {% load staticfiles %}
-<head profile="https://www.w3.org/1999/xhtml/vocab">
+<head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{% block title %}Keeper by UNT Libraries{% endblock %} | University of North Texas Libraries</title>
+  {#  Google Analytics#}
+  {% include 'keeper/head/_gtag.html' %}
 
-  <link rel="icon" type="image/png" href="{% static "keeper/img/favicon.png" %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <title>{% block title %}Keeper by UNT Libraries{% endblock %} - University Libraries - UNT</title>
+
+  <meta name="description" content="Keeper is a web application for submitting digital archival materials to the UNT Special Collections and University Archive.">
+
+  <!-- Preconnect for assets -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
 
   <!-- CSS -->
   {% block stylesheets %}
