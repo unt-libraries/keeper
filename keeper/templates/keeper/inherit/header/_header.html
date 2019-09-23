@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<div id="head" class="wrapper--header fixed-top">
+
+  <header id="top" class="header h-100 container-fluid">
+
+    <section class="header__content h-100  row align-items-center  px-md-4">
+      <div class="col-auto mr-auto">
+        {# Branding #}
+        <a href="https://www.unt.edu/"
+           aria-label="U N T Home Site"
+           id="hd-brand"
+           class="header__banner" {# Add class .no-subtitle if not including a site subtitle #}
+           data-event-category="link - header"
+           data-event-action="university"
+           data-event-label="https://www.unt.edu/">
+          <img id="unt-banner-img"
+               src="{% static 'keeper/inherit/images/branding/unt-1890-banner.svg' %}"
+               alt="U N T Established 1890"
+               class="header__banner--ribbon  d-none d-md-inline">{% comment %} Full Sized Banner {% endcomment %}
+          <img id="unt-banner-lettermark"
+               src="{% static 'keeper/inherit/images/branding/unt.lettermark.svg' %}"
+               alt="U N T"
+               class="header__banner--lettermark">{% comment %} Small Banner - Mobile and Scrolled {% endcomment %}
+        </a>
+
+        <div class="header__title">
+          {# Stack titles when this is a subsite, do only main title otherwise #}
+            <div class="header__title--parent">
+              <a href="https://library.unt.edu"
+                  id="hd-subtitle"
+                  class="header__link"
+                  data-event-category="link - header"
+                  data-event-action="libraries"
+                  data-event-label="/">University Libraries</a>
+            </div>
+          <h1 class="header__title--primary">
+            <a href="/"
+                id="hd-title"
+                class="header__link"
+                data-event-category="link - header"
+                data-event-action="libraries"
+                data-event-label="/">Keeper</a>
+          </h1>
+        </div>
+      </div>
+      {# Menu Buttons #}
+      <div class="col-auto">
+            <button id="hd-unt-toggle"
+                    type="button"
+                    class="btn btn-link d-none d-md-inline-block"
+                    data-target="#unt-drawer"
+                    data-toggle="modal"
+                    aria-label="Expand Menu of U N T Links"
+                    aria-controls="unt-drawer"
+                    data-event-category="button - header"
+                    data-event-action="toggle"
+                    data-event-label="unt drawer">
+              <i class="fas fa-bookmark"></i>
+            </button>
+          <button id="hd-libraries-toggle"
+                  type="button"
+                  class="btn btn-link"
+                  data-target="#libraries-drawer"
+                  data-toggle="modal"
+                  aria-label="People and Places"
+                  aria-controls="libraries-drawer"
+                  data-event-category="button - header"
+                  data-event-action="toggle"
+                  data-event-label="libraries drawer">
+            <i class="fas fa-university"></i>
+          </button>
+          <button id="hd-tech-toggle"
+                  type="button"
+                  class="btn btn-link"
+                  data-target="#tech-drawer"
+                  data-toggle="modal"
+                  aria-label="U N T Libraries Technology Quick Links"
+                  aria-controls="tech-drawer"
+                  data-event-category="button - header"
+                  data-event-action="toggle"
+                  data-event-label="common drawer">
+            <i class="fas fa-desktop"></i>
+          </button>
+          <button id="hd-search-toggle"
+                  type="button"
+                  class="btn btn-link"
+                  data-target="#search-drawer"
+                  data-toggle="modal"
+                  aria-label="U N T Libraries Search Tool"
+                  aria-controls="search-drawer"
+                  data-event-category="button - header"
+                  data-event-action="toggle"
+                  data-event-label="search drawer">
+            <i class="fas fa-search"></i>
+          </button>
+          <button id="hd-main-open"
+                  type="button"
+                  class="btn btn-link d-md-none toggle--main"
+                  data-target="#main-menu-drawer"
+                  data-toggle="modal"
+                  aria-label="Site Navigation"
+                  aria-controls="main-menu-drawer"
+                  data-event-category="button - header"
+                  data-event-action="toggle"
+                  data-event-label="navigation drawer">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+    </section>
+  </header>
+</div>
+
+<div id="primary-navigation" class="wrapper--navigation p-1 d-none d-md-block">
+  <nav id="unt-desktop-links" class="container-fluid navigation navigation--desktop  px-md-4">
+    {% include 'keeper/inherit/header/_main-links.html' %}
+  </nav>
+</div>

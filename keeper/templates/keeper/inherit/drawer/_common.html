@@ -1,0 +1,119 @@
+{% load staticfiles %}
+<div class="drawer fade" id="tech-drawer" tabindex="-1" role="dialog" aria-labelledby="tech-drawer-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog--right" role="document">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h2 class="drawer-title px-3" id="tech-drawer-title">Lending &amp; Technology</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times fa-lg"></i>
+        </button>
+      </div>
+      <div class="drawer-body">
+        <h2 class="drawer__sub-heading px-3">Borrowing and Renewals</h2>
+
+        <a href="https://iii.library.unt.edu/patroninfo"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://iii.library.unt.edu/patroninfo">Your Account / Renew Materials</a>
+
+        <a href="https://library.unt.edu/services/borrowing/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/borrowing/">Info on Borrowing, Fines, etc.</a>
+
+        <a href="https://library.unt.edu/services/online-holds/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/online-holds/">Online Holds / Material Delivery</a>
+
+
+        <div class="drawer__divider" role="separator"></div>
+        <h2 class="drawer__sub-heading px-3">Technology</h2>
+
+        <a href="https://library.unt.edu/services/technology-computing/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/technology-computing/">24 Commons, Computer Workstations</a>
+
+        <a href="https://library.unt.edu/services/laptop-checkout/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/laptop-checkout/">Laptop Checkout</a>
+
+        <a href="https://library.unt.edu/services/printing-scanning-copies/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/printing-scanning-copies/">Printing, Scanning, Photocopies</a>
+
+        <a href="https://guides.library.unt.edu/factory"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://guides.library.unt.edu/factory">The Factory (Makerspace, Tech. Lending)</a>
+
+        <a href="https://library.unt.edu/services/on-off-campus-access/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/on-off-campus-access/">On/Off Campus Access</a>
+
+        <div class="drawer__divider" role="separator"></div>
+        <h2 class="drawer__sub-heading px-3">Help</h2>
+
+        <a href="https://guides.library.unt.edu/citations-style-guides"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://guides.library.unt.edu/citations-style-guides">Citations/Style Guides</a>
+
+        <div class="drawer__text px-3">Subjects</div>
+        <div class="nav-item py-1 px-3 select-widget" data-event-category="form - select-widget - subject guides">
+            <form action="https://guides.library.unt.edu/srch.php" method="get" accept-charset="utf-8">
+              <label for="drawer-course-helper" class="sr-only">Search for a Subject or Subject Guide</label>
+              <div class="input-group mb-4">
+                <input id="drawer-subjects-helper"
+                        name="q"
+                        class="subject-typeahead form-control"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="type for subject suggestions">
+                <div class="input-group-append d-none">
+                    <span class="input-group-text"><i class="fas fa-external-link-alt"></i></span>
+                </div>
+              </div>
+              <button type="submit" class="sr-only">Submit</button>
+            </form>
+        </div>
+
+        <div class="drawer__text px-3">Courses</div>
+        <div class="nav-item py-1 px-3 select-widget" data-event-category="form - select-widget - course guides">
+            <form action="https://guides.library.unt.edu/srch.php" method="get" accept-charset="utf-8">
+              <label for="drawer-course-helper" class="sr-only">Search for a Course Guide</label>
+              <div class="input-group mb-4">
+                <input id="drawer-course-helper"
+                        name="q"
+                        class="course-typeahead form-control"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="type a course name/number">
+                <div class="input-group-append d-none">
+                    <span class="input-group-text"><i class="fas fa-external-link-alt"></i></span>
+                </div>
+              </div>
+              <button type="submit" class="sr-only">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+         data-src="{% static 'keeper/inherit/images/backgrounds/drawer.png' %}"
+         class="lazyload cute d-none"
+         alt="illustration of Willis Library and Hurley Administration building" />
+  </div>
+</div>

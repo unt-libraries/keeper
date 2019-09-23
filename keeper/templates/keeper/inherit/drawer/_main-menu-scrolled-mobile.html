@@ -1,0 +1,141 @@
+{% load staticfiles %}
+<div class="drawer fade" id="main-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="main-drawer-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog--right" role="document">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h2 class="drawer-title px-3" id="main-drawer-title">Menu</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times fa-lg"></i>
+        </button>
+      </div>
+      <div class="drawer-body">
+
+        <div class="d-flex justify-content-around" role="group" aria-label="Basic example">
+
+          <a href="tel:9405653245"
+             class="btn btn-success btn-lg w-25"
+             data-event-category="link - drawer"
+             data-event-action="telephone">
+            <i class="fas fa-phone"></i><br/>
+            <span class="small">CALL</span>
+          </a>
+
+          <a href="https://library.unt.edu/ask-us/"
+              class="btn btn-success btn-lg w-25"
+              data-event-category="link - drawer"
+              data-event-action="libraries"
+              data-event-label="https://library.unt.edu/ask-us/">
+              <i class="fas fa-question"></i><br/>
+              <span class="small">ASK US</span>
+          </a>
+
+          <a href="https://library.unt.edu/accounts-login/"
+              class="btn btn-success btn-lg w-25"
+              data-event-category="link - drawer"
+              data-event-action="libraries"
+              data-event-label="https://library.unt.edu/accounts-login/">
+              <i class="fas fa-user"></i><br/>
+              <span class="small">LOGIN</span>
+          </a>
+
+        </div>
+
+        <div class="drawer__divider"></div>
+
+        <a href="/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="/">University Libraries Home</a>
+
+        <a href="https://library.unt.edu/about/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/about/">About</a>
+
+        <a href="https://library.unt.edu/research/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/research/">Research</a>
+
+        <a href="https://library.unt.edu/services/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/">Services</a>
+
+        <a href="https://library.unt.edu/spaces/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/spaces/">Spaces</a>
+
+        <a href="https://library.unt.edu/news/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/news/">News </a>
+
+        <a href="https://library.unt.edu/events/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/events/">Events</a>
+
+        <div class="drawer__divider"></div>
+
+        <nav class="nav justify-content-center py-4">
+            <a class="nav-item nav-link nav-link--social"
+               data-event-category="link - drawer"
+               data-event-action="social"
+               data-event-label="https://www.facebook.com/unt.libraries"
+               aria-label="https://www.facebook.com/unt.libraries"
+               href="https://www.facebook.com/unt.libraries/">
+                  <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+            <a class="nav-item nav-link nav-link--social"
+                 data-event-category="link - drawer"
+                 data-event-action="social"
+                 data-event-label="https://twitter.com/unt_libraries"
+                 aria-label="https://twitter.com/unt_libraries"
+                 href="https://twitter.com/unt_libraries/">
+                    <i class="fab fa-twitter fa-lg"></i>
+                  </a>
+            <a class="nav-item nav-link nav-link--social"
+                 data-event-category="link - drawer"
+                 data-event-action="social"
+                 data-event-label="https://www.instagram.com/unt_libraries"
+                 aria-label="https://www.instagram.com/unt_libraries"
+                 href="https://www.instagram.com/unt_libraries/">
+                    <i class="fab fa-instagram fa-lg"></i>
+                  </a>
+            <a class="nav-item nav-link nav-link--social"
+                 data-event-category="link - drawer"
+                 data-event-action="social"
+                 data-event-label="https://github.com/unt-libraries"
+                 aria-label="https://github.com/unt-libraries"
+                 href="https://github.com/unt-libraries/">
+                    <i class="fab fa-github-alt fa-lg"></i>
+                  </a>
+            <a class="nav-item nav-link nav-link--social"
+                 data-event-category="link - drawer"
+                 data-event-action="social"
+                 data-event-label="https://www.youtube.com/channel/UCcbS9fXWKE1SpUTpl1sNB6Q"
+                 aria-label="https://www.youtube.com/channel/UCcbS9fXWKE1SpUTpl1sNB6Q"
+                 href="https://www.youtube.com/channel/UCcbS9fXWKE1SpUTpl1sNB6Q/">
+                    <i class="fab fa-youtube fa-lg"></i>
+                  </a>
+        </nav>
+      </div>
+    </div>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+         data-src="{% static 'keeper/inherit/images/backgrounds/drawer.png' %}"
+         class="lazyload cute d-none"
+         alt="illustration of Willis Library and Hurley Administration building" />
+  </div>
+</div>
+
+
+

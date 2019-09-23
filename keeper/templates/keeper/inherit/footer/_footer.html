@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<div class="wrapper--footer">
+  <footer id="main-footer" class="footer  container-fluid py-5 px-md-5">
+
+    <div class="row">
+
+      <div class="footer__lettermark d-none d-md-block col-md-3">
+        <a href="https://www.unt.edu/"
+           aria-label="U N T Home Site"
+           data-event-category="link - footer - brand"
+           data-event-action="university"
+           data-event-label="https://www.unt.edu/">
+          <img src="{% static 'keeper/inherit/images/branding/unt.stacked.green.svg' %}"
+               alt="U N T Established 1890">{# Full Sized Banner #}
+        </a>
+      </div>
+
+      <div class="footer__partnerships col-sm mx-4 px-4">
+        <h3 class="sr-only">Partnerships</h3>
+        <ul class="list-unstyled">
+          <li class="media">
+            <a id="footer-fdl"
+               class="mr-3"
+               href="https://library.unt.edu/government-information/"
+               data-event-category="link - footer - logo"
+               data-event-action="libraries"
+               data-event-label="https://library.unt.edu/government-information/">
+                <img class="" src="{% static 'keeper/inherit/images/branding/fdl-library-blue.png' %}" alt="Federal Depository"></a>
+            <div class="media-body">The University Libraries are a designated
+              <a href="https://library.unt.edu/government-information/"
+                 data-event-category="link - footer - text"
+                 data-event-action="libraries"
+                 data-event-label="https://library.unt.edu/government-information/">Federal Depository Library</a>.</div>
+          </li>
+          <li class="media my-4">
+            <a id="footer-finl"
+               class="mr-3"
+               href="https://guides.library.unt.edu/grants"
+               data-event-category="link - footer - logo"
+               data-event-action="libraries"
+               data-event-label="https://guides.library.unt.edu/grants">
+                <img src="{% static 'keeper/inherit/images/branding/foundation-center.png' %}" alt="Funding Information Network Logo"></a>
+            <div class="media-body">The University Libraries are a
+              <a href="https://guides.library.unt.edu/grants"
+                 data-event-category="link - footer - text"
+                 data-event-action="libraries"
+                 data-event-label="https://guides.library.unt.edu/grants">Funding Information Network partner</a> of the Foundation Center.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__contact col-sm col-lg-3">
+        <h2 class="sr-only">Mail</h2>
+        <div class="box box-dark box-border"> <span>University Libraries</span><br>
+          <span> <span>1155 Union Circle #305190</span><br>
+          <span>Denton</span> , <span>TX</span> <span>76203-5017</span> </span>
+        </div>
+
+        <h2 class="sr-only">Contact</h2>
+        <div><i class="fas fa-phone fw"></i> &nbsp;
+             <a id="footer-phone"
+                data-event-category="link - footer - text"
+                data-event-action="libraries"
+                data-event-label="tel:9405652413"
+                href="tel:9405652413"
+               >940.565.2411</a></div>
+        <div><i class="fas fa-envelope fw"></i> &nbsp;
+             <a id="asks-us"
+                data-event-category="link - footer - text"
+                data-event-action="libraries"
+                data-event-label="https://library.unt.edu/ask-us/"
+                href="https://library.unt.edu/ask-us/"> Research Questions</a></div>
+        <div><i class="fas fa-users fw"></i> &nbsp;
+             <a id="footer-staff-directory"
+                data-event-category="link - footer - text"
+                data-event-action="libraries"
+                data-event-label="https://library.unt.edu/people/"
+                href="https://library.unt.edu/people/">Staff Directory</a></div>
+        <div><i class="fas fa-laptop fw"></i> &nbsp;
+             <a id="footer-ask-tech"
+                data-event-category="link - footer - text"
+                data-event-action="libraries"
+                data-event-label="https://library.unt.edu/ask-us?forward=lib.support@unt.edu#email-us"
+                href="https://library.unt.edu/ask-us?forward=lib.support@unt.edu#email-us">Computer &amp; Technology Problems</a></div>
+        <div><i class="fas fa-exclamation-triangle fw"></i> &nbsp;
+             <a id="ask-building"
+                data-event-category="link - footer - text"
+                data-event-action="libraries"
+                data-event-label="https://library.unt.edu/ask-us?forward=Lib.Facilities@unt.edu#email-us"
+                href="https://library.unt.edu/ask-us?forward=Lib.Facilities@unt.edu#email-us">Facilities Problems</a></div>
+      </div>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@id": "https://library.unt.edu#organization",
+    "@type": "Library",
+    "publicAccess": true,
+    "smokingAllowed": false,
+    "name": "Keeper by UNT Libraries",
+    "logo": "{% static 'keeper/inherit/images/branding/untl.stacked.green.png' %}",
+    "url": "https://keeper.library.unt.edu",
+    "telephone": "+1-940-565-2411",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "",
+      "postOfficeBoxNumber": "1155 Union Circle #305190",
+      "addressLocality": "Denton",
+      "addressRegion": "TX",
+      "postalCode": "76203-5017",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.2100684,
+      "longitude": -97.1489542
+    }
+  }
+</script>

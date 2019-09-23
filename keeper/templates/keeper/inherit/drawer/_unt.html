@@ -1,0 +1,92 @@
+{% load staticfiles %}
+<div class="drawer drawer--drawer fade" id="unt-drawer" tabindex="-1" role="dialog" aria-labelledby="unt-drawer-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog--right" role="document">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h2 class="drawer-title px-3" id="unt-drawer-title">UNT Quicklinks</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times fa-lg"></i>
+        </button>
+      </div>
+      <div class="drawer-body">
+
+        <form id="search-unt-form"
+              class="p-3"
+              action="https://unt.edu/search-results"
+              method="GET"
+              role="search"
+              autocomplete="off"
+              data-event-category="form - search - unt"
+              data-event-label="{{ request.build_absolute_uri }}{{ object.get_absolute_url }}">
+          <div class="row">
+            <div class="col">
+              <div class="input-group">
+                  <input class="form-control primary-search query"
+                          id="bento-q"
+                          name="search"
+                          aria-label="Search across the entire U N T domain."
+                          type="text"
+                          placeholder="Search unt.edu"
+                          value="">
+                <span class="input-group-btn">
+                <button type="submit" class="btn btn-success">
+                  <i class="fas fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="drawer__divider"></div>
+
+        <nav class="nav flex-column">
+          <a href="https://library.unt.edu/"
+             class="link--external nav-item nav-link px-3"
+             data-event-category="link - drawer"
+             data-event-action="university"
+             data-event-label="https://library.unt.edu/">UNT Homepage</a>
+
+          <a href="https://my.unt.edu/"
+             class="link--external nav-item nav-link px-3"
+             data-event-category="link - drawer"
+             data-event-action="university"
+             data-event-label="https://my.unt.edu/">MyUNT</a>
+
+          <a href="https://canvas.unt.edu/"
+             class="link--external nav-item nav-link px-3"
+             data-event-category="link - drawer"
+             data-event-action="university"
+             data-event-label="https://canvas.unt.edu/">Canvas</a>
+
+          <a href="https://eagleconnect.unt.edu/"
+             class="link--external nav-item nav-link px-3"
+             data-event-category="link - drawer"
+             data-event-action="university"
+             data-event-label="https://eagleconnect.unt.edu/">EagleConnect</a>
+
+          <a href="https://www.unt.edu/find-people-departments"
+             class="link--external nav-item nav-link px-3"
+             data-event-category="link - drawer"
+             data-event-action="university"
+             data-event-label="https://www.unt.edu/find-people-departments">UNT Directory</a>
+
+          <a href="https://maps.unt.edu/"
+             class="link--external nav-item nav-link px-3"
+             data-event-category="link - drawer"
+             data-event-action="university"
+             data-event-label="https://maps.unt.edu/">UNT Map</a>
+
+          <a href="https://www.untsystem.edu/hr-it-business-services/human-resources"
+             class="link--external nav-item nav-link px-3"
+             data-event-category="link - drawer"
+             data-event-action="university"
+             data-event-label="https://www.untsystem.edu/hr-it-business-services/human-resources">Jobs at UNT</a>
+          </nav>
+      </div>
+    </div>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+         data-src="{% static 'keeper/inherit/images/backgrounds/drawer.png' %}"
+         class="lazyload cute d-none"
+         alt="illustration of Willis Library and Hurley Administration building" />
+  </div>
+</div>
+

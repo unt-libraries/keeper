@@ -1,0 +1,86 @@
+{% load staticfiles %}
+<head>
+  <meta charset="utf-8">
+
+  {#  Google Analytics #}
+  {% include 'keeper/inherit/head/_gtag.html' %}
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <title>{% block title %}Keeper by UNT Libraries{% endblock %} - University Libraries - UNT</title>
+
+  <meta name="description" content="Keeper is a web application for submitting digital archival materials to the UNT Special Collections and University Archive.">
+
+  <!-- Fonts -->
+  {% block fonts %}
+    <!-- Preconnect for fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+    <link rel="preload" href="{% static 'keeper/inherit/js/vendor/webfontloader.js' %}" as="script">
+    <script>
+      WebFontConfig = {
+        google: {
+          families: [
+            'Open+Sans:400,400i,800',
+            'Oswald&subset=latin-ext',
+          ],
+        },
+      };
+
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = "{% static 'keeper/inherit/js/vendor/webfontloader.js' %}";
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+    </script>
+  {% endblock fonts %}
+
+  <!-- CSS -->
+  {% block stylesheets %}
+    <link rel="preload" href="{% static 'keeper/inherit/css/vendor/animate.min.css' %}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'keeper/inherit/css/vendor/animate.min.css' %}"></noscript>
+
+    <link rel="preload" href="{% static 'keeper/inherit/css/vendor/@fortawesome/fontawesome-pro/css/all.min.css' %}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'keeper/inherit/css/vendor/@fortawesome/fontawesome-pro/css/all.min.css' %}"></noscript>
+
+    <!-- preload polyfill for browsers that don't support preload -->
+    <script src="{% static 'keeper/inherit/js/vendor/cssrelpreload.min.js' %}" async></script>
+
+    <!-- Blocking CSS -->
+    <link rel="stylesheet" href="{% static 'keeper/inherit/css/unt.min.css' %}" media="all" />
+    <link rel="stylesheet" href="{% static 'keeper/css/style.min.css' %}">
+
+    <!--[if IE 9]>
+      <link href="{% static 'keeper/inherit/css/vendor/bootstrap-ie9.css' %}" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'keeper/inherit/css/ie9.min.css' %}">
+    <![endif]-->
+    <!--[if lte IE 8]>
+      <link href="{% static 'keeper/inherit/css/vendor/bootstrap-ie8.css' %}" rel="stylesheet">
+      <script src="{% static 'keeper/inherit/js/vendor/html5shiv.min.js' %}"></script>
+      <link rel="stylesheet" href="{% static 'keeper/inherit/css/ie9.min.css' %}">
+    <![endif]-->
+
+    <style>
+      .wrapper--content {
+        background-image: url({% static 'keeper/inherit/images/backgrounds/default.jpg' %});
+      }
+    </style>
+  {% endblock stylesheets %}
+
+  <!-- Favicons -->
+  {% block favicons %}
+    {% include 'keeper/inherit/head/_icons.html' %}
+  {% endblock favicons %}
+
+  <!-- Meta tags -->
+  {% include 'keeper/inherit/head/_opengraph.html' %}
+  {% include 'keeper/inherit/head/_twitter.html' %}
+  {% include 'keeper/inherit/head/_schema.html' %}
+
+  <!-- Scripts -->
+  {% block scripts %}{% endblock scripts %}
+</head>

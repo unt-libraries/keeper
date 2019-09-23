@@ -1,78 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"
-  xmlns:fb="http://ogp.me/ns/fb#"
-  itemscope itemtype= "https://schema.org/"
-  xmlns:og="http://ogp.me/ns#"
-  xmlns:article="http://ogp.me/ns/article#"
-  xmlns:book="http://ogp.me/ns/book#"
-  xmlns:profile="http://ogp.me/ns/profile#"
-  xmlns:video="http://ogp.me/ns/video#">
+<html lang="en" class="no-js">
 
-{% include 'keeper/head/_head.html' %}
+{% include 'keeper/inherit/head/_head.html' %}
 
-<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-1810 node-type-page" >
-  {% include 'keeper/header/_accessibility-skiplinks.html' %}
-  {% include 'keeper/header/_header.html' %}
+<body class="keeper" >
+  <!--[if lte IE 10]>
+    <p class="browser-upgrade">Your browser is <strong>outdated</strong>. This site will not function in it. Please <a href="https://browsehappy.com/">upgrade</a> to improve your experience and security.</p>
+  <![endif]-->
+  {% include 'keeper/inherit/header/_accessibility-skiplinks.html' %}
+  {% include 'keeper/inherit/header/_header.html' %}
 
-<div id="main-wrapper">
-    <!--[if (IE 8) | (IE 9)]>
-        <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Support for Internet Explorer 8 &amp; 9 is limited. Please
-            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">update</a>
-            or <a href="http://browsehappy.com/" target="blank">try an alternative browser</a> if possible.
-        </div>
-    <![endif]-->
+  <div id="wrapper--content">
+    <main id="content" class="content container-fluid px-md-5">
+      {% include 'keeper/inherit/_breadcrumbs.html' %}
 
-    <!--[if lt IE 8]>
-        <div class="alert alert-warning">
-            <strong>Odd Display?</strong> You will likely have problems using this site because your version of
-            Internet Explorer is extremely outdated. Please
-            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">update your browser</a>
-            or <a href="http://browsehappy.com/" target="blank">try another</a> if possible.
-        </div>
-    <![endif]-->
+      <h1 class="content__title mb-4">Keeper</h1>
 
-    <div class="main-container container">
-
-    <div id="site-content-region" class="row">
-      <header class="page-header col-xs-12">
-        <div class="hidden-print">
-          <ol class="breadcrumb">
-            <li class="first"><a href="https://www.library.unt.edu">Home</a></li>
-            <li><a href="https://www.library.unt.edu/special-collections">Special Collections</a></li>
-            <li class="active last">Keeper</li>
-          </ol>
-        </div>
-        <h1>Keeper</h1>
-      </header>
-
-      <section class="col-sm-8 col-sm-push-4 panel-primary-content">
-        <a id="main-content" name="main-content"></a>
-        <div class="region region-content">
+      <div id="content-wrapper" class="row">
+        <section id="ip" class="ip col-sm-9 order-sm-12 order-xs1 pt-3">
           {% block content %}{% endblock content %}
-        </div>
-      </section>
+        </section>
+        {% include 'keeper/inherit/sidebars/_left.html' %}
+      </div>
+      </div>
+    </main>
 
-      {% include 'keeper/sidebars/_left.html' %}
+  </div><!-- end main-wrapper -->
 
+  {% include 'keeper/inherit/drawer/_unt.html' %}
+  {% include 'keeper/inherit/drawer/_libraries.html' %}
+  {% include 'keeper/inherit/drawer/_common.html' %}
+  {% include 'keeper/inherit/drawer/_search.html' %}
+  {% include 'keeper/inherit/drawer/_main-menu-scrolled-mobile.html' %}
+  {% include 'keeper/inherit/footer/_footer.html' %}
+
+  <div class="modal fade search-help" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
     </div>
   </div>
 
-</div><!-- end main-wrapper -->
-
-{% include 'keeper/footer/_footer.html' %}
-
-<div class="modal fade search-help" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-    </div>
-  </div>
-</div>
-
-{% block scripts_footer %}
-  {% include 'keeper/footer/_scripts.html' %}
-{% endblock scripts_footer %}
+  {% block scripts_footer %}
+    {% include 'keeper/inherit/footer/_scripts.html' %}
+  {% endblock scripts_footer %}
 </body>
 </html>
