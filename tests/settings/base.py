@@ -28,6 +28,8 @@ STATICFILES_DIRS = [
     os.path.join(RELEASE_ROOT, 'keeper/keeper/static'),
 ]
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
 # JSON-based secrets module
 with open(os.path.join(BASE_DIR, 'secrets.json')) as f:
     secrets = json.loads(f.read())
