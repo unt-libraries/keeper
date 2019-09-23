@@ -8,6 +8,7 @@ def global_settings(request):
         Attempt to get settings values from the imported settings.
         If unavailable, use default values.
         """
-    defaults = {'GA_TRACKING_ID': ''}
+    defaults = {'GA_TRACKING_ID': '',
+                'RECAPTCHA_PUBLIC_KEY': ''}
     available_settings = {s: getattr(settings, s, defaults[s]) for s in defaults}
     return available_settings
