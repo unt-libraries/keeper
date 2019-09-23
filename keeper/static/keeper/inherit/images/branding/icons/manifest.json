@@ -1,0 +1,20 @@
+{
+    "name": "University Libraries: UNT",
+    "short_name": "UNT Library",
+    "icons": [
+        {
+            "src": "/assets/images/branding/icons/192x192.png?v=XBzo7A65W4",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/branding/icons/512x512.png?v=XBzo7A65W4",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#006a31",
+    "background_color": "#006a31",
+    "display": "browser",
+    "start_url": "/?utm_source=homescreen"
+}
