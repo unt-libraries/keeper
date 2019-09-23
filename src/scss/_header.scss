@@ -1,0 +1,42 @@
+.header {
+  @media (max-width: 575px) {
+    &__title {
+      &--parent,
+      &--primary {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  // Small width
+  @media (min-width: 576px) and (max-width: 767px) {
+    &__title {
+      &--parent,
+      &--primary {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Medium width and up
+  @media (min-width: 768px) {
+    .scrolled &__banner--lettermark {
+      top: 9px;
+    }
+    &__title {
+      &--parent {
+        font-size: 0.875rem;
+        .scrolled & {
+          font-size: 1rem;
+        }
+      }
+      &--primary {
+        font-size: 1.44rem;
+
+        .scrolled & {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
