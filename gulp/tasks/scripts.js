@@ -60,7 +60,7 @@ const browserifyTask = (devMode) => {
   return mergeStream.apply(gulp, _.map(config.bundleConfigs, browserifyThis));
 };
 
-gulp.task('scripts', () => browserifyTask());
+const scriptsTask = gulp.task('scripts', () => browserifyTask());
 
 // Start browserify task with devMode === true
-gulp.task('scripts:watch', () => browserifyTask(true));
+const scriptsWatch = gulp.task('scripts:watch', () => browserifyTask(true));

@@ -4,8 +4,8 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const config = require('../config').sass;
 
-gulp.task('sass', () => {
-  gulp.src(config.src)
+const sassTask = gulp.task('sass', () => {
+  return gulp.src(config.src)
     .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(rename({
@@ -15,4 +15,5 @@ gulp.task('sass', () => {
     .pipe(gulp.dest(config.dest));
 });
 
-gulp.task('sass:watch', () => gulp.watch(`${config.srcdir} + *.scss`, ['sass']));
+gulp.task('sass:watch', () => gulp.watch(`${config.srcdir} + *.scss`, gulp.series('sass')));
+// gulp.task('sass:watch', gulp.series(() => gulp.watch(`${config.srcdir} + *.scss`, 'sass'));

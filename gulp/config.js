@@ -20,10 +20,8 @@ module.exports = {
     common_libs: {
       bootstrap: `${vendor}/bootstrap-sass/assets/javascripts/bootstrap.min.js`,
       dropzone: `${vendor}/dropzone-js/dist/min/dropzone.min.js`,
-      html5shiv: `${vendor}/html5shiv/dist/html5shiv.min.js`,
       jquery: `${vendor}/jquery/dist/jquery.min.js`,
       parsleyjs: `${vendor}/parsleyjs/dist/parsley.min.js`,
-      respondjs: `${vendor}/respond.js/dest/respond.min.js`,
     },
   },
   browserify: {
