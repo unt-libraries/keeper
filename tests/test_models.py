@@ -1,8 +1,9 @@
+from __future__ import absolute_import
 import os
 import pytest
-
 from keeper import models
 from .factories import AccessionFactory, FileFactory
+import six
 
 
 @pytest.mark.django_db
@@ -13,7 +14,7 @@ class TestAccession:
 
     def test_unicode(self):
         accession = AccessionFactory.build()
-        assert unicode(accession) == '{} {}'.format(accession.id, accession.last_name)
+        assert six.text_type(accession) == '{} {}'.format(accession.id, accession.last_name)
 
 
 @pytest.mark.django_db
@@ -23,4 +24,4 @@ class TestFile:
 
     def test_unicode(self):
         file = FileFactory()
-        assert unicode(file) == file.get_filename()
+        assert six.text_type(file) == file.get_filename()

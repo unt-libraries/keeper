@@ -1,5 +1,5 @@
+from __future__ import absolute_import
 from django.core.urlresolvers import resolve
-
 from keeper import views, admin_views
 
 

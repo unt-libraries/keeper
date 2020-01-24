@@ -1,11 +1,9 @@
+from __future__ import absolute_import
 import os
-
 from django.db import models
-
 from private_storage.fields import PrivateFileField
-
-from constants import ACCEPTED_FILE_TYPES
-from validators import validate_file_type
+from .constants import ACCEPTED_FILE_TYPES
+from .validators import validate_file_type
 
 
 class Accession(models.Model):
@@ -99,9 +97,9 @@ class File(models.Model):
 
     def icon_thumb(self):
         mime_type = self.content_type.split('/')[0]
-        if self.content_type in ACCEPTED_FILE_TYPES.keys():
+        if self.content_type in list(ACCEPTED_FILE_TYPES.keys()):
             icon_class = ACCEPTED_FILE_TYPES[self.content_type]
-        elif '{0}/{1}'.format(mime_type, '*') in ACCEPTED_FILE_TYPES.keys():
+        elif '{0}/{1}'.format(mime_type, '*') in list(ACCEPTED_FILE_TYPES.keys()):
             icon_class = ACCEPTED_FILE_TYPES['{0}/{1}'.format(mime_type, '*')]
         else:
             icon_class = 'file-o'

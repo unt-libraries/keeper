@@ -1,8 +1,7 @@
+from __future__ import absolute_import
 from django.forms import ModelForm, Textarea
 from parsley.decorators import parsleyfy
-
 from captcha.fields import ReCaptchaField
-
 from .models import Accession, File
 
 

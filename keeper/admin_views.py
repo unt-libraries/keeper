@@ -1,11 +1,12 @@
+from __future__ import absolute_import
 import os
-
-from models import File
+from .models import File
 from zipfile import ZIP_DEFLATED
 import zipstream
 from django.http import StreamingHttpResponse, Http404
 from django.conf import settings
-from utils import generate_data_file
+from .utils import generate_data_file
+import six
 
 
 # Zip the files in admin for download

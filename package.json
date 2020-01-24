@@ -6,6 +6,10 @@
     "name": "Jason Ellis",
     "email": "jason.ellis@unt.edu"
   },
+  "scripts": {
+    "start": "yarn start:dev",
+    "start:dev": "python manage.py runserver --settings=tests.settings.dev"
+  },
   "devDependencies": {
     "babel-preset-env": "^1.6.0",
     "babelify": "^7.2.0",

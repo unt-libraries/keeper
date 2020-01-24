@@ -16,6 +16,7 @@ Including another URLconf
     URL setting for media in dev per:
     https://docs.djangoproject.com/en/dev/howto/static-files/#serving-files-uploaded-by-a-user-during-development
 """
+from __future__ import absolute_import
 from django.conf.urls import include, url
 from django.conf import settings
 from django.conf.urls.static import static

@@ -1,6 +1,7 @@
+from __future__ import absolute_import
 from django.conf.urls import include, url
 from django.contrib import admin
-
+import private_storage.urls
 from keeper.views import intro, submit, index, stats
 from keeper.admin_views import zip_files
 

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import os
 import magic
 import fnmatch
@@ -5,8 +6,7 @@ from django.conf import settings
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.core.exceptions import ValidationError
-
-from constants import ACCEPTED_FILE_TYPES
+from .constants import ACCEPTED_FILE_TYPES
 
 
 # Validator from http://blog.hayleyanderson.us/2015/07/18/validating-file-types-in-django/

@@ -1,10 +1,9 @@
+from __future__ import absolute_import
 import json
-
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
-
 from .forms import AccessionForm, FileForm
 from .models import File, Accession, ACCEPTED_FILE_TYPES
 
