@@ -16,69 +16,70 @@
   &--hidden {
     display: none;
   }
-}
 
-  .dropzone-form__drag-hover {
+  &__drag-hover {
     border-color: darken(#dddddd, 50%); // panel-default color
     background-color: #7AC143; // @unt_bright_green
   }
 
-.dropzone-form__upload-progress {
-
-  &--hidden {
-    display: none;
-  }
-}
-
-.dropzone-form__message {
-  text-align: center;
-  cursor: inherit;
-
-  & label {
+  &__message {
+    text-align: center;
     cursor: inherit;
+
+    & label {
+      cursor: inherit;
+    }
+  }
+
+  &__upload-progress {
+    &--hidden {
+      display: none;
+    }
   }
 }
 
 .dropzone-template {
   display: none;
-}
 
-.dropzone-template__data {
-  padding-bottom: 10px;
-}
-
-.dropzone-template__remove {
-
-  &--hidden {
-    display: none;
+  &__data {
+    padding-bottom: 10px;
   }
-}
 
-.dropzone-template__filename {
-  font-weight: bold;
-}
-
-.file-progress {
-  position: relative;
-  height: 5px;
-  bottom: 5px;
-  margin: 0;
-
-  &--hidden {
-    display: none;
+  &__description {
+    textarea {
+      width: 100%;
+    }
   }
-}
 
-.dropzone-template__description {
-
-  textarea {
-    width: 100%;
+  &__error {
+    .error {
+      display: none;
+    }
   }
-}
 
-.dropzone-template__error {
+  &__filename {
+    font-weight: bold;
+  }
 
-  .error {
-    display: none;
+  &__filename,
+  &__filesize {
+    font-size: 0.9rem;
+  }
+
+  &__remove {
+    &--hidden {
+      display: none;
+    }
+  }
+
+  .file-progress {
+    position: relative;
+    height: 5px;
+    bottom: 5px;
+    margin: 0;
+
+    &--hidden {
+      display: none;
+    }
   }
 }
