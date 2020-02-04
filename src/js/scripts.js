@@ -105,15 +105,18 @@ function formErrors(response) {
 
 // add tooltips and error classes on parsley field errors. Accepts parsleyFieldInstance
 function displayParsleyError(fieldInstance) {
-    const messages = fieldInstance.getErrorsMessages();
+    const messages = fieldInstance.getErrorsMessages().join('<br>');
 
-    if (fieldInstance.$element.context.id === 'g-recaptcha-response') {
+    if (fieldInstance.$element.id === 'g-recaptcha-response') {
         document.querySelector('#grecaptcha-required').style.display = '';
     } else {
+        console.log(fieldInstance);
+        console.log(fieldInstance.$element);
+        console.log(fieldInstance.$element.siblings('[data-toggle="tooltip"]'));
         fieldInstance.$element.siblings('[data-toggle="tooltip"]')
         .removeClass('fa fa-check')
         .addClass('fa fa-times')
-        .tooltip('destroy')
+        .tooltip('dispose')
         .tooltip({
             animation: false,
             container: 'body',
@@ -123,23 +126,23 @@ function displayParsleyError(fieldInstance) {
         })
         .tooltip('show')
       .closest('.form-group')
-        .removeClass('has-success')
-        .addClass('has-error');
+        .removeClass('is-valid')
+        .addClass('is-invalid');
     }
 }
 
 // destroy tooltips and add success classes on parsley field success
 function removeParsleyError(fieldInstance) {
-    if (fieldInstance.$element.context.id === 'g-recaptcha-response') {
+    if (fieldInstance.$element.id === 'g-recaptcha-response') {
         document.querySelector('#grecaptcha-required').style.display = 'none';
     } else {
         fieldInstance.$element.siblings('[data-toggle="tooltip"]')
         .removeClass('fa fa-times')
         .addClass('fa fa-check')
-        .tooltip('destroy')
+        .tooltip('dispose')
       .closest('.form-group')
-        .removeClass('has-error')
-        .addClass('has-success');
+        .removeClass('is-invalid')
+        .addClass('is-valid');
     }
 }
 
