@@ -1,6 +1,6 @@
 {
   "name": "keeper",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A digital file submission app",
   "author": {
     "name": "Jason Ellis",
@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "yarn start:dev",
-    "start:dev": "python manage.py runserver --settings=tests.settings.dev"
+    "start:dev": "python manage.py runserver --settings=tests.settings.dev",
+    "migrate:dev": "python manage.py migrate --settings=tests.settings.dev"
   },
   "devDependencies": {
     "babel-preset-env": "^1.6.0",

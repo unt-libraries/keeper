@@ -6,7 +6,8 @@ from .models import Accession
 
 def generate_data_file(app, model, pk, path, filenames):
     accession = Accession.objects.get(pk=pk)
-    related_files = '\n'.join("{0}\n{1}".format(*f) for f in filenames)
+    related_files = '\n'.join("{0}\n    {1}".format(os.path.basename(f[0]), f[1]) for f in filenames)
+    file_dir = path
 
     file_template = """Accession: {accession_id}
 Download date: {download_date}
@@ -37,13 +38,13 @@ Included files:
         "donor_name": accession.full_name,
         "affiliation": [item[1] for item in Accession.AFFILIATION_CHOICES if item[0] == accession.affiliation][0],
         "email_address": accession.email_address,
-        "phone_number": accession.email_address,
+        "phone_number": accession.phone_number,
         "admin_notes": accession.admin_notes,
         "accession_status": [item[1] for item in Accession.STATUS_CHOICES if item[0] == accession.accession_status][0],
         "related_files": related_files
     }
 
-    with open(os.path.join(path, 'metadata.txt'), 'w') as f:
+    with open(os.path.join(file_dir, 'metadata.txt'), 'w') as f:
         f.write(file_template.format(**context))
 
     return 'metadata.txt'

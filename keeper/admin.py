@@ -24,7 +24,8 @@ class AccessionAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': (('accession_status', 'date_submitted', 'date_last_updated'),)
+            'fields': (('accession_status', 'date_submitted', 'date_last_updated'),),
+            'classes': ('wide',)
         }),
         (None, {
             'fields': (('first_name', 'last_name', 'affiliation'),

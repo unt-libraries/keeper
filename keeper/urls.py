@@ -1,15 +1,17 @@
 from __future__ import absolute_import
-from django.conf.urls import include, url
+from django.urls import include, path, re_path
 from django.contrib import admin
-import private_storage.urls
 from keeper.views import intro, submit, index, stats
 from keeper.admin_views import zip_files
 
+app_name = 'keeper'
+
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^intro/$', intro, name='intro'),
-    url(r'^$', index, name='index'),
-    url(r'^submit/$', submit, name='submit'),
-    url(r'^stats/$', stats, name='stats'),
-    url(r'^admin/([^/]+)/([^/]+)/([^/]+)_zip', zip_files, name='zip'),
+    path('admin/', admin.site.urls),
+    path('intro/', intro, name='intro'),
+    path('', index, name='index'),
+    path('submit/', submit, name='submit'),
+    path('stats/', stats, name='stats'),
+    re_path(r'^admin/([^/]+)/([^/]+)/([^/]+)/change/[^/]+_zip', zip_files, name='zip'),
+    path('private-media/', include('private_storage.urls')),
 ]

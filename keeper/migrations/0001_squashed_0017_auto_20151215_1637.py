@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('file', models.FileField(upload_to=keeper.models.file_upload_location, validators=[keeper.validators.validate_file_type])),
                 ('file_description', models.TextField(blank=True)),
                 ('date_file_submitted', models.DateTimeField(auto_now_add=True)),
-                ('accession', models.ForeignKey(to='keeper.Accession')),
+                ('accession', models.ForeignKey(to='keeper.Accession', on_delete=models.CASCADE)),
                 ('content_type', models.CharField(max_length=255, blank=True)),
             ],
         ),

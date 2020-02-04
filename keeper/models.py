@@ -1,6 +1,8 @@
 from __future__ import absolute_import
 import os
 from django.db import models
+from django.dispatch import receiver
+from django.utils.safestring import mark_safe
 from private_storage.fields import PrivateFileField
 from .constants import ACCEPTED_FILE_TYPES
 from .validators import validate_file_type
@@ -54,7 +56,7 @@ class Accession(models.Model):
     def full_name(self):
         return u'{} {}'.format(self.first_name, self.last_name)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'{} {}'.format(self.id, self.last_name)
 
     class Meta:
@@ -67,7 +69,7 @@ def file_upload_location(instance, filename):
 
 class File(models.Model):
     file = PrivateFileField(upload_to=file_upload_location, validators=[validate_file_type])
-    accession = models.ForeignKey('Accession')
+    accession = models.ForeignKey('Accession', on_delete=models.CASCADE)
     file_description = models.TextField(blank=True)
     content_type = models.CharField(max_length=255, blank=True)
     date_file_submitted = models.DateTimeField(auto_now_add=True)
@@ -76,23 +78,23 @@ class File(models.Model):
         return os.path.basename(self.file.name)
     get_filename.short_description = 'Filename'
 
+    @mark_safe
     def file_download_element(self):
         return '<a href="{0}" download="{1}">Download file</a>'\
             .format(self.file.url, self.get_filename())
-    file_download_element.allow_tags = True
     file_download_element.short_description = 'Download'
 
+    @mark_safe
     def image_thumb(self):
         return '<img src="{}" width="100" height="100" />'.format(self.file.url)
-    image_thumb.allow_tags = True
 
+    @mark_safe
     def clickable_thumb(self):
         if self.content_type.split('/')[0] == 'image':
             thumb = self.image_thumb()
         else:
             thumb = self.icon_thumb()
         return '<a href="{0}" target="_blank">{1}</a>'.format(self.file.url, thumb)
-    clickable_thumb.allow_tags = True
     clickable_thumb.short_description = 'View file'
 
     def icon_thumb(self):
@@ -105,5 +107,16 @@ class File(models.Model):
             icon_class = 'file-o'
         return '<i class="fa fa-{0} fa-5x"></i>'.format(icon_class)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.get_filename()
+
+
+@receiver(models.signals.post_delete, sender=File)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    Deletes file from filesystem
+    when corresponding `File` object is deleted.
+    """
+    if instance.file:
+        if os.path.isfile(instance.file.path):
+            os.remove(instance.file.path)
