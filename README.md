@@ -11,7 +11,7 @@ the UNT Libraries Special Collections. It can be found at [https://www.library.u
 Requirements
 ------------
 
-* [Python 2.7+](https://www.python.org/downloads/) (not Python 3)
+* [Python 3.5+](https://www.python.org/downloads/)
 * [Django 1.8](https://www.djangoproject.com/download/)
 * [MySQL](https://www.mysql.com/) or other database for Django
 * [Yarn](https://yarnpkg.com/en/) or [npm](https://www.npmjs.com/)
@@ -20,88 +20,86 @@ Requirements
 Installation
 ------------
 
-While not required, we recommend using 
-[virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
-and [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) to manage your
-Python environment.
+It is recommended that you create a Python virtual environment (`venv`) for this project. Doing so will allow you to install
+the requirements locally for the project instead of installing to your system-wide Python environment. These
+instructions assume you're using Linux. If you are not, or want more information on Python virtual environments,
+you may find it [here](https://docs.python.org/3.8/library/venv.html).
 
 1. Install this project from GitHub.
     ```sh
-        $ pip install git+git://github.com/unt-libraries/keeper.git
+    $ pip install git+git://github.com/unt-libraries/keeper.git
     ```
-    
-2. Install virtualenv.
+
+2. Create a venv for this project by issuing the following command in the project root:
+
     ```sh
-        $ pip install virtualenv
+    $ python -m venv .venv
     ```
+It may be necessary for you to use `python3` instead of `python`. This creates a virtual environment in the `.venv`
+directory in the project root. You may create your virtual environment in a different directory if you'd like, but this
+location is already ignored by git.
 
-3. Install virtualenvwrapper.
+3. Activate your virtual environment with:
+
     ```sh
-        $ pip install virtualenvwrapper
-        ...
-        $ export WORKON_HOME=~/Envs
-        $ mkdir -p $WORKON_HOME
-        $ source /usr/local/bin/virtualenvwrapper.sh
+    $ source .venv/bin/activate
     ```
 
-4. Create a virtual environment.
+Your command prompt should now be prepended by `(.venv)`, indicating that you are working on the virtual environment.
+You should issue this command any time you begin working on the project.
 
-    Check your system Python version with `python --version`.
+You may deactivate the virtual environment with the `deactivate` command.
 
-    If your Python version is 2.7+, create a virtual environment with:
-    ```sh
-        $ mkvirtualenv keeper
+4. Install the development environment requirements.
+    ```bash
+    (.venv) $ pip install -r requirements/dev.txt
+    ```
+   
+Depending your installation, you may need to use the `pip3` command instead.
+
+If you receive MySQL-related errors, you may need to install libmysqlclient-dev separately 
+from your package manager.
+
+If you get an error that `bdist_wheel` is not installed, run `pip install wheel` and then run the requirements
+installation command again.
+
+5. Generate a secret key and copy it to your `secrets.json` file.
+    ```bash
+    $ python -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))'
     ```
 
-    If your Python version is < 2.7, you may want to upgrade to 2.7 before continuing.
-    
-    If your Python version is 3.x, you should find where Python 2.7 is installed or install it 
-    separately. Once installed, you can specify the Python bin for you virtual environment with:
-    ```sh
-        # Assuming Python 2.7 is installed at /usr/bin/python2.7
-        $ mkvirtualenv -p /usr/bin/python2.7 keeper 
+6. Create a MySQL user and add credentials to `secrets.json`.
+    ```bash
+    $ mysql -u root -p
+    ```
+    ```mysql
+    mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
     ```
 
-    You should now see `(keeper)` before your shell prompt, indicating you are working in the `keeper`
-    virtualenv. Use `workon keeper` to start working in the environment and `deactivate` to exit the
-    environment.
-
-5. Install the development environment requirements.
-    ```sh
-        $ pip install -r requirements/dev.txt
+7. Create a new database in MySQL, grant privileges, and add the name to secrets.json
+    ```bash
+    $ mysql -u root -p
+    ```
+    ```mysql
+    mysql> CREATE DATABASE keeper;
+    Query OK, 1 row affected (0.00 sec)
+    mysql> GRANT ALL PRIVILEGES ON keeper.* to 'keeper'@'localhost';
+    Query OK, 0 rows affected (0.02 sec)
     ```
 
-    If you receive MySQL-related errors, you may need to install libmysqlclient-dev separately 
-    from your package manager.
-
-6. Generate a secret key and copy it to your `secrets.json` file.
-    ``` sh
-        $ python -c 'import random; print "".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)])'
+8. Run the migrate command with the settings argument. In this case, we're using dev settings.
+    ```bash
+    $ python manage.py migrate --settings=tests.settings.dev
     ```
 
-7. Create a MySQL user and add credentials to `secrets.json`.
-
-8. Create a new database in MySQL and add the name to secrets.json
-    ```sh
-        $ mysql -u root -p
-        
-        mysql> CREATE DATABASE keeper;
-        Query OK, 1 row affected (0.00 sec)
+9. Create a superuser for the Django admin site.
+    ```bash
+    $ python manage.py createsuperuser --settings=tests.settings.dev
     ```
 
-9. Run the migrate command with the settings argument. In this case, we're using dev settings.
-    ```sh
-        $ python manage.py migrate --settings=tests.settings.dev
-    ```
-
-10. Create a superuser for the Django admin site.
-    ```sh
-        $ python manage.py createsuperuser --settings=tests.settings.dev
-    ```
-
-11. Launch the Django development server.
-    ```sh
-        $ python manage.py runserver --settings=tests.settings.dev
+10. Launch the Django development server.
+    ```bash
+    $ python manage.py runserver --settings=tests.settings.dev
     ```
 
     The app can be accessed at `http://localhost:8000` and the admin site can be accessed

@@ -4,8 +4,8 @@ from django.db import models
 
 from private_storage.fields import PrivateFileField
 
-from constants import ACCEPTED_FILE_TYPES
-from validators import validate_file_type
+from .constants import ACCEPTED_FILE_TYPES
+from .validators import validate_file_type
 
 
 class Accession(models.Model):
@@ -54,10 +54,10 @@ class Accession(models.Model):
 
     @property
     def full_name(self):
-        return u'{} {}'.format(self.first_name, self.last_name)
+        return '{} {}'.format(self.first_name, self.last_name)
 
     def __unicode__(self):
-        return u'{} {}'.format(self.id, self.last_name)
+        return '{} {}'.format(self.id, self.last_name)
 
     class Meta:
         ordering = ['date_submitted']
@@ -99,9 +99,9 @@ class File(models.Model):
 
     def icon_thumb(self):
         mime_type = self.content_type.split('/')[0]
-        if self.content_type in ACCEPTED_FILE_TYPES.keys():
+        if self.content_type in list(ACCEPTED_FILE_TYPES.keys()):
             icon_class = ACCEPTED_FILE_TYPES[self.content_type]
-        elif '{0}/{1}'.format(mime_type, '*') in ACCEPTED_FILE_TYPES.keys():
+        elif '{0}/{1}'.format(mime_type, '*') in list(ACCEPTED_FILE_TYPES.keys()):
             icon_class = ACCEPTED_FILE_TYPES['{0}/{1}'.format(mime_type, '*')]
         else:
             icon_class = 'file-o'

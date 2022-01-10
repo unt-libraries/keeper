@@ -1,7 +1,7 @@
 import os
 from django.utils import timezone
 
-from models import Accession
+from .models import Accession
 
 
 def generate_data_file(app, model, pk, path, filenames):

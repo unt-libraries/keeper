@@ -1,11 +1,11 @@
 import os
 
-from models import File
+from .models import File
 from zipfile import ZIP_DEFLATED
 import zipstream
 from django.http import StreamingHttpResponse, Http404
 from django.conf import settings
-from utils import generate_data_file
+from .utils import generate_data_file
 
 
 # Zip the files in admin for download
@@ -20,7 +20,7 @@ def zip_files(request, app, model, pk):
     if len(queried_files) is 0:
         raise Http404
 
-    filenames = [(unicode(f), f.file_description) for f in queried_files]
+    filenames = [(str(f), f.file_description) for f in queried_files]
 
     zip_filename = "{}.zip".format(pk)
 

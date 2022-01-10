@@ -13,7 +13,7 @@ class TestAccession:
 
     def test_unicode(self):
         accession = AccessionFactory.build()
-        assert unicode(accession) == '{} {}'.format(accession.id, accession.last_name)
+        assert str(accession) == '{} {}'.format(accession.id, accession.last_name)
 
 
 @pytest.mark.django_db
@@ -23,4 +23,4 @@ class TestFile:
 
     def test_unicode(self):
         file = FileFactory()
-        assert unicode(file) == file.get_filename()
+        assert str(file) == file.get_filename()
