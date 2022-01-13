@@ -1,4 +1,5 @@
 from django.forms import ModelForm, Textarea
+from django.conf import settings
 from parsley.decorators import parsleyfy
 
 from captcha.fields import ReCaptchaField
@@ -9,6 +10,10 @@ from .models import Accession, File
 @parsleyfy
 class AccessionForm(ModelForm):
     captcha = ReCaptchaField()
+
+    # No captcha if in DEBUG mode
+    if getattr(settings, 'DEBUG', False):
+        captcha.clean = lambda x: x[0]
 
     class Meta:
         model = Accession
