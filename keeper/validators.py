@@ -20,8 +20,8 @@ def validate_file_type(upload):
     file_type = magic.from_file(full_tmp_path, mime=True)
     default_storage.delete(tmp_path)
 
-    def good_mimetype(mimetype_str, mimetype_lst):
-        for allowed_mimetype in mimetype_lst:
+    def good_mimetype(mimetype_str, mimetype_dict):
+        for allowed_mimetype in mimetype_dict:
             if fnmatch.fnmatch(mimetype_str, allowed_mimetype):
                 return True
         return False

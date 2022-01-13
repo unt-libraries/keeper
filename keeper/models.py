@@ -69,7 +69,7 @@ def file_upload_location(instance, filename):
 
 class File(models.Model):
     file = PrivateFileField(upload_to=file_upload_location, validators=[validate_file_type])
-    accession = models.ForeignKey('Accession')
+    accession = models.ForeignKey('Accession', on_delete=models.CASCADE)
     file_description = models.TextField(blank=True)
     content_type = models.CharField(max_length=255, blank=True)
     date_file_submitted = models.DateTimeField(auto_now_add=True)
