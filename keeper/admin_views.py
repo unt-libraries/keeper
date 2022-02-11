@@ -3,14 +3,18 @@ import os
 from .models import File
 from zipfile import ZIP_DEFLATED
 import zipstream
+
+from django.contrib.auth.decorators import login_required
 from django.http import StreamingHttpResponse, Http404
 from django.conf import settings
+
 from .utils import generate_data_file
 
 
 # Zip the files in admin for download
 # Solution from: http://stackoverflow.com/questions/12881294/django-create-a-zip-of-multiple-files-and-make-it-downloadable
 # and: https://github.com/allanlei/python-zipstream
+@login_required
 def zip_files(request, app, model, pk):
     z = zipstream.ZipFile(mode='w', compression=ZIP_DEFLATED)
 
