@@ -1,6 +1,7 @@
 import os
 
 from django.db import models
+from django.utils.html import format_html
 
 from private_storage.fields import PrivateFileField
 
@@ -56,7 +57,7 @@ class Accession(models.Model):
     def full_name(self):
         return '{} {}'.format(self.first_name, self.last_name)
 
-    def __unicode__(self):
+    def __str__(self):
         return '{} {}'.format(self.id, self.last_name)
 
     class Meta:
@@ -79,22 +80,20 @@ class File(models.Model):
     get_filename.short_description = 'Filename'
 
     def file_download_element(self):
-        return '<a href="{0}" download="{1}">Download file</a>'\
-            .format(self.file.url, self.get_filename())
-    file_download_element.allow_tags = True
+        return format_html('<a href="{0}" download="{1}">Download file</a>',
+                           self.file.url, self.get_filename())
     file_download_element.short_description = 'Download'
 
     def image_thumb(self):
-        return '<img src="{}" width="100" height="100" />'.format(self.file.url)
-    image_thumb.allow_tags = True
+        return format_html('<img src="{}" width="100" height="100" />', self.file.url)
 
     def clickable_thumb(self):
         if self.content_type.split('/')[0] == 'image':
             thumb = self.image_thumb()
         else:
             thumb = self.icon_thumb()
-        return '<a href="{0}" target="_blank">{1}</a>'.format(self.file.url, thumb)
-    clickable_thumb.allow_tags = True
+        return format_html('<a href="{0}" target="_blank">{1}</a>',
+                           self.file.url, thumb)
     clickable_thumb.short_description = 'View file'
 
     def icon_thumb(self):
@@ -105,7 +104,7 @@ class File(models.Model):
             icon_class = ACCEPTED_FILE_TYPES['{0}/{1}'.format(mime_type, '*')]
         else:
             icon_class = 'file-o'
-        return '<i class="fa fa-{0} fa-5x"></i>'.format(icon_class)
+        return format_html('<i class="fa fa-{0} fa-5x"></i>', icon_class)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.get_filename()

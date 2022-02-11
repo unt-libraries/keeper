@@ -4,8 +4,10 @@ from django.contrib import admin
 from keeper.views import intro, submit, index, stats
 from keeper.admin_views import zip_files
 
+app_name = 'keeper'
+
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     url(r'^intro/$', intro, name='intro'),
     url(r'^$', index, name='index'),
     url(r'^submit/$', submit, name='submit'),

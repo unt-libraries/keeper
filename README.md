@@ -68,7 +68,8 @@ installation command again.
     $ python -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))'
     ```
 
-6. Create a MySQL user and add credentials to `secrets.json`.
+6. Create a MySQL user and add credentials to `secrets.json`. Depending on your OS, MySQL may be started
+with `sudo /etc/init.d/mysql start`.
     ```bash
     $ mysql -u root -p
     ```

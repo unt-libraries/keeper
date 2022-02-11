@@ -6,8 +6,8 @@ from django.core.exceptions import ImproperlyConfigured
 
 
 BASE_DIR = Path(__file__).ancestor(3)
-MEDIA_ROOT = BASE_DIR.child('media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.child('private-media')
+MEDIA_URL = '/private-media/'
 
 # Settings for Django Private Storage
 PRIVATE_STORAGE_ROOT = BASE_DIR.child('private-media')
@@ -61,12 +61,11 @@ INSTALLED_APPS = (
     'captcha',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',

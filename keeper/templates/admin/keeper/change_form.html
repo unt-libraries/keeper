@@ -2,6 +2,6 @@
 {% load i18n admin_urls admin_static admin_modify %}
 
 {% block inline_field_sets %}
-    <a href="{{ request.path|slice:":-1" }}_zip">Download All Files</a>
+    <a href="{{ request.path|cut:"/change/" }}_zip">Download All Files</a>
     {{ block.super }}
 {% endblock inline_field_sets %}

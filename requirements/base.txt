@@ -1,8 +1,8 @@
 django-parsley==0.7
-django-private-storage==2.0
-django-recaptcha==1.0.4
+django-private-storage==2.2.2
+django-recaptcha==2.0.6
 mysqlclient==1.4.6
 python-magic==0.4.24
 Unipath==1.1
 wheel==0.37.1
-zipstream==1.1.3
+zipstream==1.1.4
