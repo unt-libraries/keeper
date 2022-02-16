@@ -6,6 +6,9 @@ from keeper.admin_views import zip_files
 
 app_name = 'keeper'
 
+admin.autodiscover()
+admin.site.enable_nav_sidebar = False
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^intro/$', intro, name='intro'),
