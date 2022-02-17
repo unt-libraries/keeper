@@ -10,10 +10,10 @@ admin.autodiscover()
 admin.site.enable_nav_sidebar = False
 
 urlpatterns = [
+    url(r'^admin/([^/]+)/([^/]+)/([^/]+)_zip', zip_files, name='zip'),
     url(r'^admin/', admin.site.urls),
     url(r'^intro/$', intro, name='intro'),
     url(r'^$', index, name='index'),
     url(r'^submit/$', submit, name='submit'),
     url(r'^stats/$', stats, name='stats'),
-    url(r'^admin/([^/]+)/([^/]+)/([^/]+)_zip', zip_files, name='zip'),
 ]
