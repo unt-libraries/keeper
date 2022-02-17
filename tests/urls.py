@@ -16,16 +16,17 @@ Including another URLconf
     URL setting for media in dev per:
     https://docs.djangoproject.com/en/dev/howto/static-files/#serving-files-uploaded-by-a-user-during-development
 """
-from django.conf.urls import include, url
+from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.urls import re_path
 import private_storage.urls
 
 
 
 urlpatterns = [
-    url(r'', include('keeper.urls')),
-    url(r'^admin/', admin.site.urls),
-    url('^private-media/', include(private_storage.urls)),
+    re_path(r'', include('keeper.urls')),
+    re_path(r'^admin/', admin.site.urls),
+    re_path('^private-media/', include(private_storage.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

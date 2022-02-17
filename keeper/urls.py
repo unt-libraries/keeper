@@ -1,5 +1,6 @@
-from django.conf.urls import include, url
+from django.conf.urls import include
 from django.contrib import admin
+from django.urls import re_path
 
 from keeper.views import intro, submit, index, stats
 from keeper.admin_views import zip_files
@@ -10,10 +11,10 @@ admin.autodiscover()
 admin.site.enable_nav_sidebar = False
 
 urlpatterns = [
-    url(r'^admin/([^/]+)/([^/]+)/([^/]+)_zip', zip_files, name='zip'),
-    url(r'^admin/', admin.site.urls),
-    url(r'^intro/$', intro, name='intro'),
-    url(r'^$', index, name='index'),
-    url(r'^submit/$', submit, name='submit'),
-    url(r'^stats/$', stats, name='stats'),
+    re_path(r'^admin/([^/]+)/([^/]+)/([^/]+)_zip', zip_files, name='zip'),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^intro/$', intro, name='intro'),
+    re_path(r'^$', index, name='index'),
+    re_path(r'^submit/$', submit, name='submit'),
+    re_path(r'^stats/$', stats, name='stats'),
 ]
