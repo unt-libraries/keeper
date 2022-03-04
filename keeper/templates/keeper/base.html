@@ -1,188 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" dir="ltr"
-  xmlns:fb="http://ogp.me/ns/fb#"
-  itemscope itemtype= "https://schema.org/"
-  xmlns:og="http://ogp.me/ns#"
-  xmlns:article="http://ogp.me/ns/article#"
-  xmlns:book="http://ogp.me/ns/book#"
-  xmlns:profile="http://ogp.me/ns/profile#"
-  xmlns:video="http://ogp.me/ns/video#">
-<head profile="https://www.w3.org/1999/xhtml/vocab">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="no-js">
+{% include 'keeper/head/_head.html' %}
 
-    <title>{% block title %}Keeper by UNT Libraries{% endblock %} | University of North Texas Libraries</title>
-
-    <link rel="icon" type="image/png" href="{% static "keeper/img/favicon.png" %}">
-
-    <!-- CSS -->
-    {% block stylesheets %}
-    <link rel="stylesheet" href="{% static 'keeper/inherit/css/style.css' %}" media="all" />
-    <link rel="stylesheet" href="{% static 'keeper/css/style.min.css' %}">
-    {% endblock stylesheets %}
-
-    <!-- fonts -->
-    {% block fonts %}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" media="all" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" media="all" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" />
-    {% endblock fonts %}
-
-    <!-- scripts -->
-    {% block scripts %}
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="public/js/vendor/html5shiv.min.js"></script>
-    <script src="public/js/vendor/respond.min.js"></script>
-    <![endif]-->
-
-    {% endblock scripts %}
-
-    {% block favicons %}
-
-        <link rel="apple-touch-icon" sizes="57x57" href="{% static 'keeper/img/apple-touch-icon-57x57.png' %}">
-        <link rel="apple-touch-icon" sizes="60x60" href="{% static 'keeper/img/apple-touch-icon-60x60.png' %}">
-        <link rel="apple-touch-icon" sizes="72x72" href="{% static 'keeper/img/apple-touch-icon-72x72.png' %}">
-        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'keeper/img/apple-touch-icon-76x76.png' %}">
-        <link rel="apple-touch-icon" sizes="114x114" href="{% static 'keeper/img/apple-touch-icon-114x114.png' %}">
-        <link rel="apple-touch-icon" sizes="120x120" href="{% static 'keeper/img/apple-touch-icon-120x120.png' %}">
-        <link rel="apple-touch-icon" sizes="144x144" href="{% static 'keeper/img/apple-touch-icon-144x144.png' %}">
-        <link rel="apple-touch-icon" sizes="152x152" href="{% static 'keeper/img/apple-touch-icon-152x152.png' %}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'keeper/img/apple-touch-icon-180x180.png' %}">
-        <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-32x32.png" sizes="32x32' %}">
-        <link rel="icon" type="image/png" href="{% static 'keeper/img/android-chrome-192x192.png" sizes="192x192' %}">
-        <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-96x96.png" sizes="96x96' %}">
-        <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-16x16.png" sizes="16x16' %}">
-        <link rel="manifest" href="{% static 'keeper/img/manifest.json' %}">
-        <link rel="mask-icon" href="{% static 'keeper/img/safari-pinned-tab.svg" color="#00853f' %}">
-        <link rel="shortcut icon" href="{% static 'keeper/img/favicon.ico' %}">
-        <meta name="msapplication-TileColor" content="#00853f">
-        <meta name="msapplication-TileImage" content="{% static 'keeper/img/mstile-144x144.png' %}">
-        <meta name="msapplication-config" content="{% static 'keeper/img/browserconfig.xml' %}">
-        <meta name="theme-color" content="#00853f">
-
-    {% endblock favicons %}
-</head>
 <body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-1810 node-type-page" >
-  <div id="skip-link">
-    <a href="#main-content" class="sr-only sr-only-focusable" id="access-skip-link">Skip to main content</a>
-    <a href="https://www.library.unt.edu/node/2179" class="sr-only sr-only-focusable" id="access-services-link">Services for Persons with Disabilities</a>
-
-  </div>
-
-<div id="main-wrapper">
-  <header id="main-heading" class="hidden-print">
-    <div id="top-navigation" class="hidden-xs" role="navigation">
-      <div class="container">
-        <div id="unt-navbar" class="col-sm-12">
-          <ul class="nav navbar-nav">
-            <li class="dropdown nav-item">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> Information for... <span class="caret"></span> </a>
-              <ul class="dropdown-menu audiences" role="menu">
-                <!--<li><a href="/for/new-users" id="getting-started-new-users">New Users</a></li>-->
-                <!--<li><a href="/for/distance-learning-students" id="getting-started-distance-learning">Distance Learning &amp; Off Campus Users</a></li>-->
-                <!--<li class="divider"></li>-->
-                <li><a href="https://www.library.unt.edu/graduate-students" id="getting-started-grads">Graduate Students</a></li>
-                <li><a href="https://www.library.unt.edu/faculty" id="getting-started-faculty-staff">Faculty/Staff</a></li>
-                <li><a href="https://www.library.unt.edu/community-visitors" id="getting-started-community-visitors">Community &amp; Visitors</a></li>
-                <li class="divider"></li>
-                <li><a href="https://www.library.unt.edu/services/services-persons-disabilities" id="getting-started-accessibility">Persons with Disabilities</a></li>
-              </ul>
-            </li>
-            <li class="dropdown nav-item"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> UNT Links <span class="caret"></span> </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="https://my.unt.edu/" id="unt-sites-myunt">MyUNT</a></li>
-                <li><a href="https://it.unt.edu/eagleconnect" id="unt-sites-eagle-connect">EagleConnect</a></li>
-                <li><a href="https://learn.unt.edu/" id="unt-sites-blackboard">Blackboard</a></li>
-                <li><a href="https://www.unt.edu/find-people-departments" id="unt-sites-directory">People &amp; Departments</a></li>
-                <li><a href="https://maps.unt.edu/" id="unt-sites-maps">Maps</a></li>
-                <li><a href="https://calendar.unt.edu/" id="unt-sites-calendars">Calendars</a></li>
-                <li><a href="https://giving.unt.edu/" id="unt-sites-giving">Giving to UNT</a></li>
-              </ul>
-            </li>
-            <li class="dropdown nav-item"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Other Library Sites <span class="caret"></span> </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="https://www.untdallas.edu/library" id="other-sites-unt-dallas-library">UNT Dallas Library</a></li>
-                <li><a href="https://library.hsc.unt.edu/" id="other-sites-unt-health-science-center-library">UNT Health Science Library</a></li>
-                <li><a href="https://lawschool.untsystem.edu/law-library" id="other-sites-unt-law-library">UNT Dallas Law Library</a></li>
-                <li><a href="https://www.library.unt.edu/directory-other-libraries" id="other-sites-other-libraries">Other Libraries</a></li>
-                <li class="divider"></li>
-                <li><a href="https://iii.library.unt.edu/" id="other-sites-catalog">Library Catalog</a></li>
-                <li><a href="https://unt.illiad.oclc.org/illiad/logon.html" id="other-sites-illiad">Interlibrary Loan &amp; Document Delivery (Illiad)</a></li>
-                <li><a href="https://guides.library.unt.edu/" id="other-sites-libguides">Subject &amp; Course Guides</a></li>
-                <li class="divider"></li>
-                <li><a href="https://digital.library.unt.edu/" id="other-sites-digital-libraries">UNT Digital Libraries</a></li>
-                <li><a href="https://texashistory.unt.edu/" id="other-sites-portal">The Portal to Texas History</a></li>
-                <li class="divider"></li>
-                <li><a href="https://findingaids.library.unt.edu" id="other-sites-finding-aids">Finding Aids</a></li>
-                <li><a href="https://exhibits.library.unt.edu/" id="other-sites-exhibits">Exhibits</a></li>
-                <li class="divider"></li>
-                <li><a href="https://reservations.library.unt.edu/Web/" id="other-sites-study-room-reservations">Student Study Rooms Reservations</a></li>
-                <li><a href="https://www.library.unt.edu/forms/room-reservations" id="other-sites-faculty-room-reservations">Faculty/Staff Room Reservations</a></li>
-                <li><a href="https://iii.library.unt.edu/search/r" id="other-sites-course-reserves">Course Reserves</a></li>
-                <li><a href="https://audioreserves.library.unt.edu/" id="other-sites-audio-reserves">Digital Audio Reserves</a></li>
-                <li><a href="https://vod.library.unt.edu/" id="other-sites-video-on-demand">Video On Demand</a></li>
-                <li class="divider">&nbsp;</li>
-                <li><a href="https://untpress.unt.edu/" id="other-sites-unt-press">UNT Press</a></li>
-                <li><a href="https://openaccess.unt.edu/" id="other-sites-open-access">Open Access @ UNT</a></li>
-                <li><a href="https://blogs.library.unt.edu" id="other-sites-blogs">University Libraries' Scholarly Blogs</a></li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div id="branding" class="header-main container hidden-xs" role="banner" style="padding:10px 0; background: none;">
-      <h1 class="logo col-sm-8" id="site-name" style="margin:30px 0;">
-      	<a id="primary-library-logo" href="https://www.library.unt.edu" title="University Libraries: Home">University Libraries</a>
-      </h1>
-      <div id="unt" class="info col-sm-4" style="padding-right:0;">
-      	<a id="primary-unt-logo" class="pull-right" href="https://www.unt.edu" title="UN">
-        	<img style="width:200px;" src="https://webassets.unt.edu/unt-1890/images/est-1890-UNT-white.png" alt="UNT Lettermark" class="unt-lettermark img-responsive">
-        </a>
-      </div>
-    </div>
-  </header>
-  <nav id="main-nav" role="navigation" class="hidden-print">
-    <div class="container">
-      <div class="navbar-header">
-        <div class="navbar-text navbar-brand-centered visible-xs-block"> <a id="site-name-mobile" class="btn btn-link" href="https://www.library.unt.edu" title="Home">UNT Libraries</a> </div>
-        <div id="small-screen-search-toggle" class="btn-group visible-xs navbar-right"> <a class="dropdown-toggle btn btn-link" data-toggle="dropdown" href="#"> <i class="fa fa-search"></i> </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a id="mobile-search-dropdown-bento" href="https://www.library.unt.edu/search">Search All</a></li>
-            <li><a id="mobile-search-dropdown-summon" href="https://untexas.summon.serialssolutions.com/#!/advanced">Online Articles</a></li>
-            <li><a id="mobile-search-dropdown-catalog" href="https://iii.library.unt.edu">Books &amp; More</a></li>
-            <li><a id="mobile-search-dropdown-databases" href="https://iii.library.unt.edu/search/y">Databases</a></li>
-            <li><a id="mobile-search-dropdown-ejournals" href="https://iii.library.unt.edu/search/y#ejournals">e-Journals</a></li>
-            <li><a id="mobile-search-dropdown-digital-collections" href="https://www.library.unt.edu/digital-collections">UNT Digital Collections</a></li>
-            <li><a id="mobile-search-dropdown-libguides" href="https://guides.library.unt.edu/">Subject Guides</a></li>
-            <li><a id="mobile-search-dropdown-this-site" href="https://www.library.unt.edu/search/google">This Website</a></li>
-          </ul>
-        </div>
-        <button id="main-nav-toggle" class="navbar-toggle btn btn-success btn-sm navbar-left" type="button" data-toggle="collapse" data-target="#unt-primary-site-menu">MENU</button>
-      </div>
-      <div class="navbar-collapse collapse" id="unt-primary-site-menu" role="navigation">
-        <div class="navbar-left">
-          <ul class="menu nav navbar-nav"><li class="first leaf"><a href="https://www.library.unt.edu">Home</a></li>
-            <li class="leaf"><a href="https://www.library.unt.edu/research" title="">Research</a></li>
-            <li class="leaf"><a href="https://www.library.unt.edu/services" title="">Services</a></li>
-            <li class="leaf"><a href="https://www.library.unt.edu/about" title="About">About</a></li>
-            <li class="leaf"><a href="https://www.library.unt.edu/help" title="Help">Help</a></li>
-            <li class="last leaf"><a href="https://www.library.unt.edu/news-events" title="">News &amp; Events</a></li>
-          </ul>
-        </div>
-        <div class="navbar-right">
-          <ul class="menu nav navbar-nav secondary">
-            <li class="first leaf"><a href="https://www.library.unt.edu/ask-us" title="">Ask Us</a></li>
-            <li class="last leaf"><a href="https://www.library.unt.edu/accounts-login" title="">Accounts Login</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+  {% include 'keeper/header/_header.html' %}
 
     <!--[if (IE 8) | (IE 9)]>
         <div class="alert alert-warning">
@@ -245,134 +67,23 @@
       </aside>
 
     </div>
-  </div>
+  </div><!-- end main-wrapper -->
 
-</div><!-- end main-wrapper -->
 
-<footer id="main-footer">   <div id="footer-content">
-    <div class="container">
-      <div class="row" itemscope="" itemtype="https://schema.org/EducationalOrganization">
-        <div class="footer-col col-md-3 col-sm-4">
-          <div class="footer-col-inner">
-            <h3 class="hidden-print">Locations &amp; Hours</h3>
-            <div class="btn-group hidden-print">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Select Location <span class="caret"></span> </button>
-              <ul class="dropdown-menu">
-                <li><a href="https://www.library.unt.edu/location-hours/willis-library">Willis Library</a></li>
-                <li class="divider"></li>
-                <li><a href="https://www.library.unt.edu/location-hours/discovery-park-library">Discovery Park</a></li>
-                <li><a href="https://www.library.unt.edu/location-hours/eagle-commons-librarys">Eagle Commons</a></li>
-                <li><a href="https://www.library.unt.edu/location-hours/media-library">Media</a></li>
-                <li class="divider"></li>
-                <li><a href="https://www.library.unt.edu/location-hours/library-annex">Library Annex</a></li>
-              </ul>
-            </div>
-            <hr class="hidden-print">
-            <h3>Mail</h3>
-            <div class="box box-dark box-border"> <span itemprop="name">University Libraries</span><br>
-              <span itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress"> <span itemprop="streetAddress">1155 Union Circle #305190</span><br>
-              <span itemprop="addressLocality">Denton</span> , <span itemprop="addressRegion">TX</span> <span itemprop="postalCode">76203-5017</span> </span>
-            </div>
-			<div itemprop="location">
-                  <div itemscope itemtype="https://schema.org/Place">
-                    <span itemprop="geo">
-                      <span itemscope itemtype="https://schema.org/GeoCoordinates">
-                        <span property="latitude" content="33.210360"></span>
-                        <span property="longitude" content="-97.149009"></span>
-                      </span>
-                    </span>
-                  </div>
-			</div>
-          </div>
-          <!--//footer-col-inner-->
-        </div>
-        <!--//foooter-col-->
-        <div id="government-logos" class="footer-col col-md-5 col-md-offset-1 col-sm-8 hidden-print">
-          <div class="footer-col-inner">
-            <h3>Partnerships</h3>
-          </div>
-          <div class="row">
-            <div class="col-sm-2 col-xs-4"> <a id="footer-fdl" href="https://www.library.unt.edu/government-information-connection"><img src="{% static 'keeper/inherit/images/utility/fdl-library-blue.png' %}" alt="Federal Depository Logo"></a> </div>
-            <p class="col-sm-8 col-xs-8 col-md-7 col-md-push-1 col-lg-8"> The University Libraries are a designated <a href="https://www.library.unt.edu/government-documents/us-federal-depository-library-program-fdlp">Federal Depository Library</a>. </p>
-          </div>
-          <div class="row">
-            <div class="col-sm-2 col-xs-4"> <a id="footer-finl" href="https://guides.library.unt.edu/c.php?g=69972&p=452555"><img src="{% static 'keeper/inherit/images/utility/foundation-center.png' %}" alt="Funding Information Network Logo"></a> </div>
-            <p class="col-sm-8 col-xs-8 col-md-7 col-md-push-1 col-lg-8"> The University Libraries are a <a href="https://guides.library.unt.edu/c.php?g=69972&p=452555">Funding Information Network partner</a> of the Foundation Center. </p>
-          </div>
-          <!--//footer-col-inner-->
-        </div>
-        <!--//foooter-col-->
-        <div class="footer-col col-md-3 col-sm-12 hidden-print">
-          <div class="footer-col-inner">
-            <h3>Contact</h3>
-            <p><i class="fa fa-phone"></i> <a id="footer-phone" itemprop="telephone" href="tel:9405652413">940.565.2413</a></p>
-            <p><i class="fa fa-envelope"></i> <a id="asks-us" href="https://www.library.unt.edu/ask-us" title="Ask Us"> Research Questions</a></p>
-            <p><i class="fa fa-group"></i> <a id="footer-staff-directory" href="https://www.library.unt.edu/staff-directory"  title="Find Someone">Staff Directory</a></p>
-            <p><i class="fa fa-laptop"></i> <a id="footer-ask-tech" href="https://www.library.unt.edu/ask-us?forward=lib.support@unt.edu#email" title="Computer &amp; problem">Computer &amp; Technology Problems</a></p>
-            <p><i class="fa fa-exclamation-triangle"></i> <a id="ask-building" href="https://www.library.unt.edu/ask-us?forward=Lib.Facilities@unt.edu#email" title="Facilities Problems">Facilities Problems</a></p>
-          </div>
-          <!--//footer-col-inner-->
-        </div>
-        <!--//foooter-col-->
+  <div class="modal fade search-help" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
       </div>
     </div>
   </div>
-  <div id="bottom-bar" class="hidden-print">
-    <div class="container">
-      <div class="row">
-        <ul role="menu" id="required-links" class=" list-inline list-unstyled col-md-9 col-sm-12 hidden-xs">
-          <li><a id="footer-disclaimer" href="https://www.unt.edu/disclaimer">Disclaimer</a></li>
-            <li><a id="footer-aaeoeada" href="https://www.unt.edu/ada">AA/EOE/ADA</a></li>
-            <li><a id="footer-privacy" href="https://www.unt.edu/privacy">Privacy </a></li>
-            <li><a id="footer-eapolicy" href="https://policy.unt.edu/policy/14-005">Electronic Accessibility</a></li>
-            <li><a id="footer-texasonline" href="https://texas.gov/">State of Texas Online</a></li>
-            <li><a id="footer-emergencyprep" href="https://emergency.unt.edu/">Emergency Preparedness</a></li>
-            <li><a id="footer-sci" href="https://www.unt.edu/consumer-info">Student Consumer Information</a></li>
-            <li><a id="footer-compliance" href="https://compliance.unt.edu/hotline">UNT Compliance Hotline</a></li>
-            <li><a id="footer-unt" href="https://www.unt.edu">UNT Home</a></li>
-        </ul>
-        <ul role="menu" id="footer-social" class="social list-inline list-unstyled pull-right col-md-3 col-sm-12">
-          <li><a id="footer-twitter" title="Follow the UNT Libraries on Twitter" href="https://twitter.com/UNT_Libraries" ><i class="fa fa-twitter"></i></a></li>
-          <li><a id="footer-facebook" title="UNT Libraries Facebook Page" href="https://www.facebook.com/pages/UNT-Libraries/189997581023527?sk=wall" ><i class="fa fa-facebook"></i></a></li>
-          <li><a id="footer-instagram" title="UNT Libraries on Instagram" href="https://www.instagram.com/unt_libraries" ><i class="fa fa-instagram"></i></a></li>
-          <li><a id="footer-youtube" title="UNT Libraries YouTube Channel" href="https://www.youtube.com/channel/UCcbS9fXWKE1SpUTpl1sNB6Q/" ><i class="fa fa-youtube"></i></a></li>
-          <li><a id="footer-newsletter" title="Subscribe to the UNT Libraries Email Newsletter" href="https://eepurl.com/Qrv_r" ><i class="fa fa-envelope"></i></a></li>
-          <li class="row-end"><a id="footer-rss" title="UNT Libraries News RSS feed" href="https://www.library.unt.edu/news/rss" ><i class="fa fa-rss"></i></a></li>
-        </ul>
-        <!--//social-->
-      </div>
-      <!--[if (IE 8)|(IE 9)]>
-    	<div clas="row">
-        	<div class="col-xs-12">
-            	<div class="leading alert alert-warning">
-                	Hi there. We detected that you appear to be using an older version of Internet Explorer. Microsoft will begin <a rel="nofollow" href="http://blogs.msdn.com/b/ie/archive/2014/08/07/stay-up-to-date-with-internet-explorer.aspx">dropping support</a> for this version in the near future, and the UNT Libraries will likely do so also. Please <a rel="nofollow" href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">update to a newer version of IE</a>, or consider an alternative browser such as <a rel="nofollow" href="http://www.google.com/chrome/">Google's Chrome</a> or <a rel="nofollow" href="https://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a>.
-                </div>
-            </div>
-        </div>
-	  <![endif]-->
-    </div>
-    <!--//container-->
-  </div>
-</footer>
-<div class="modal fade search-help" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-    </div>
-  </div>
-</div>
-
-    {% block scripts_footer %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{% static 'keeper/js/vendor/jquery.min.js' %}"><\/script>')</script>
-
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <script>window.jQuery.fn.modal || document.write('<script src="{% static 'keeper/js/vendor/bootstrap.min.js' %}"><\/script>')</script>
-
-        <script src="{% static 'keeper/js/vendor/dropzone.min.js' %}"></script>
-
-        <script src="{% static 'keeper/js/vendor/parsley.min.js' %}"></script>
-    {% endblock scripts_footer %}
+  {% include 'keeper/footer/_social.html' %}
+  {% include 'keeper/footer/_footer.html' %}
+  {% include 'keeper/footer/_colophon.html' %}
+  {% block scripts_footer %}
+    {% include 'keeper/footer/_scripts.html' %}
+  {% endblock scripts_footer %}
 
 </body>
 </html>

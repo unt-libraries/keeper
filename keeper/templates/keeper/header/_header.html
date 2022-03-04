@@ -1,0 +1,151 @@
+<div id="skip-link">
+  <a href="#main-content" class="sr-only sr-only-focusable" id="access-skip-link">Skip to main content</a>
+  <a href="https://www.library.unt.edu/node/2179" class="sr-only sr-only-focusable" id="access-services-link">Services for Persons with Disabilities</a>
+</div>
+
+<div id="head" class="wrapper--header fixed-top" data-turbolinks="false">
+  <header id="top" class="header h-100 container-fluid header-container" aria-label="Site Header">
+    <a id="skip"
+       class="skip  sr-only sr-only-focusable"
+       href="#content"
+       data-event-category="link - accesibility"
+       data-event-action="skip"
+       data-event-label="#content">
+      Skip to main content
+    </a>
+    <section class="header__content h-100  row align-items-center  px-md-4">
+      {# Branding #}
+      <div class="col-auto mr-auto">
+        <a href="https://www.unt.edu"
+           rel="noopener"
+           aria-label="U N T Home Site"
+           id="hd-brand"
+           class="header__banner"
+           ga-on="click"
+           ga-event-category="link - header"
+           ga-event-action="university"
+           ga-event-label="https://www.unt.edu/"
+           ga-event-value="1">
+          <img id="unt-banner-img"
+               src="https://library.unt.edu/assets/images/branding/unt-1890-banner.svg"
+               alt="U N T Established 1890"
+               class="header__banner--ribbon  d-none d-md-inline">
+          <img id="unt-banner-lettermark"
+               style="top:9px"
+               src="https://library.unt.edu/assets/images/branding/unt.lettermark.svg"
+               alt="U N T"
+               class="header__banner--lettermark">
+        </a>
+
+        <div class="header__title">
+          <div class="header__title--parent d-none d-sm-inline">
+            <a href="https://library.unt.edu"
+               rel="noopener"
+               id="hd-subtitle"
+               class="header__link"
+               ga-on="click"
+               ga-event-category="link - header"
+               ga-event-action="libraries"
+               ga-event-label="https://library.unt.edu/"
+               ga-event-value="1">University Libraries</a>
+          </div>
+          <h1 class="header__title--primary">
+            <a href="/"
+               id="hd-title"
+               class="header__link"
+               ga-on="click"
+               ga-event-category="link - header"
+               ga-event-action="libraries"
+               ga-event-label="/"
+               ga-event-value="1">Discover</a>
+          </h1>
+        </div>
+      </div>
+      {# Menu Buttons #}
+      <div class="col-auto" role="navigation" aria-label="Site-wide dialogs of quick links, grouped by function">
+        <button id="hd-unt-toggle"
+                type="button"
+                class="btn btn-link d-none d-md-inline-block"
+                data-target="#unt-drawer"
+                data-toggle="modal"
+                aria-label="Open Dialog: U N T - Quick Links"
+                aria-controls="unt-drawer"
+                ga-on="click"
+                ga-event-category="button - header"
+                ga-event-action="toggle"
+                ga-event-label="unt drawer"
+                ga-event-value="1">
+          <i aria-hidden="true" class="fas fa-bookmark"></i>
+        </button>
+        <button id="hd-libraries-toggle"
+                type="button"
+                class="btn btn-link"
+                data-target="#libraries-drawer"
+                data-toggle="modal"
+                aria-label="Open Dialog: Libraries - People and Places"
+                aria-controls="libraries-drawer"
+                ga-on="click"
+                ga-event-category="button - header"
+                ga-event-action="toggle"
+                ga-event-label="libraries drawer"
+                ga-event-value="1">
+          <i aria-hidden="true" class="fas fa-university"></i>
+        </button>
+        <button id="hd-tech-toggle"
+                type="button"
+                class="btn btn-link"
+                data-target="#tech-drawer"
+                data-toggle="modal"
+                aria-label="Open Dialog: Libraries - Lending and Technology"
+                aria-controls="tech-drawer"
+                ga-on="click"
+                ga-event-category="button - header"
+                ga-event-action="toggle"
+                ga-event-label="common drawer"
+                ga-event-value="1">
+          <i aria-hidden="true" class="fas fa-desktop"></i>
+        </button>
+        <button id="hd-search-toggle"
+                type="button"
+                class="btn btn-link"
+                data-target="#search-drawer"
+                data-toggle="modal"
+                aria-label="Open Dialog: Libraries - Search, Find and Explore"
+                aria-controls="search-drawer"
+                ga-on="click"
+                ga-event-category="button - header"
+                ga-event-action="toggle"
+                ga-event-label="search drawer"
+                ga-event-value="1">
+          <i aria-hidden="true" class="fas fa-search"></i>
+        </button>
+        <button id="hd-main-open"
+                type="button"
+                class="btn btn-link d-md-none toggle--main"
+                data-target="#main-menu-drawer"
+                data-toggle="modal"
+                aria-label="Open Dialog: Libraries - Menu, Mobile Navigation"
+                aria-controls="main-menu-drawer"
+                ga-on="click"
+                ga-event-category="button - header"
+                ga-event-action="toggle"
+                ga-event-label="navigation drawer"
+                ga-event-value="1">
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </div>
+    </section>
+  </header>
+</div>
+
+<div id="primary-navigation" class="wrapper--navigation d-none d-md-block">
+  <nav id="unt-desktop-links" class="container-fluid navigation navigation--desktop nav-container">
+    {% include 'keeper/header/_main-links.html' %}
+  </nav>
+</div>
+
+<div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+  <%= render 'shared/user_util_links' %>
+</div>
+
+

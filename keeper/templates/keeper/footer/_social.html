@@ -1,0 +1,23 @@
+<div class="wrapper--social py-2  px-md-5">
+   <nav class="nav justify-content-center nav--social" aria-label="Footer Social Media Links">
+    {% for item in SOCIAL %}
+      <a aria-label="Follow the UNT Libraries on {{ item.name }}"
+             href="{{ item.url }}{{ item.id }}/"
+             class="nav-item nav-link mx-2"
+             data-event-category="link - footer"
+             data-event-action="social"
+             data-event-label="{{ item.url }}{{ item.id }}/">
+             <i aria-hidden="true" class="fab fa-{{item.icon}} fw"></i>
+        </a>
+    {% endfor %}
+
+    <a aria-label="UNT Libraries News RSS feed"
+       href="https://www.unt.edu/news/rss/"
+       class="nav-item nav-link mx-2"
+       data-event-category="link - footer"
+       data-event-action="social"
+       data-event-label="/news/rss/">
+       <i aria-hidden="true" class="fas fa-rss fw"></i>
+     </a>
+  </nav>
+</div>

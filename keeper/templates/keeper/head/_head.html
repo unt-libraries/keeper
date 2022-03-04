@@ -1,0 +1,102 @@
+{% load static %}
+<head>
+  <meta charset="utf-8">
+
+  <script>
+    var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack),
+        respectDnt = (dnt == "1" || dnt == "yes");
+    if (!respectDnt) {
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'G-LXJP4MHV86', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'maxScrollTracker');
+      ga('require', 'pageVisibilityTracker');
+      ga('require', 'outboundLinkTracker', {
+        linkSelector: '#ip a',
+        fieldsObj: {
+          "eventCategory": "link - content - external",
+          "eventAction": "{{ request.path }}"
+        }
+      });
+      ga('require', 'displayfeatures');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    }
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}Keeper{% endblock %} - University Libraries - UNT</title>
+
+  <meta name="description" content="Share and archive your UNT memories.">
+
+  <link rel="canonical" href="{{ CANONICAL_PATH }}">
+
+  <!-- Preconnect for assets -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+  <!-- CSS -->
+  <!-- Async CSS -->
+  {% block fonts %}
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,400&family=Oswald:wght@300;400&subset=latin-ext&display=swap"
+        media="print"
+        onload="this.media='all'; this.onload=null;">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,400&family=Oswald:wght@300;400&subset=latin-ext&display=swap">
+    </noscript>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" />
+  {% endblock fonts %}
+
+  <!-- Blocking CSS -->
+  {% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'keeper/inherit/css/style.css' %}" media="all" />
+    <link rel="stylesheet" href="{% static 'keeper/css/style.min.css' %}">
+
+    <!--[if IE 9]>
+      <link href="https://library.unt.edu/assets/vendor/bootstrap-ie8/css/bootstrap-ie9.css?v=4.3.1" rel="stylesheet">
+      <link rel="stylesheet" href="https://library.unt.edu/assets/styles/ie.min.css">
+      <![endif]-->
+      <!--[if lte IE 8]>
+      <link href="https://library.unt.edu/assets/vendor/bootstrap-ie8/css/bootstrap-ie8.css?v=4.3.1" rel="stylesheet">
+      <script src="{% static 'keeper/js/vendor/html5shiv.min.js' %}"></script>
+      <link rel="stylesheet" href="https://library.unt.edu/assets/styles/ie.min.css">
+    <![endif]-->
+  {% endblock stylesheets %}
+
+  <link rel="icon" type="image/png" href="{% static "keeper/img/favicon.png" %}">
+
+  {% block favicons %}
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'keeper/img/apple-touch-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'keeper/img/apple-touch-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'keeper/img/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'keeper/img/apple-touch-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'keeper/img/apple-touch-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'keeper/img/apple-touch-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'keeper/img/apple-touch-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'keeper/img/apple-touch-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'keeper/img/apple-touch-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-32x32.png" sizes="32x32' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/android-chrome-192x192.png" sizes="192x192' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-96x96.png" sizes="96x96' %}">
+    <link rel="icon" type="image/png" href="{% static 'keeper/img/favicon-16x16.png" sizes="16x16' %}">
+    <link rel="manifest" href="{% static 'keeper/img/manifest.json' %}">
+    <link rel="mask-icon" href="{% static 'keeper/img/safari-pinned-tab.svg" color="#00853f' %}">
+    <link rel="shortcut icon" href="{% static 'keeper/img/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#00853f">
+    <meta name="msapplication-TileImage" content="{% static 'keeper/img/mstile-144x144.png' %}">
+    <meta name="msapplication-config" content="{% static 'keeper/img/browserconfig.xml' %}">
+    <meta name="theme-color" content="#00853f">
+  {% endblock favicons %}
+
+  <!-- scripts -->
+  {% block scripts %}
+
+  {% endblock scripts %}
+</head>
