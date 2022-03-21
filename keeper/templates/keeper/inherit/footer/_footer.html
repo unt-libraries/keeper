@@ -1,3 +1,4 @@
+{% load static %}
 <div class="wrapper--footer">
   <div id="main-footer" class="footer  container-fluid py-5 px-md-5">
 
@@ -12,7 +13,7 @@
           <img src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                width="254px"
                height="115px"
-               data-src="/assets/images/branding/unt.stacked.green.svg" class="lazyload"
+               data-src="{% static 'keeper/inherit/images/branding/unt.stacked.green.svg' %}" class="lazyload"
                alt="U N T Established 1890">{% comment %} Full Sized Banner {% endcomment %}
         </a>
       </div>
@@ -31,7 +32,7 @@
                      width="75px"
                      height="75px"
                      src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                     data-src="/assets/images/branding/fdl-library-blue.png"
+                     data-src="{% static 'keeper/inherit/images/branding/fdl-library-blue.png' %}"
                      alt="Federal Depository"></a>
             <div class="media-body">The University Libraries are a designated
               <a href="https://www.unt.edu/government-information/"
@@ -50,7 +51,7 @@
                      width="75px"
                      height="76px"
                      src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                     data-src="/assets/images/branding/foundation-center.png"
+                     data-src="{% static 'keeper/inherit/images/branding/foundation-center.png' %}"
                      alt="Funding Information Network"></a>
             <div class="media-body">The University Libraries are a
               <a href="https://guides.library.unt.edu/grants"

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <title>{% block title %}{{ request.resolver_match.app_name.title }}{% endblock %} - University Libraries - UNT</title>
+  {% include 'keeper/inherit/head/_head.html' %}
+</head>
+
+
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-1810 node-type-page" >
+  <!--[if lte IE 10]>
+    <p class="browser-upgrade">Your browser is <strong>outdated</strong>. This site will not function in it. Please <a href="https://browsehappy.com/">upgrade</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  {% include 'keeper/inherit/header/_header.html' %}
+
+  <div class="wrapper--content">
+    <main id="content" class="content container-fluid px-md-5" aria-labelledby="page-title">
+
+      {% include 'keeper/inherit/content/_breadcrumbs.html' %}
+
+      <h1 id="page-title" class="content__title mb-4">{{ request.resolver_match.app_name.title }}</h1>
+      <div id="content-wrapper" class="row">
+        <section id="ip" class="ip col-sm-9 order-sm-12 order-xs-1 pt-3">
+          {% block content %}{% endblock content %}
+        </section>
+        {% include 'keeper/inherit/sidebars/_left.html' %}
+      </div>
+    </main>
+  </div>
+
+  {# Drawer #}
+  {% include 'keeper/inherit/drawer/_common.html' %}
+  {% include 'keeper/inherit/drawer/_libraries.html' %}
+  {% include 'keeper/inherit/drawer/_main-menu-scrolled-mobile.html' %}
+  {% include 'keeper/inherit/drawer/_search.html' %}
+  {% include 'keeper/inherit/drawer/_unt.html' %}
+
+  {# Footer #}
+  <footer aria-label="University Branding and links, Partner Links, and Contact Information">
+    {% include 'keeper/inherit/footer/_social.html' %}
+    {% include 'keeper/inherit/footer/_footer.html' %}
+    {% include 'keeper/inherit/footer/_colophon.html' %}
+  </footer>
+
+  {# Footer scripts #}
+  {% block scripts_jquery_bootstrap %}{% endblock %}
+  {% include 'keeper/inherit/footer/_scripts.html' %}
+  {% block scripts_footer %}{% endblock %}
+
+  {# Libchat widget #}
+  <div id="libchat_5b1c5c4430ef5be760d3f1958b1a5b3d"></div><script src="https://unt.libanswers.com/load_chat.php?hash=5b1c5c4430ef5be760d3f1958b1a5b3d"></script>
+</body>
+</html>

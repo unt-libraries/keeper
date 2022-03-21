@@ -1,0 +1,24 @@
+<!-- Google Analytics -->
+<script>
+  var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack),
+      respectDnt = (dnt == "1" || dnt == "yes");
+  if (!respectDnt) {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', '{{ BRANDING.GA_TRACKING_ID }}', 'auto');
+    ga('require', 'eventTracker');
+    ga('require', 'maxScrollTracker');
+    ga('require', 'pageVisibilityTracker');
+    ga('require', 'outboundLinkTracker', {
+      linkSelector: '#ip a',
+      fieldsObj: {
+        "eventCategory": "link - content - external",
+        "eventAction": "{{ request.path }}"
+      }
+    });
+    ga('require', 'displayfeatures');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  }
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

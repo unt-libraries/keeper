@@ -1,0 +1,126 @@
+<div class="drawer fade" id="main-menu-drawer" tabindex="-1" role="dialog" aria-labelledby="main-drawer-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog--right" role="document">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h2 class="drawer-title px-3" id="main-drawer-title">Menu</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i aria-hidden="true" class="fas fa-times fa-lg"></i>
+        </button>
+      </div>
+      <div class="drawer-body">
+
+        <div class="d-flex justify-content-around" role="group" aria-label="Basic example">
+
+          <a href="tel:9405653245"
+             class="btn btn-success btn-lg w-25"
+             data-event-category="link - drawer"
+             data-event-action="telephone">
+            <i aria-hidden="true" class="fas fa-phone"></i><br/>
+            <span class="small">
+              CALL
+              <span class="sr-only"> The Libraries</span>
+            </span>
+          </a>
+
+          <a href="https://library.unt.edu/ask-us/"
+              class="btn btn-success btn-lg w-25"
+              data-event-category="link - drawer"
+              data-event-action="libraries"
+              data-event-label="https://library.unt.edu/ask-us/">
+              <i aria-hidden="true" class="fas fa-question"></i><br/>
+              <span class="small">ASK US</span>
+          </a>
+
+          <a href="https://library.unt.edu/accounts-login/"
+              class="btn btn-success btn-lg w-25"
+              data-event-category="link - drawer"
+              data-event-action="libraries"
+              data-event-label="https://library.unt.edu/accounts-login/">
+              <i aria-hidden="true" class="fas fa-user"></i><br/>
+              <span class="small">
+                <span class="sr-only">Account </span>
+                LOGIN
+              </span>
+          </a>
+
+        </div>
+
+        <hr class="drawer__divider" />
+
+        <a href="https://library.unt.edu/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="/">University Libraries Home</a>
+
+        <a href="https://library.unt.edu/about/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/about/">
+          <span class="sr-only">Libraries: </span>
+          About</a>
+
+        <a href="https://library.unt.edu/research/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/research/">
+          <span class="sr-only">Libraries: </span>
+          Research</a>
+
+        <a href="https://library.unt.edu/services/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/">
+          <span class="sr-only">Libraries: </span>
+          Services</a>
+
+        <a href="https://library.unt.edu/spaces/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/spaces/">
+          <span class="sr-only">Libraries: </span>
+          Spaces</a>
+
+        <a href="https://library.unt.edu/news/"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://library.unt.edu/services/news">
+          <span class="sr-only">Libraries: </span>
+          News </a>
+
+        <a href="https://calendar.library.unt.edu"
+            class="nav-item nav-link"
+            data-event-category="link - drawer"
+            data-event-action="libraries"
+            data-event-label="https://calendar.library.unt.edu">
+          <span class="sr-only">Libraries: </span>
+          Calendar</a>
+
+        <hr class="drawer__divider" />
+
+        <nav class="nav justify-content-center py-4" aria-label="Social Media Links">
+        {% for item in BRANDING.SOCIAL %}
+          <a class="nav-item nav-link nav-link--social"
+             data-event-category="link - drawer"
+             data-event-action="social"
+             data-event-label="{{ item.url }}{{ item.id }}"
+             aria-label="{{ item.url }}{{ item.id }}"
+             href="{{ item.url }}{{ item.id }}/"
+             data-toggle="tooltip"
+             data-placement="bottom"
+             data-container="body"
+             title="{{ item.name }}">
+                <i aria-hidden="true" class="fab fa-{{ item.icon }} fa-lg"></i>
+                <span class="sr-only">{{ item.name }}</span>
+              </a>
+        {% endfor %}
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
