@@ -1,7 +1,7 @@
 // Dropzone SCSS
-@import "../../node_modules/dropzone-js/src/dropzone.scss";
+@use "src/dropzone.scss";
 
 // Begin importing custom partials
-@import "form";
-@import "dropzone";
-@import "results";
+@use "form";
+@use "dropzone" as dz;
+@use "results";

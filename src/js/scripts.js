@@ -1,10 +1,14 @@
+import 'dropzone';
+
 // Initialize and configure Dropzone
 Dropzone.autoDiscover = false;
 
 // Assign Dropzone preview template and delete from DOM so it isn't submitted
-const previewTemplateNode = $('#previewTemplate');
-const previewTemplate = previewTemplateNode.html();
-previewTemplateNode.remove();
+const previewTemplateNode = document.querySelector('#previewTemplate');
+const previewTemplate = previewTemplateNode.innerHTML;
+if (previewTemplateNode.parentNode !== null) {
+  previewTemplateNode.parentNode.removeChild(previewTemplateNode);
+}
 
 // Initialize Parsley and attach to form
 const parsleyForm = $('#dropzoneUpload').parsley();
@@ -18,54 +22,70 @@ $.extend(parsleyForm.options, {
     errorsWrapper: false,
 });
 
-function scrollToElementTop($element) {
-    $('html, body').animate({
-        scrollTop: $element.offset().top,
-    }, {
-        duration: 1000,
-    });
+function scrollToElementTop(element) {
+    const headerHeight = document.querySelector('header').offsetHeight;
+    window.scroll({
+        top: element.offsetTop,
+        behavior: 'smooth',
+    })
 }
 
 function enableFormButtons() {
-    $('#submitButton').removeAttr('disabled');
-    $('#removeAllButton').removeAttr('disabled');
+    document.querySelector('#submitButton')
+      .removeAttribute('disabled');
+    document.querySelector('#removeAllButton')
+      .removeAttribute('disabled');
 }
 
 function disableFormButtons() {
-    $('#submitButton').attr('disabled', 'disabled');
-    $('#removeAllButton').attr('disabled', 'disabled');
+    document.querySelector('#submitButton')
+      .setAttribute('disabled', 'disabled');
+    document.querySelector('#removeAllButton')
+      .setAttribute('disabled', 'disabled');
 }
 
 function showProgressBars() {
-    $('.file-progress').removeClass('file-progress--hidden');
-    $('#totalProgressBar').removeClass('dropzone-form__upload-progress--hidden');
+    document.querySelectorAll('.file-progress')
+      .forEach((el) => el.classList.remove('file-progress--hidden'));
+    document.querySelector('#totalProgressBar')
+      .classList.remove('dropzone-form__upload-progress--hidden');
 }
 
 function hideProgressBars() {
-    $('.file-progress').addClass('file-progress--hidden');
-    $('#totalProgressBar').addClass('dropzone-form__upload-progress--hidden');
+    document.querySelectorAll('.file-progress')
+      .forEach((el) => el.classList.add('file-progress--hidden'));
+    document.querySelector('#totalProgressBar')
+      .classList.add('dropzone-form__upload-progress--hidden');
 }
 
 // Called by myDropzone after successful response from server
 function formSuccess(files, response) {
-    const $formContainer = $('#formContainer');
+    const formContainer = document.querySelector('#formContainer');
 
-    $formContainer.html(response.template);
-    scrollToElementTop($formContainer);
+    formContainer.innerHTML = response.template;
+    scrollToElementTop(formContainer);
 }
 
 function disableFormFields() {
-    $('fieldset').attr('disabled', 'disabled');
-    $('textarea[name=file-file_description]').attr('disabled', 'disabled');
-    $('.dropzone-template__remove-button').addClass('hidden');
-    $('.dropzone-form').addClass('hidden');
+    document.querySelectorAll('fieldset')
+      .forEach((el) => el.setAttribute('disabled', 'disabled'));
+    document.querySelectorAll('textarea[name=file-file_description]')
+      .forEach((el) => el.setAttribute('disabled', 'disabled'));
+    document.querySelectorAll('.dropzone-template__remove-button')
+      .forEach((el) => el.classList.add('hidden'));
+    document.querySelectorAll('.dropzone-form')
+      .forEach((el) => el.classList.add('hidden'));
 }
 
 function enableFormFields() {
-    $('fieldset').removeAttr('disabled');
-    $('textarea[name=file-file_description]').removeAttr('disabled');
-    $('.dropzone-template__remove-button').removeClass('hidden');
-    $('.dropzone-form').removeClass('hidden');
+    document.querySelectorAll('fieldset')
+      .forEach((el) => el.removeAttribute('disabled'));
+    document.querySelectorAll('textarea[name=file-file_description]')
+      .forEach((el) => el.removeAttr('disabled'));
+    document.querySelectorAll('.dropzone-template__remove-button')
+      .forEach((el) => el.classList.remove('hidden'));
+    document.querySelectorAll('.dropzone-form')
+      .forEach((el) => el.classList.remove('hidden'));
 }
 
 // Called by myDropzone after Dropzone successmultiple, but error from server
@@ -77,48 +97,64 @@ function formErrors(response) {
     console.log(errorsForm);
     console.log(errorsFile);
 
+    const formErrorEl = document.querySelector('#dropzoneFormError')
+
+    const newDiv = document.createElement('div');
+    newDiv.className = 'alert alert-danger alert-dismissible';
+    newDiv.setAttribute('role', 'alert');
+
+    const newButton = document.createElement('button');
+    newButton.setAttribute('type', 'button');
+    newButton.className = 'close';
+    newButton.dataset.dismiss = 'alert';
+    newButton.ariaLabel = 'Close';
+    newDiv.appendChild(newButton);
+
+    const newSpan = document.createElement('span');
+    newSpan.ariaHidden = 'true';
+    newSpan.textContent = '&times;';
+    newButton.appendChild(newSpan);
+
     // Display server side form errors
     for (let error in errorsForm) {
-        $('#dropzoneFormError').append('<div class="alert alert-danger alert-dismissible" role="alert">' +
-            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-            '<span aria-hidden="true">&times;</span></button>' +
-            '<strong class="error">' +
-            'Error in field ' + error + ': ' + errorsForm[error] +
-            '</strong>' +
-            '</div>');
+        const newStrong = document.createElement('strong');
+        newStrong.className = 'error';
+        newStrong.textContent = `Error in field ${error}: ${errorsForm[error]}`
+        newDiv.appendChild(newStrong);
+
+        formErrorEl.appendChild(newDiv);
     }
 
     // Display server side file errors
     for (let error of errorsFile) {
-        $('#dropzoneFormError').append('<div class="alert alert-danger alert-dismissible" role="alert">' +
-            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-            '<span aria-hidden="true">&times;</span></button>' +
-            '<strong class="error">' +
-            'Error in file ' + error.file_name + ': ' + error.error.file +
-            '</strong>' +
-            '</div>');
+        const newStrong = document.createElement('strong');
+        newStrong.className = 'error';
+        newStrong.textContent = `Error in file ${error.file_name}: ${error.error.file}`
+        newDiv.appendChild(newStrong);
+
+        formErrorEl.appendChild(newDiv);
     }
 
     enableFormFields();
-    scrollToElementTop($('#dropzoneFormError'));
+    scrollToElementTop(document.querySelector('#dropzoneFormError'));
 }
 
 // add tooltips and error classes on parsley field errors. Accepts parsleyFieldInstance
 function displayParsleyError(fieldInstance) {
+    const $element = fieldInstance.$element;
     const messages = fieldInstance.getErrorsMessages();
-
-    if (fieldInstance.$element.context.id === 'g-recaptcha-response') {
+    if ($element.attr('id').toLowerCase().indexOf('g-recaptcha-response') >= 0) {
         document.querySelector('#grecaptcha-required').style.display = '';
     } else {
-        fieldInstance.$element.siblings('[data-toggle="tooltip"]')
-        .removeClass('fa fa-check')
-        .addClass('fa fa-times')
-        .tooltip('destroy')
+        $element.siblings('[data-toggle="tooltip"]')
+        .removeClass('far fa-check')
+        .addClass('far fa-times')
+        .tooltip('dispose')
         .tooltip({
             animation: false,
             container: 'body',
             placement: 'top',
-            title: messages,
+            title: messages.join('<br>'),
             trigger: 'manual',
         })
         .tooltip('show')
@@ -130,13 +166,14 @@ function displayParsleyError(fieldInstance) {
 
 // destroy tooltips and add success classes on parsley field success
 function removeParsleyError(fieldInstance) {
-    if (fieldInstance.$element.context.id === 'g-recaptcha-response') {
+    const $element = fieldInstance.$element;
+    if ($element.attr('id').toLowerCase().indexOf('g-recaptcha-response') >= 0) {
         document.querySelector('#grecaptcha-required').style.display = 'none';
     } else {
-        fieldInstance.$element.siblings('[data-toggle="tooltip"]')
-        .removeClass('fa fa-times')
-        .addClass('fa fa-check')
-        .tooltip('destroy')
+        $element.siblings('[data-toggle="tooltip"]')
+        .removeClass('far fa-times')
+        .addClass('far fa-check')
+        .tooltip('dispose')
       .closest('.form-group')
         .removeClass('has-error')
         .addClass('has-success');
@@ -154,10 +191,10 @@ window.Parsley.on('field:success', (fieldInstance) => {
 });
 
 // Add form validation data not provided by Django
-$('#id_accession-phone_number')
-  .attr('type', 'tel')
-  .attr('data-parsley-group', 'phone')
-  .attr('data-parsley-minlength', '10');
+const phoneNumberField = document.querySelector('#id_accession-phone_number');
+phoneNumberField.setAttribute('type', 'tel');
+phoneNumberField.dataset.parsleyGroup = 'phone';
+phoneNumberField.dataset.parsleyMinlength = '10';
 
 // Bind Dropzone to form element and configure
 const myDropzone = new Dropzone('#dropzoneUpload', {
@@ -186,11 +223,11 @@ const myDropzone = new Dropzone('#dropzoneUpload', {
         }
     },
     init() {
-        const $submitButton = $('#submitButton');
-        const $removeAllButton = $('#removeAllButton');
+        const submitButton = document.querySelector('#submitButton');
+        const removeAllButton = document.querySelector('#removeAllButton');
         const myDropzone = this;
 
-        $submitButton.on('click', (e) => {
+        submitButton.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
 
@@ -200,23 +237,27 @@ const myDropzone = new Dropzone('#dropzoneUpload', {
             }
         });
 
-        $removeAllButton.on('click', () => {
+        removeAllButton.addEventListener('click', () => {
             myDropzone.removeAllFiles(true);
-            scrollToElementTop($('#formContainer'));
+            scrollToElementTop(document.querySelector('#formContainer'));
         });
 
         // Behavior for drag/hover file over dropzone form
         this.on('dragover', () => {
-            $('#formContainer').addClass('dropzone-form__drag-hover');
+            document.querySelector('#formContainer')
+              .classList.add('dropzone-form__drag-hover');
         });
         this.on('dragleave', () => {
-            $('#formContainer').removeClass('dropzone-form__drag-hover');
+            document.querySelector('#formContainer')
+              .classList.remove('dropzone-form__drag-hover');
         });
         this.on('dragend', () => {
-            $('#formContainer').removeClass('dropzone-form__drag-hover');
+            document.querySelector('#formContainer')
+              .classList.remove('dropzone-form__drag-hover');
         });
         this.on('drop', () => {
-            $('#formContainer').removeClass('dropzone-form__drag-hover');
+            document.querySelector('#formContainer')
+              .classList.remove('dropzone-form__drag-hover');
         });
 
         // Fires when a file is added to the upload list
@@ -232,12 +273,12 @@ const myDropzone = new Dropzone('#dropzoneUpload', {
                 const mimeType = file.type.split('/')[0];
                 const newNode = document.createElement('i');
 
-                if ($.inArray(file.type, Object.keys(acceptedFiles)) > -1) {
-                    newNode.className = `fa fa-${acceptedFiles[file.type]} fa-5x`;
-                } else if ($.inArray(`${mimeType}/*`, Object.keys(acceptedFiles)) > -1) {
-                    newNode.className = `fa fa-${acceptedFiles[`${mimeType}/*`]} fa-5x`;
+                if (Object.keys(acceptedFiles).indexOf(file.type) > -1) {
+                    newNode.className = `far fa-${acceptedFiles[file.type]} fa-5x`;
+                } else if (Object.keys(acceptedFiles).indexOf(`${mimeType}/*`) > -1) {
+                    newNode.className = `far fa-${acceptedFiles[`${mimeType}/*`]} fa-5x`;
                 } else {
-                    newNode.className = 'fa fa-file-o fa-5x';
+                    newNode.className = 'far fa-file fa-5x';
                 }
                 imgParent.replaceChild(newNode, imgElement);
             }
@@ -245,12 +286,12 @@ const myDropzone = new Dropzone('#dropzoneUpload', {
 
         // Updates the total upload progress bar
         this.on('totaluploadprogress', (progress) => {
-            const $progressBar = $('#total-progress');
-            $progressBar.width(`${progress}%`);
+            const progressBar = document.querySelector('#total-progress');
+            progressBar.style.width = `${progress}%`;
             if (progress === 100) {
-                $progressBar.text('Processing');
+                progressBar.textContent = 'Processing';
             } else {
-                $progressBar.text(`${parseInt(progress, 10)}%`);
+                progressBar.textContent =`${parseInt(progress, 10)}%`;
             }
         });
 
@@ -264,7 +305,7 @@ const myDropzone = new Dropzone('#dropzoneUpload', {
         this.on('sendingmultiple', () => {
             disableFormFields();
             showProgressBars();
-            scrollToElementTop($('#formContainer'));
+            scrollToElementTop(document.querySelector('#formContainer'));
         });
 
         // Fires after successful file upload / form submission
