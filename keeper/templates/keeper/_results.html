@@ -1,4 +1,4 @@
-<div class="results-container panel-body" id="resultsContainer">
+<div class="results-container card-body" id="resultsContainer">
     <div class="results" id="results">
 
         <h2>Thank you for sharing your UNT memories with us, <span id="resultsFirstName">{{ request.session.accession.first_name }}</span>!</h2>
@@ -7,30 +7,30 @@
         <p class="text-muted">Your submission will be reviewed by archivists in UNT Special Collections department. Please
         <a href="mailto:archivesrarebooks@unt.edu?Subject=Online%20submission%20{{ request.session.accession.accession_id }}">contact us</a> if you have questions about your submission.</p>
 
-        <a href="{% url 'keeper:index' %}" class="btn btn-library_light_green">Upload more files!</a>
+        <a href="{% url 'keeper:index' %}" class="btn btn-unt-green">Upload more files!</a>
 
         <h3><a href="https://support.library.unt.edu/give/special-collections" target="_blank">Donate to UNT Special Collections</a></h3>
 
         <p class="text-muted">Your donations make projects like this possible.</p>
 
         <h3><a href="http://unt.us3.list-manage1.com/subscribe?u=72a1a94ff3d43fe1a3020d9cd&id=55d84e364e" id="archive-email-newsletter" target="_blank">
-            Subscribe to our E-mail Newsletter <i class="fa fa-external-link"></i>
+            Subscribe to our E-mail Newsletter <i class="fas fa-external-link-alt"></i>
         </a></h3>
 
         <h3>Share</h3>
 
-        <div class="btn-group btn-group-justified" role="group">
-            <a class="btn btn-library_light_green" target="_blank"
+        <div class="btn-group d-flex" role="group">
+            <a class="btn btn-forest-green w-100" target="_blank"
                 href="https://twitter.com/share?url={{ request.build_absolute_uri|urlencode }}&text={{ "I just shared my memories with the UNT Library!"|urlencode }}">
-                <i class="fa fa-twitter"></i> Tweet
+                <i class="fab fa-twitter"></i> Tweet
             </a>
-            <a class="btn btn-library_hunter_green" target="_blank"
+            <a class="btn btn-forest-green w-100" target="_blank"
                 href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri|urlencode }}&description={{ "Share your memories with the UNT Library."|urlencode }}">
-                <i class="fa fa-facebook-square"></i> Share
+                <i class="fab fa-facebook-square"></i> Share
             </a>
-            <a class="btn btn-unt_dark_teal" target="_blank"
+            <a class="btn btn-dark-teal w-100" target="_blank"
                href="mailto:?subject={{ "I just shared my memories with the UNT Library!"|urlencode }}&body={{ request.build_absolute_uri|urlencode }}">
-                <i class="fa fa-envelope"></i> Email
+                <i class="far fa-envelope"></i> Email
             </a>
         </div>
 

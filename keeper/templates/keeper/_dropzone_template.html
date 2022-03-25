@@ -6,9 +6,9 @@
             <div class="row  dropzone-template__data">
         <div class="dropzone-template__column col-md-5">
             <div class="dropzone-template__data">
-                <img class="img-responsive" data-dz-thumbnail />
+                <img class="img-fluid" data-dz-thumbnail />
             <div class="progress  file-progress  file-progress--hidden">
-                <div class="dropzone-template__progress progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                <div class="dropzone-template__progress progress-bar bg-success bg-striped progress-bar-animated" role="progressbar"
                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress></div>
                 </div>
             </div>
@@ -22,8 +22,8 @@
         <div class="dropzone-template__column dropzone-template__description col-md-7">
             {{ file_form.file_description|add_class:'dropzone-template__data' }}
             <span class="dropzone-template__data--result"></span>
-            <button class="btn btn-danger btn-sm pull-right dropzone-template__remove-button" id="dzRemove" type="button" data-dz-remove >
-                <i class="fa fa-trash"></i>
+            <button class="btn btn-danger btn-sm float-right dropzone-template__remove-button" id="dzRemove" type="button" data-dz-remove >
+                <i class="fas fa-trash-alt"></i>
                 Remove
             </button>
         </div>

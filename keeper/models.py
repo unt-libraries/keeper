@@ -104,7 +104,7 @@ class File(models.Model):
             icon_class = ACCEPTED_FILE_TYPES['{0}/{1}'.format(mime_type, '*')]
         else:
             icon_class = 'file-o'
-        return format_html('<i class="fa fa-{0} fa-5x"></i>', icon_class)
+        return format_html('<i class="far fa-{0} fa-5x"></i>', icon_class)
 
     def __str__(self):
         return self.get_filename()

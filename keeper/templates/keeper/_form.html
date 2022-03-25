@@ -1,8 +1,8 @@
 {% load keeper_extras %}
 
-<div id="formContainer" class="panel panel-default">
+<div id="formContainer" class="card">
 
-    <form id="dropzoneUpload" class="form dropzone panel-body" action="{% url 'keeper:submit' %}" method="post" enctype="multipart/form-data">
+    <form id="dropzoneUpload" class="form dropzone card-body" action="{% url 'keeper:submit' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
     {% if error_message %}
@@ -14,7 +14,7 @@
     <div id="totalProgressBar" class="dropzone-form__upload-progress--hidden">
         Total Progress:
         <div class="progress">
-            <div id="total-progress" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0"
+            <div id="total-progress" class="progress-bar bg-success bg-striped progress-bar-animated" role="progressbar" aria-valuemin="0"
                  aria-valuemax="100" aria-valuenow="0" data-dz-uploadprogress>
             </div>
         </div>
@@ -42,7 +42,7 @@
 
     <div class="row">
         <div class="form-group col-sm-6 has-feedback">
-            <label class="control-label" for="{{ accession_form.first_name.id_for_label }}">
+            <label class="col-form-label" for="{{ accession_form.first_name.id_for_label }}">
                 {{ accession_form.first_name.label }} *
             </label>
 
@@ -51,7 +51,7 @@
         </div><!-- form-group -->
 
         <div class="form-group col-sm-6 has-feedback">
-            <label class="control-label" for="{{ accession_form.last_name.id_for_label }}">
+            <label class="col-form-label" for="{{ accession_form.last_name.id_for_label }}">
                 {{ accession_form.last_name.label }} *
             </label>
             {{ accession_form.last_name|add_class:'form-control' }}
@@ -61,19 +61,19 @@
 
         {% if affiliation_choices %}
         <div class="form-group has-feedback">
-            <label class="control-label" for="{{ accession_form.affiliation.id_for_label }}">
+            <label class="col-form-label" for="{{ accession_form.affiliation.id_for_label }}">
                 {{ accession_form.affiliation.label }} *
             </label>
             {{ accession_form.affiliation|add_class:'form-control' }}
             <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-            <span class="help-block">Select the option that best describes your
-            relationship with UNT.</span>
+            <small class="form-text text-muted">Select the option that best describes your
+            relationship with UNT.</small>
         </div><!-- form-group -->
         {% endif %}
 
         {% if organization_choices %}
         <div class="form-group has-feedback">
-            <label class="control-label" for="{{ accession_form.organization.id_for_label }}">
+            <label class="col-form-label" for="{{ accession_form.organization.id_for_label }}">
                 {{ accession_form.organization.label }}
             </label>
             {{ accession_form.organization|add_class:'form-control' }}
@@ -82,16 +82,16 @@
         {% endif %}
 
         <div class="form-group has-feedback">
-            <label class="control-label" for="{{ accession_form.email_address.id_for_label }}">
+            <label class="col-form-label" for="{{ accession_form.email_address.id_for_label }}">
                 {{ accession_form.email_address.label }} *
             </label>
             {{ accession_form.email_address|add_class:'form-control' }}
             <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-            <span class="help-block">We'll only email you if we have questions about your submission.</span>
+            <small class="form-text text-muted">We'll only email you if we have questions about your submission.</small>
         </div><!-- form-group -->
 
         <div class="form-group has-feedback">
-            <label class="control-label" for="{{ accession_form.phone_number.id_for_label }}">
+            <label class="col-form-label" for="{{ accession_form.phone_number.id_for_label }}">
                 {{ accession_form.phone_number.label }}
             </label>
             {{ accession_form.phone_number|add_class:'form-control' }}
@@ -99,24 +99,24 @@
         </div><!-- form-group -->
 
         <div class="form-group has-feedback">
-            <label class="control-label" for="{{ accession_form.description.id_for_label }}">
+            <label class="col-form-label" for="{{ accession_form.description.id_for_label }}">
                 {{ accession_form.description.label }}
             </label>
             <div class="form__field">
                 {{ accession_form.description|add_class:'form-control' }}
                 <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-                <span class="help-block">
+                <small class="form-text text-muted">
                     Tell us about the files you are submitting-- who, what,
                     where, and when is a good place to start. The more information
                     the better! Please also indicate why these files are important to you.
-                </span>
+                </small>
             </div><!-- form__field -->
         </div><!-- form-group -->
 
-        <div id="checkbox" class="checkbox form-group">
-            <label class="form__label form__label--checkbox" for="donate-authorization">
+        <div id="checkbox" class="form-check form-group">
+            <label class="form-check-label form__label form__label--checkbox" for="donate-authorization">
                 <span id="checkboxTooltip" data-toggle="tooltip" ></span>
-                <input class="form__input form__input--checkbox" id="donate-authorization"
+                <input class="form-check-input form__input form__input--checkbox" id="donate-authorization"
                        name="donate-authorization" type="checkbox" required="required" value="">
                 By checking this box I affirm that I own the property being submitted,
                 and unconditionally give, donate and bestow the materials submitted
@@ -132,12 +132,12 @@
 
 
         <button class="btn btn-success" id="submitButton" type="submit" disabled="disabled">
-            <i class="fa fa-cloud-upload"></i>
+            <i class="fas fa-cloud-upload-alt"></i>
             Upload
         </button>
 
         <button class="btn btn-danger" id="removeAllButton" type="button" disabled="disabled">
-            <i class="fa fa-trash"></i>
+            <i class="fas fa-trash-alt"></i>
             Remove all
         </button>
 
