@@ -7,6 +7,14 @@
     "email": "jason.ellis@unt.edu"
   },
   "packageManager": "yarn@3.2.0",
+  "scripts": {
+    "startMysql": "sudo /etc/init.d/mysql start",
+    "migrateDev": "python manage.py migrate --settings=tests.settings.dev",
+    "devServer": "python manage.py runserver --settings=tests.settings.dev",
+    "buildCss": "yarn gulp sass",
+    "buildScripts": "yarn gulp scripts",
+    "watchAssets": "yarn gulp"
+  },
   "devDependencies": {
     "@babel/core": "7.17.7",
     "@babel/preset-env": "7.16.11",
