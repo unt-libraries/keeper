@@ -15,9 +15,11 @@ const parsleyForm = $('#dropzoneUpload').parsley();
 
 // Override Parsley options
 $.extend(parsleyForm.options, {
+    errorClass: 'is-invalid',
+    successClass: 'is-valid',
     errorsContainer(parsleyField) {
         return parsleyField.$element
-            .siblings('.form-control-feedback').attr('title');
+            .siblings('.invalid-feedback').attr('title');
     },
     errorsWrapper: false,
 });
@@ -142,41 +144,28 @@ function formErrors(response) {
 // add tooltips and error classes on parsley field errors. Accepts parsleyFieldInstance
 function displayParsleyError(fieldInstance) {
     const $element = fieldInstance.$element;
+    const element = $element[0];
     const messages = fieldInstance.getErrorsMessages();
-    if ($element.attr('id').toLowerCase().indexOf('g-recaptcha-response') >= 0) {
-        document.querySelector('#grecaptcha-required').style.display = '';
+    if (element.getAttribute('id').indexOf('g-recaptcha-response') >= 0) {
+        document.querySelector('#grecaptcha-required').style.display = 'block';
     } else {
-        $element.siblings('[data-toggle="tooltip"]')
-        .removeClass('far fa-check')
-        .addClass('far fa-times')
-        .tooltip('dispose')
-        .tooltip({
-            animation: false,
-            container: 'body',
-            placement: 'top',
-            title: messages.join('<br>'),
-            trigger: 'manual',
-        })
-        .tooltip('show')
-      .closest('.form-group')
-        .removeClass('has-success')
-        .addClass('has-error');
+        element.classList.remove('is-valid');
+        const siblings = Array.prototype.filter.call(element.parentNode.children, (child) => child !== element);
+        const feedbackEl = siblings.find((el) => el.classList.contains('invalid-feedback'));
+        if(feedbackEl) {
+            feedbackEl.textContent = messages.join('<br>');
+        }
     }
 }
 
 // destroy tooltips and add success classes on parsley field success
 function removeParsleyError(fieldInstance) {
     const $element = fieldInstance.$element;
-    if ($element.attr('id').toLowerCase().indexOf('g-recaptcha-response') >= 0) {
+    const element = $element[0];
+    if (element.getAttribute('id').indexOf('g-recaptcha-response') >= 0) {
         document.querySelector('#grecaptcha-required').style.display = 'none';
     } else {
-        $element.siblings('[data-toggle="tooltip"]')
-        .removeClass('far fa-times')
-        .addClass('far fa-check')
-        .tooltip('dispose')
-      .closest('.form-group')
-        .removeClass('has-error')
-        .addClass('has-success');
+        element.classList.add('is-valid');
     }
 }
 

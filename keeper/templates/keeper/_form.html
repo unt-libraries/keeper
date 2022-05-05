@@ -47,7 +47,7 @@
             </label>
 
             {{ accession_form.first_name|add_class:'form-control' }}
-            <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
         </div><!-- form-group -->
 
         <div class="form-group col-sm-6 has-feedback">
@@ -55,7 +55,7 @@
                 {{ accession_form.last_name.label }} *
             </label>
             {{ accession_form.last_name|add_class:'form-control' }}
-            <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
         </div><!-- form-group -->
     </div><!-- row -->
 
@@ -65,7 +65,7 @@
                 {{ accession_form.affiliation.label }} *
             </label>
             {{ accession_form.affiliation|add_class:'form-control' }}
-            <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
             <small class="form-text text-muted">Select the option that best describes your
             relationship with UNT.</small>
         </div><!-- form-group -->
@@ -77,7 +77,7 @@
                 {{ accession_form.organization.label }}
             </label>
             {{ accession_form.organization|add_class:'form-control' }}
-            <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
         </div><!-- form-group -->
         {% endif %}
 
@@ -86,7 +86,7 @@
                 {{ accession_form.email_address.label }} *
             </label>
             {{ accession_form.email_address|add_class:'form-control' }}
-            <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
             <small class="form-text text-muted">We'll only email you if we have questions about your submission.</small>
         </div><!-- form-group -->
 
@@ -95,7 +95,7 @@
                 {{ accession_form.phone_number.label }}
             </label>
             {{ accession_form.phone_number|add_class:'form-control' }}
-            <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
         </div><!-- form-group -->
 
         <div class="form-group has-feedback">
@@ -104,7 +104,7 @@
             </label>
             <div class="form__field">
                 {{ accession_form.description|add_class:'form-control' }}
-                <span class="form-control-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+                <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
                 <small class="form-text text-muted">
                     Tell us about the files you are submitting-- who, what,
                     where, and when is a good place to start. The more information
@@ -113,7 +113,8 @@
             </div><!-- form__field -->
         </div><!-- form-group -->
 
-        <div id="checkbox" class="form-check form-group">
+        <div id="checkbox" class="form-group">
+          <div class="form-check">
             <label class="form-check-label form__label form__label--checkbox" for="donate-authorization">
                 <span id="checkboxTooltip" data-toggle="tooltip" ></span>
                 <input class="form-check-input form__input form__input--checkbox" id="donate-authorization"
@@ -122,14 +123,16 @@
                 and unconditionally give, donate and bestow the materials submitted
                 to the University of North Texas Libraries.
             </label>
+            <div class="invalid-feedback">Please affirm ownership by checking the box.</div>
+          </div>
+
         </div>
 
         <div class="form-group">
             {{ accession_form.captcha.errors }}
-            <div id="grecaptcha" class="g-recaptcha"></div>
-            <span id="grecaptcha-required" class="error" style="display:none;">reCaptcha is required.</span>
+            <div id="grecaptcha" class="g-recaptcha" data-callback="recaptcha_success"></div>
+            <div id="grecaptcha-required" class="error invalid-feedback" style="display:none;">reCaptcha is required.</div>
         </div>
-
 
         <button class="btn btn-success" id="submitButton" type="submit" disabled="disabled">
             <i class="fas fa-cloud-upload-alt"></i>

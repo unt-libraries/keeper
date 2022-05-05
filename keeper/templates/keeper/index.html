@@ -26,12 +26,24 @@
   <script src="{% static 'keeper/js/scripts.min.js' %}"></script>
 
   <script>
+  // Callback to hide error message after success
+  function recaptcha_success() {
+    const recaptchaEl = document.getElementById('grecaptcha-required');
+    recaptchaEl.style.display = 'none';
+  }
+
   // Callback function necessary to load and require reCaptcha.
   function onloadCallback() {
       grecaptcha.render('grecaptcha',
               {'sitekey': '6LfQFhETAAAAABopDQ0TfxRwDZ1_DYLzlPd61icH'}
       );
-      $('#g-recaptcha-response').parsley({'required': 'true'});
+      const $gRecaptchaResponse = $('#g-recaptcha-response');
+      $gRecaptchaResponse
+        .attr('data-parsley-required', true)
+        .attr('data-parsley-captcha-validation', true)
+        .attr('data-parsley-error-message', "We know it, but we need you to confirm you are not a robot. Thanks.")
+        .attr('data-parsley-errors-container', "#grecaptcha-required");
+      $gRecaptchaResponse.parsley({'required': 'true'});
   }
   </script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
