@@ -1,7 +1,7 @@
 <div class="results-container card-body" id="resultsContainer">
     <div class="results" id="results">
 
-        <h2>Thank you for sharing your UNT memories with us, <span id="resultsFirstName">{{ request.session.accession.first_name }}</span>!</h2>
+        <h2 class="pb-3">Thank you for sharing your UNT memories with us, <span id="resultsFirstName">{{ request.session.accession.first_name }}</span>!</h2>
         <p class="text-muted">Your submission number is {{ request.session.accession.accession_id }}.</p>
 
         <p class="text-muted">Your submission will be reviewed by archivists in UNT Special Collections department. Please
@@ -9,18 +9,18 @@
 
         <a href="{% url 'keeper:index' %}" class="btn btn-unt-green">Upload more files!</a>
 
-        <h3><a href="https://support.library.unt.edu/give/special-collections" target="_blank">Donate to UNT Special Collections</a></h3>
+        <h3 class="pt-3"><a href="https://support.library.unt.edu/give/special-collections" target="_blank">Donate to UNT Special Collections</a></h3>
 
         <p class="text-muted">Your donations make projects like this possible.</p>
 
-        <h3><a href="http://unt.us3.list-manage1.com/subscribe?u=72a1a94ff3d43fe1a3020d9cd&id=55d84e364e" id="archive-email-newsletter" target="_blank">
+        <h3 class="pb-3"><a href="http://unt.us3.list-manage1.com/subscribe?u=72a1a94ff3d43fe1a3020d9cd&id=55d84e364e" id="archive-email-newsletter" target="_blank">
             Subscribe to our E-mail Newsletter <i class="fas fa-external-link-alt"></i>
         </a></h3>
 
         <h3>Share</h3>
 
-        <div class="btn-group d-flex" role="group">
-            <a class="btn btn-forest-green w-100" target="_blank"
+        <div class="btn-group d-flex my-3" role="group">
+            <a class="btn btn-info w-100" target="_blank"
                 href="https://twitter.com/share?url={{ request.build_absolute_uri|urlencode }}&text={{ "I just shared my memories with the UNT Library!"|urlencode }}">
                 <i class="fab fa-twitter"></i> Tweet
             </a>

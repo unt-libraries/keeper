@@ -37,13 +37,13 @@
       grecaptcha.render('grecaptcha',
               {'sitekey': '6LfQFhETAAAAABopDQ0TfxRwDZ1_DYLzlPd61icH'}
       );
-      const $gRecaptchaResponse = $('#g-recaptcha-response');
-      $gRecaptchaResponse
-        .attr('data-parsley-required', true)
-        .attr('data-parsley-captcha-validation', true)
-        .attr('data-parsley-error-message', "We know it, but we need you to confirm you are not a robot. Thanks.")
-        .attr('data-parsley-errors-container', "#grecaptcha-required");
-      $gRecaptchaResponse.parsley({'required': 'true'});
+      const gRecaptchaResponse = document.getElementById('g-recaptcha-response');
+      gRecaptchaResponse.dataset.parsleyRequired = 'true';
+      gRecaptchaResponse.dataset.parsleyCaptchaValidation = 'true';
+      gRecaptchaResponse.dataset.parsleyErrorMessage = 'Please confirm you are not a robot. Thanks.';
+      gRecaptchaResponse.dataset.parsleyErrorsContainer = '#grecaptcha-required';
+
+      $(gRecaptchaResponse).parsley({'required': 'true'});
   }
   </script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
