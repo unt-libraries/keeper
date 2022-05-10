@@ -1,7 +1,17 @@
 {% extends "admin/base.html" %}
+{% load static %}
 
 {% block extrastyle %}
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-brands-400.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-solid-900.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-regular-400.woff' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-duotone-900.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-light-300.woff2' %}" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet"
+          href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/css/all.min.css' %}?v=5.7.2"
+          media="print"
+          onload="this.media='all'; this.onload=null;">
 {% endblock extrastyle %}
 
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
