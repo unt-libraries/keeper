@@ -6,7 +6,7 @@
     "name": "Jason Ellis",
     "email": "jason.ellis@unt.edu"
   },
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.2.1",
   "scripts": {
     "startMysql": "sudo /etc/init.d/mysql start",
     "migrateDev": "python manage.py migrate --settings=tests.settings.dev",
