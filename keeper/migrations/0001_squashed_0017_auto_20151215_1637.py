@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='accession',
             name='accession_status',
-            field=models.CharField(default=b'NEW', max_length=5, blank=True, choices=[(b'NEW', b'New'), (b'REV', b'Under Review'), (b'ACC', b'Accepted'), (b'REJ', b'Rejected')]),
+            field=models.CharField(default='NEW', max_length=5, blank=True, choices=[('NEW', 'New'), ('REV', 'Under Review'), ('ACC', 'Accepted'), ('REJ', 'Rejected')]),
         ),
         migrations.AddField(
             model_name='accession',
@@ -83,7 +83,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='accession',
             name='affiliation',
-            field=models.CharField(max_length=5, choices=[(b'STU', b'Student'), (b'FAC', b'Faculty'), (b'STA', b'Staff'), (b'ALU', b'Alumni'), (b'OTH', b'Other')]),
+            field=models.CharField(max_length=5, choices=[('STU', 'Student'), ('FAC', 'Faculty'), ('STA', 'Staff'), ('ALU', 'Alumni'), ('OTH', 'Other')]),
         ),
         migrations.AddField(
             model_name='accession',

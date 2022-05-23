@@ -81,7 +81,7 @@ you may find it [here](https://docs.python.org/3.8/library/venv.html).
     mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
     ```
 
-7. Create a new database in MySQL, grant privileges, and add the name to secrets.json
+7. Create a new database in MySQL, create a new user, grant privileges, and add the name to secrets.json
 
     ```bash
     mysql -u root -p
@@ -89,9 +89,8 @@ you may find it [here](https://docs.python.org/3.8/library/venv.html).
 
     ```mysql
     mysql> CREATE DATABASE keeper;
-    Query OK, 1 row affected (0.00 sec)
+    mysql> CREATE USER 'keeper'@'localhost' IDENTIFIED BY 'yourpassword';
     mysql> GRANT ALL PRIVILEGES ON keeper.* to 'keeper'@'localhost';
-    Query OK, 0 rows affected (0.02 sec)
     ```
 
 8. Run the migrate command with the settings argument. In this case, we're using dev settings.

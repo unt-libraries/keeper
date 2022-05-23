@@ -43,12 +43,12 @@ class Accession(models.Model):
     description = models.TextField(blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    affiliation = models.CharField(max_length=5, choices=AFFILIATION_CHOICES)
+    affiliation = models.CharField(max_length=25, choices=AFFILIATION_CHOICES)
     organization_name = models.CharField(blank=True, max_length=255)
     email_address = models.EmailField()
     phone_number = models.CharField(max_length=25, blank=True)
     admin_notes = models.TextField(blank=True)
-    accession_status = models.CharField(max_length=5,
+    accession_status = models.CharField(max_length=25,
                                         blank=True,
                                         choices=STATUS_CHOICES,
                                         default=NEW)
