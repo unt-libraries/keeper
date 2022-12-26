@@ -7,7 +7,7 @@ install_requires = [
     'mysqlclient==1.3.7',
     'python-magic==0.4.10',
     'Unipath==1.1',
-    'wheel==0.24.0',
+    'wheel==0.38.1',
     'zipstream==1.1.3',
 ]
 
