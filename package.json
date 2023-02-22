@@ -9,7 +9,7 @@
   "devDependencies": {
     "babel-preset-env": "^1.6.0",
     "babelify": "^7.2.0",
-    "bootstrap-sass": "^3.3.6",
+    "bootstrap-sass": "^3.4.1",
     "browserify": "^14.4.0",
     "dropzone-js": "git://github.com/enyo/dropzone.git#v4.3.0",
     "gulp": "^3.9.0",
