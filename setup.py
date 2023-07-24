@@ -2,13 +2,13 @@
 from setuptools import setup, find_packages
 
 install_requires = [
-    'django-parsley==0.6',
-    'django-recaptcha==1.0.4',
-    'mysqlclient==1.3.7',
-    'python-magic==0.4.10',
-    'Unipath==1.1',
-    'wheel==0.24.0',
-    'zipstream==1.1.3',
+    'django-parsley',
+    'django-recaptcha',
+    'mysqlclient',
+    'python-magic',
+    'Unipath',
+    'wheel==0.41.0',
+    'zipstream',
 ]
 
 setup(

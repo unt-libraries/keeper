@@ -11,7 +11,7 @@ Requirements
 ------------
 
 * [Python 3.5+](https://www.python.org/downloads/)
-* [Django 1.8](https://www.djangoproject.com/download/)
+* [Django 4](https://www.djangoproject.com/download/)
 * [MySQL](https://www.mysql.com/) or other database for Django
 * [Yarn](https://yarnpkg.com/en/) or [npm](https://www.npmjs.com/)
 
@@ -58,8 +58,8 @@ you may find it [here](https://docs.python.org/3.8/library/venv.html).
 
     Depending your installation, you may need to use the `pip3` command instead.
 
-    If you receive MySQL-related errors, you may need to install `libmysqlclient-dev` separately
-    from your package manager. You will also need `python3-dev` if you don't already have it installed.
+    If you receive MySQL-related errors, you may need to install `libmysqlclient-dev` on Linux or 
+    `brew install mysql` on MacOS. You will also need `python3-dev` if you don't already have it installed.
 
     If you get an error that `bdist_wheel` is not installed, run `pip install wheel` and then run the requirements
     installation command again.
@@ -71,26 +71,26 @@ you may find it [here](https://docs.python.org/3.8/library/venv.html).
     ```
 
 6. Create a MySQL user and add credentials to `secrets.json`. Depending on your OS, MySQL may be started
-    with `sudo /etc/init.d/mysql start`.
+    with `sudo /etc/init.d/mysql start`. Skip this step if you already have a MySQL admin user.
 
     ```bash
     mysql -u root -p
     ```
 
     ```mysql
-    mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+    mysql> CREATE USER 'keeper_admin'@'localhost' IDENTIFIED BY '<new_password>';
     ```
 
-7. Create a new database in MySQL, create a new user, grant privileges, and add the name to secrets.json
+7. Use your admin to create a new database in MySQL, create a new user, grant privileges, and add the name to secrets.json
 
     ```bash
-    mysql -u root -p
+    mysql -u keeper_admin -p
     ```
 
     ```mysql
     mysql> CREATE DATABASE keeper;
-    mysql> CREATE USER 'keeper'@'localhost' IDENTIFIED BY 'yourpassword';
-    mysql> GRANT ALL PRIVILEGES ON keeper.* to 'keeper'@'localhost';
+    mysql> CREATE USER 'keeper_user'@'localhost' IDENTIFIED BY '<new_password>';
+    mysql> GRANT ALL PRIVILEGES ON keeper.* to 'keeper_user'@'localhost';
     ```
 
 8. Run the migrate command with the settings argument. In this case, we're using dev settings.
@@ -182,6 +182,31 @@ This project uses Yarn, but you can use NPM if you'd like.
 * `$ gulp scripts:watch` to watch for changes
 
 Gulp configuration can be changed in `gulp/config.js`.
+
+Testing
+-------
+
+Tests are written with [pytest](https://docs.pytest.org/en/latest/),
+[pytest-django](https://pytest-django.readthedocs.io/en/latest/), and [tox](https://tox.readthedocs.io/en/latest/).
+You will need to install both the development requirements and test requirements to run tests.
+
+```bash
+(.venv) $ pip install -r requirements/dev.txt
+(.venv) $ pip install -r requirements/test.txt
+```
+
+You will also need to ensure that your mysql user has the ability to create databases. This can be done with the
+following command:
+
+```mysql
+mysql> GRANT CREATE ON *.* TO 'keeper_user'@'localhost';
+```
+
+To run the tests, use the `tox` command in the project root.
+
+```bash
+(.venv) $ tox
+```
 
 License
 -------

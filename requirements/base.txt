@@ -4,5 +4,5 @@ django-recaptcha==3.0.0
 mysqlclient==2.1.0
 python-magic==0.4.25
 Unipath==1.1
-wheel==0.37.1
+wheel==0.41.0
 zipstream==1.1.4

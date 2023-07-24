@@ -13,7 +13,8 @@
     "devServer": "python manage.py runserver --settings=tests.settings.dev",
     "buildCss": "yarn gulp sass",
     "buildScripts": "yarn gulp scripts",
-    "watchAssets": "yarn gulp"
+    "watchAssets": "yarn gulp",
+    "test": "tox"
   },
   "devDependencies": {
     "@babel/core": "7.17.7",
