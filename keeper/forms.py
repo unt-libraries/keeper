@@ -9,20 +9,18 @@ from .models import Accession, File
 
 @parsleyfy
 class AccessionForm(ModelForm):
-    captcha = ReCaptchaField()
-
-    # No captcha if in DEBUG mode
-    if getattr(settings, 'DEBUG', False):
-        captcha.clean = lambda x: x[0]
-
     class Meta:
         model = Accession
         fields = ['first_name', 'last_name', 'email_address',
-                  'phone_number', 'description', 'affiliation', 'captcha']
+                  'phone_number', 'description', 'affiliation']
 
         widgets = {
             'description': Textarea(attrs={'rows': 5})
         }
+
+    if not getattr(settings, 'DEBUG', False):
+        # Only include the captcha field if not in DEBUG mode
+        captcha = ReCaptchaField()
 
 
 @parsleyfy
