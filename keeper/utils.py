@@ -37,7 +37,7 @@ Included files:
         "donor_name": accession.full_name,
         "affiliation": [item[1] for item in Accession.AFFILIATION_CHOICES if item[0] == accession.affiliation][0],
         "email_address": accession.email_address,
-        "phone_number": accession.email_address,
+        "phone_number": accession.phone_number,
         "admin_notes": accession.admin_notes,
         "accession_status": [item[1] for item in Accession.STATUS_CHOICES if item[0] == accession.accession_status][0],
         "related_files": related_files

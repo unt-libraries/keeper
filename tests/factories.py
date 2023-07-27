@@ -1,5 +1,5 @@
 import factory
-from factory import fuzzy
+from factory import fuzzy, faker
 
 from django.utils import timezone
 
@@ -15,12 +15,12 @@ class AccessionFactory(factory.django.DjangoModelFactory):
     date_submitted = fuzzy.FuzzyDateTime(timezone.now())
     date_last_updated = fuzzy.FuzzyDateTime(timezone.now())
     description = fuzzy.FuzzyText()
-    first_name = fuzzy.FuzzyText()
-    last_name = fuzzy.FuzzyText()
+    first_name = faker.Faker('first_name')
+    last_name = faker.Faker('last_name')
     affiliation = fuzzy.FuzzyChoice(key for key, _ in Accession.AFFILIATION_CHOICES)
     organization_name = fuzzy.FuzzyText()
-    email_address = factory.lazy_attribute(lambda o: o.first_name + '@example.com')
-    phone_number = fuzzy.FuzzyText()
+    email_address = faker.Faker('email')
+    phone_number = faker.Faker('phone_number')
     admin_notes = fuzzy.FuzzyText()
     accession_status = fuzzy.FuzzyChoice(key for key, _ in Accession.STATUS_CHOICES)
 
@@ -33,5 +33,5 @@ class FileFactory(factory.django.DjangoModelFactory):
     file = factory.django.FileField()
     accession = factory.SubFactory(AccessionFactory)
     file_description = fuzzy.FuzzyText()
-    content_type = fuzzy.FuzzyText()
+    content_type = faker.Faker('mime_type')
     date_file_submitted = fuzzy.FuzzyDateTime(timezone.now())
