@@ -11,7 +11,7 @@ class AccessionFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Accession
 
-    id = fuzzy.FuzzyInteger(1, 1000)
+    id = factory.Sequence(lambda n: n + 1)
     date_submitted = fuzzy.FuzzyDateTime(timezone.now())
     date_last_updated = fuzzy.FuzzyDateTime(timezone.now())
     description = fuzzy.FuzzyText()

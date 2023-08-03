@@ -6,7 +6,7 @@ from django.utils.html import format_html
 from private_storage.fields import PrivateFileField
 
 from .constants import ACCEPTED_FILE_TYPES
-from .validators import validate_file_type
+from .validators import validate_file_type, validate_file_size
 
 
 class Accession(models.Model):
@@ -69,7 +69,7 @@ def file_upload_location(instance, filename):
 
 
 class File(models.Model):
-    file = PrivateFileField(upload_to=file_upload_location, validators=[validate_file_type])
+    file = PrivateFileField(upload_to=file_upload_location, validators=[validate_file_type, validate_file_size])
     accession = models.ForeignKey('Accession', on_delete=models.CASCADE)
     file_description = models.TextField(blank=True)
     content_type = models.CharField(max_length=255, blank=True)
