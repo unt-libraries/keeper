@@ -112,6 +112,9 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+# Upload settings
+MAX_UPLOAD_SIZE = 4 * 1024 * 1024 * 1024  # 4 GB
+
 # Settings for reCAPTCHA
 
 RECAPTCHA_PUBLIC_KEY = get_secret('RECAPTCHA_PUBLIC_KEY')
