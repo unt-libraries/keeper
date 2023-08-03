@@ -14,7 +14,7 @@ def accession():
     return AccessionFactory()
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 def test_zip_files(accession):
     # Create a user
     user = User.objects.create_user(username='test', password='test')
@@ -44,7 +44,7 @@ def test_zip_files(accession):
     expected_files = {f"{accession.pk}/{file1_name}", f"{accession.pk}/{file2_name}", f"metadata.txt"}
     assert set(zip_file.namelist()) == expected_files
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 def test_zip_files_no_files(admin_client, accession):
     # Call the zip_files view
     url = f'/admin/keeper/accession/{accession.pk}_zip'
@@ -53,7 +53,7 @@ def test_zip_files_no_files(admin_client, accession):
     # Check that a 404 error is raised
     assert response.status_code == 404
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 def test_zip_files_non_existent_accession(admin_client):
     # Call the zip_files view with a non-existent Accession id
     url = '/admin/keeper/accession/999999_zip'
@@ -62,7 +62,7 @@ def test_zip_files_non_existent_accession(admin_client):
     # Check that a 404 error is raised
     assert response.status_code == 404
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 def test_zip_files_without_login(client, accession):
     # Call the zip_files view without logging in
     url = f'/admin/keeper/accession/{accession.pk}_zip'
@@ -71,7 +71,7 @@ def test_zip_files_without_login(client, accession):
     # Check that the response is a redirect to the login page
     assert response.status_code == 302
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 def test_zip_files_metadata_contents(admin_client):
     # Create an Accession object and related File objects
     accession = AccessionFactory()

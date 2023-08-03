@@ -10,7 +10,7 @@ def accession():
     return AccessionFactory()
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 class TestAccessionAdmin:
     def test_load_accession_admin(self, admin_client, accession):
         url = reverse('admin:keeper_accession_change', args=(accession.id,))

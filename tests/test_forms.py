@@ -7,7 +7,7 @@ from keeper.constants import ACCEPTED_FILE_TYPES
 from .factories import AccessionFactory, FileFactory
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 class TestAccessionForm:
     def test_valid_form(self):
         accession = AccessionFactory()
@@ -68,7 +68,7 @@ class TestAccessionForm:
         assert 'This field is required.' in form.errors['affiliation']
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 class TestFileForm:
     def test_valid_form(self):
         content = b"file_content"

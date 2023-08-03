@@ -6,7 +6,7 @@ from .factories import AccessionFactory, FileFactory
 from keeper import urls
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 class TestUrls:
     def test_admin_url(self, client, admin_client):
         response = client.get('/admin/')

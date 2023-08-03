@@ -13,7 +13,7 @@ from keeper.models import File, Accession
 from .factories import AccessionFactory, FileFactory
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 class TestAccession:
     def test_full_name(self):
         accession = AccessionFactory()
@@ -84,7 +84,7 @@ class TestAccession:
             assert accession.date_last_updated == timezone.now()
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 class TestFile:
     def test_get_filename(self):
         file = FileFactory()
@@ -150,7 +150,7 @@ class TestFile:
         assert file.file_description == file_description
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=True)
 class TestModelRelationships:
     def test_accession_deletion_removes_files(self):
         accession = AccessionFactory()
