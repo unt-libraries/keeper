@@ -5,7 +5,7 @@ from django.db import migrations, models
 import datetime
 import keeper.validators
 import keeper.models
-from django.utils.timezone import utc
+from datetime import timezone
 
 
 class Migration(migrations.Migration):
@@ -93,7 +93,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='accession',
             name='date_last_updated',
-            field=models.DateTimeField(default=datetime.datetime(2015, 12, 14, 18, 0, 56, 364369, tzinfo=utc), auto_now=True),
+            field=models.DateTimeField(default=datetime.datetime(2015, 12, 14, 18, 0, 56, 364369, tzinfo=timezone.utc), auto_now=True),
             preserve_default=False,
         ),
         migrations.AlterField(

@@ -1,5 +1,6 @@
 import pytest
 from django.utils import timezone
+from datetime import timezone as tz
 
 from keeper.utils import generate_data_file, format_datetime
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -42,7 +43,7 @@ def test_generate_data_file(tmpdir):
 
 def test_format_datetime():
     # Test with a specific date and time
-    dt = timezone.make_aware(timezone.datetime(2023, 8, 12, 15, 30), timezone=timezone.utc)
+    dt = timezone.make_aware(timezone.datetime(2023, 8, 12, 15, 30), timezone=tz.utc)
     assert format_datetime(dt) == "2023-08-12 03:30 PM  UTC"
 
     # Test with current datetime
