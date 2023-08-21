@@ -1,7 +1,7 @@
 django-parsley==0.7
 django-private-storage==3.1
 django-recaptcha==3.0.0
-mysqlclient==2.2.0
+psycopg2==2.9.7
 python-magic==0.4.27
 Unipath==1.1
 wheel==0.41.0
