@@ -5,13 +5,12 @@ services:
     build:
       context: .
       dockerfile: Containerfile.prod
-    command: uwsgi --ini /keeper/uwsgi.ini --env DJANGO_SETTINGS_MODULE=${SETTINGS_MODULE}
-#    command: python manage.py runserver 0.0.0.0:8000 --settings=$SETTINGS_MODULE
+    command: uwsgi --ini uwsgi.ini --env DJANGO_SETTINGS_MODULE=${SETTINGS_MODULE}
     ports:
       - "8000:8000"
     env_file:
       # podman-compose currently does not work with any other env_file names
-      - .env.prod
+      - .env
     depends_on:
       - db
   db:
@@ -20,12 +19,11 @@ services:
       - ./postgres_data:/var/lib/pg_data
     env_file:
       # podman-compose currently does not work with any other env_file names
-      - .env.prod.db
+      - .env
     environment:
-      - POSTGRES_DB=${DATABASES_NAME}
-      - POSTGRES_USER=${DATABASES_USER}
-      - POSTGRES_PASSWORD=${DATABASES_PASSWORD}
-#    user: ${POSTGRES_UID}:${POSTGRES_GID}
+      POSTGRES_DB: $DATABASES_NAME
+      POSTGRES_USER: $DATABASES_USER
+      POSTGRES_PASSWORD: $DATABASES_PASSWORD
 
 volumes:
   postgres_data:

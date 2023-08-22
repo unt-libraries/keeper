@@ -24,7 +24,6 @@ services:
       POSTGRES_DB: $DATABASES_NAME
       POSTGRES_USER: $DATABASES_USER
       POSTGRES_PASSWORD: $DATABASES_PASSWORD
-#    user: $POSTGRES_UID:$POSTGRES_GID
 
 volumes:
   postgres_data:

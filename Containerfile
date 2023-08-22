@@ -1,4 +1,4 @@
-FROM docker.io/python:3.9-slim-bullseye
+FROM docker.io/python:3.11-slim-bullseye
 
 # set environment variables
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1

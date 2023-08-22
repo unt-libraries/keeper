@@ -1,35 +1,4 @@
-# =============================================================================
-# BUILDER
-# =============================================================================
-
-FROM docker.io/python:3.9-slim-bullseye as builder
-
-# create and set working directory
-WORKDIR /keeper
-
-# set environment variables
-ENV PIP_DISABLE_PIP_VERSION_CHECK=1
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-# install system dependencies
-RUN apt-get update && apt-get install -y \
-    python3-dev \
-    build-essential \
-    libpq-dev \
-    netcat \
-    libmagic-dev
-
-# install python dependencies
-COPY requirements/ /keeper/requirements/
-RUN pip install --upgrade pip && pip install -r requirements/prod.txt
-
-
-# =============================================================================
-# FINAL
-# =============================================================================
-
-FROM docker.io/python:3.9-slim-bullseye
+FROM docker.io/python:3.11-slim-bullseye
 
 # create directory for the app user
 RUN mkdir -p /home/keeper
@@ -43,18 +12,18 @@ ENV APP_HOME=/keeper
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-# create location for uwsgi socket
-RUN mkdir -p /tmp/uwsgi
+# set environment variables
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # install system dependencies
 RUN apt-get update && apt-get install -y \
     python3-dev \
-    build-essential \
+    gcc \
     libpq-dev \
     netcat \
-    libmagic-dev \
-    uwsgi \
-    uwsgi-plugin-python3
+    libmagic-dev
 
 # install python dependencies
 COPY requirements/ $APP_HOME/requirements/
