@@ -5,9 +5,11 @@ ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# create and set working directory
-RUN mkdir /keeper
-WORKDIR /keeper
+# create directories
+RUN mkdir -p /app/keeper
+RUN mkdir /app/private-media
+RUN mkdir /app/postgres_data
+WORKDIR /app/keeper
 
 # install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -18,16 +20,16 @@ RUN apt-get update && apt-get install -y \
     libmagic-dev
 
 # install python dependencies
-COPY requirements/ /keeper/requirements/
+COPY requirements/ /app/keeper/requirements/
 RUN pip install --upgrade pip && pip install -r requirements/dev.txt
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh .
-RUN sed -i 's/\r$//g' /keeper/entrypoint.sh
-RUN chmod +x /keeper/entrypoint.sh
+RUN sed -i 's/\r$//g' /app/keeper/entrypoint.sh
+RUN chmod +x /app/keeper/entrypoint.sh
 
 # copy project
 COPY . .
 
 # run entrypoint.sh
-ENTRYPOINT ["/keeper/entrypoint.sh"]
+ENTRYPOINT ["/app/keeper/entrypoint.sh"]

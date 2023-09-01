@@ -79,7 +79,7 @@ target/
 
 # User uploaded files
 /media/uploads
-/private-media/uploads
+/private-media
 
 # Virtual Environment
 .venv/

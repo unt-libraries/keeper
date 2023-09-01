@@ -6,8 +6,11 @@ services:
       context: .
       dockerfile: Containerfile.prod
     command: uwsgi --ini uwsgi.ini --env DJANGO_SETTINGS_MODULE=${SETTINGS_MODULE}
-    ports:
-      - "8000:8000"
+    volumes:
+      - static_volume:/app/keeper/static
+      - $PRIVATE_MEDIA_DIR:/app/private-media
+    expose:
+      - "8000"
     env_file:
       # podman-compose currently does not work with any other env_file names
       - .env
@@ -16,14 +19,27 @@ services:
   db:
     image: postgres:15.4
     volumes:
-      - ./postgres_data:/var/lib/pg_data
+      - $POSTGRES_DATA_DIR:/var/lib/postgresql/data
     env_file:
       # podman-compose currently does not work with any other env_file names
       - .env
+    user: postgres
     environment:
       POSTGRES_DB: $DATABASES_NAME
       POSTGRES_USER: $DATABASES_USER
       POSTGRES_PASSWORD: $DATABASES_PASSWORD
-
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Containerfile
+    volumes:
+      - static_volume:/app/keeper/static
+      - $PRIVATE_MEDIA_DIR:/app/private-media
+    ports:
+      - "1337:80"
+    depends_on:
+      - web
 volumes:
+  static_volume:
+  private_media:
   postgres_data:

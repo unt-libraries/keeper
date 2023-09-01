@@ -8,8 +8,11 @@ RUN groupadd keeper && useradd -g keeper keeper
 
 # create directories and set environment variables
 ENV HOME=/home/keeper
-ENV APP_HOME=/keeper
-RUN mkdir $APP_HOME
+ENV APP_ROOT=/app
+ENV APP_HOME=/app/keeper
+RUN mkdir -p $APP_HOME
+RUN mkdir $APP_HOME/static
+RUN mkdir $APP_HOME/private-media
 WORKDIR $APP_HOME
 
 # set environment variables
@@ -38,10 +41,10 @@ RUN chmod +x $APP_HOME/entrypoint.prod.sh
 COPY . $APP_HOME
 
 # chown all the files to the app user
-RUN chown -R keeper:keeper $APP_HOME
+RUN chown -R keeper:keeper $APP_ROOT
 
 # change to the app user
 USER keeper
 
-# run entrypoint.sh
-ENTRYPOINT ["/keeper/entrypoint.prod.sh"]
+# run entrypoint.prod.sh
+ENTRYPOINT ["/app/keeper/entrypoint.prod.sh"]

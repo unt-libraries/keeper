@@ -9,22 +9,19 @@ MEDIA_ROOT = BASE_DIR.child('private-media')
 MEDIA_URL = '/private-media/'
 
 # Settings for Django Private Storage
-PRIVATE_STORAGE_ROOT = BASE_DIR.child('private-media')
+PRIVATE_STORAGE_ROOT = MEDIA_ROOT
 PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_staff'
 
 # Gets the site root (same level that project, apps, and templates lives on)
 SITE_ROOT = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
 
-# Gets the current release root (same level as the env)
-RELEASE_ROOT = os.path.realpath(os.path.dirname(os.path.dirname(SITE_ROOT)))
-
-STATIC_ROOT = os.path.join(RELEASE_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Not actually used right now, just needed for the staticfiles app.
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(RELEASE_ROOT, 'keeper/keeper/static'),
+    os.path.join(BASE_DIR, 'keeper/static'),
 ]
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
