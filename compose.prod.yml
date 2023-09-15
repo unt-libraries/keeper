@@ -19,11 +19,12 @@ services:
   db:
     image: postgres:15.4
     volumes:
-      - $POSTGRES_DATA_DIR:/var/lib/postgresql/data
+      # MacOS does not support :Z and will require another method of mounting a volume
+#      - $POSTGRES_DATA_DIR:/var/lib/postgresql/data:Z
+        - postgres_data:/var/lib/postgresql/data
     env_file:
       # podman-compose currently does not work with any other env_file names
       - .env
-    user: postgres
     environment:
       POSTGRES_DB: $DATABASES_NAME
       POSTGRES_USER: $DATABASES_USER
