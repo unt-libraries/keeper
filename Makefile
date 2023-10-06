@@ -2,7 +2,7 @@
 
 create-pod:
 	@echo "Creating keeperpod..."
-	@podman pod create --name keeperpod -p 1337:443 -p 8000:8000
+	@podman pod create --name keeperpod --userns=keep-id -p 1337:8443 -p 8000:8000
 
 create-dirs:
 	@echo "Creating directories..."
@@ -13,20 +13,21 @@ create-db:
 	@echo "Creating keeper_db container..."
 	@podman create --pod keeperpod \
 		--name keeper_db \
-		-v ../postgres_data:/var/lib/postgresql/data:Z \
+		-v ../postgres_data:/var/lib/postgresql/data \
+		-v /etc/passwd:/etc/passwd:ro \
 		--env-file .env \
-		postgres:15.4
+		docker.io/postgres:15.4
 
 build-web:
 	@echo "Building keeper_web_prod image..."
-	@podman build -t keeper_web_prod -f Containerfile.prod .
+	podman build -t keeper_web_prod -f Containerfile.prod .
 
 create-web:
 	@echo "Creating keeper_web container..."
 	@podman create --pod keeperpod \
 		--name keeper_web \
-		-v static_volume:/app/keeper/static \
-		-v ../private-media:/app/private-media:Z \
+		-v static_volume:/app/keeper/static:z \
+		-v ../private-media:/app/keeper/private-media:z \
 		--env-file .env \
 		--requires keeper_db \
 		keeper_web_prod uwsgi --ini uwsgi.ini --env DJANGO_SETTINGS_MODULE=tests.settings.production
@@ -34,17 +35,15 @@ create-web:
 build-nginx:
 	@echo "Building keeper_nginx_prod image..."
 	@podman build -t keeper_nginx_prod -f ./nginx/Containerfile ./nginx
-	# This part is only necessary during initial production development
-	@podman cp ../server.key keeper_nginx:/etc/ssl/private/server.key
-	@podman cp ../server.crt keeper_nginx:/etc/ssl/certs/server.crt
 
 create-nginx:
 	@echo "Creating keeper_nginx container..."
 	@podman create --pod keeperpod \
 		--name keeper_nginx \
-		-v static_volume:/app/keeper/static \
-		-v ../private-media:/app/private-media:Z \
-		-v ./nginx/nginx.conf:/etc/nginx/nginx.conf:Z \
+		-v static_volume:/app/keeper/static:z \
+		-v ../private-media:/app/keeper/private-media:z \
+		-v ./nginx/server.key:/etc/nginx/ssl/server.key \
+		-v ./nginx/server.crt:/etc/nginx/ssl/server.crt \
 		--requires keeper_web,keeper_db \
 		keeper_nginx_prod
 
@@ -59,6 +58,10 @@ migrate:
 collect-static:
 	@echo "Collecting static files..."
 	@podman exec keeper_web python manage.py collectstatic --noinput
+
+create-user:
+	@echo "Creating superuser..."
+	@podman exec -it keeper_web python manage.py createsuperuser
 
 build-all: create-pod create-dirs create-db build-web create-web build-nginx create-nginx start-pod migrate collect-static
 	@echo "All tasks completed successfully!"

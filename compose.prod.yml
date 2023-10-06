@@ -5,10 +5,10 @@ services:
     build:
       context: .
       dockerfile: Containerfile.prod
-    command: uwsgi --ini uwsgi.ini --env DJANGO_SETTINGS_MODULE=${SETTINGS_MODULE}
+    command: uwsgi --ini uwsgi.ini --env DJANGO_SETTINGS_MODULE=tests.settings.production
     volumes:
-      - static_volume:/app/keeper/static
-      - $PRIVATE_MEDIA_DIR:/app/private-media
+      - static_volume:/app/keeper/static:z
+      - ../private-media:/app/keeper/private-media:z
     expose:
       - "8000"
     env_file:
@@ -17,30 +17,28 @@ services:
     depends_on:
       - db
   db:
-    image: postgres:15.4
+    image: docker.io/postgres:15.4
     volumes:
       # MacOS does not support :Z and will require another method of mounting a volume
-#      - $POSTGRES_DATA_DIR:/var/lib/postgresql/data:Z
-        - postgres_data:/var/lib/postgresql/data
+#      - $POSTGRES_DATA_DIR:/var/lib/postgresql/data:z
+        - ../postgres_data:/var/lib/postgresql/data
+        - /etc/passwd:/etc/passwd:ro
     env_file:
       # podman-compose currently does not work with any other env_file names
       - .env
-    environment:
-      POSTGRES_DB: $DATABASES_NAME
-      POSTGRES_USER: $DATABASES_USER
-      POSTGRES_PASSWORD: $DATABASES_PASSWORD
   nginx:
     build:
       context: ./nginx
       dockerfile: Containerfile
     volumes:
-      - static_volume:/app/keeper/static
-      - $PRIVATE_MEDIA_DIR:/app/private-media
+      - static_volume:/app/keeper/static:z
+      - ../private-media:/app/keeper/private-media:z
+      - ./nginx/server.key:/etc/nginx/ssl/server.key
+      - ./nginx/server.crt:/etc/nginx/ssl/server.crt
     ports:
       - "1337:80"
     depends_on:
       - web
+      - db
 volumes:
   static_volume:
-  private_media:
-  postgres_data:
