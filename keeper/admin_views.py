@@ -21,7 +21,7 @@ def zip_files(request, app, model, pk):
     path = os.path.join(settings.MEDIA_ROOT, 'uploads', pk)
     queried_files = File.objects.filter(accession=pk)
 
-    if len(queried_files) is 0:
+    if len(queried_files) == 0:
         raise Http404
 
     filenames = [(str(f), f.file_description) for f in queried_files]

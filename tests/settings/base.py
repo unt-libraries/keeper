@@ -1,5 +1,4 @@
 import os
-import json
 from unipath import Path
 
 from django.core.exceptions import ImproperlyConfigured
@@ -10,41 +9,26 @@ MEDIA_ROOT = BASE_DIR.child('private-media')
 MEDIA_URL = '/private-media/'
 
 # Settings for Django Private Storage
-PRIVATE_STORAGE_ROOT = BASE_DIR.child('private-media')
+PRIVATE_STORAGE_ROOT = MEDIA_ROOT
 PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_staff'
 
 # Gets the site root (same level that project, apps, and templates lives on)
 SITE_ROOT = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
 
-# Gets the current release root (same level as the env)
-RELEASE_ROOT = os.path.realpath(os.path.dirname(os.path.dirname(SITE_ROOT)))
-
-STATIC_ROOT = os.path.join(RELEASE_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Not actually used right now, just needed for the staticfiles app.
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(RELEASE_ROOT, 'keeper/keeper/static'),
+    os.path.join(BASE_DIR, 'keeper/static'),
 ]
 
-# JSON-based secrets module
-with open(os.path.join(BASE_DIR, 'secrets.json')) as f:
-    secrets = json.loads(f.read())
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-
-def get_secret(setting, secrets=secrets):
-    """Get the secret variable or return explicit exception."""
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = 'Set the {0} environment variable'.format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-
-SECRET_KEY = get_secret('SECRET_KEY')
-
-ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
+# 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
+# For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
@@ -92,12 +76,12 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': get_secret('DATABASES_NAME'),
-        'USER': get_secret('DATABASES_USER'),
-        'PASSWORD': get_secret('DATABASES_PASSWORD'),
-        'HOST': get_secret('DATABASES_HOST'),
-        'PORT': get_secret('DATABASES_PORT'),
+        'ENGINE': os.environ.get('DATABASES_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('DATABASES_NAME', 'keeper.db'),
+        'USER': os.environ.get('DATABASES_USER', 'user'),
+        'PASSWORD': os.environ.get('DATABASES_PASSWORD', 'password'),
+        'HOST': os.environ.get('DATABASES_HOST', 'localhost'),
+        'PORT': os.environ.get('DATABASES_PORT', '5432'),
     }
 }
 
@@ -117,8 +101,8 @@ MAX_UPLOAD_SIZE = 4 * 1024 * 1024 * 1024  # 4 GB
 
 # Settings for reCAPTCHA
 
-RECAPTCHA_PUBLIC_KEY = get_secret('RECAPTCHA_PUBLIC_KEY')
-RECAPTCHA_PRIVATE_KEY = get_secret('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 NOCAPTCHA = True
 
 # Session settings

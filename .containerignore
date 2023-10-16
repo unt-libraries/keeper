@@ -4,12 +4,6 @@
 *.ipr
 *.iws
 
-### Environment secrets
-secrets.json
-.env
-.env.*
-!.env.template
-
 ### Python files
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -74,12 +68,9 @@ target/
 # Node.js modules
 /node_modules
 
-# Project database files
-/postgres_data
-
 # User uploaded files
 /media/uploads
-/private-media
+/private-media/uploads
 
 # Virtual Environment
 .venv/
@@ -96,4 +87,3 @@ target/
 # VS Code
 .history/
 
-.DS_Store

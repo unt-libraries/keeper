@@ -1,0 +1,41 @@
+FROM docker.io/python:3.11-slim-bullseye
+
+# create directory for the app user
+RUN mkdir -p /home/keeper
+
+# create directories and set environment variables
+ENV HOME=/home/keeper
+ENV APP_ROOT=/app
+ENV APP_HOME=/app/keeper
+RUN mkdir -p $APP_HOME
+RUN mkdir $APP_HOME/static
+RUN mkdir $APP_HOME/private-media
+WORKDIR $APP_HOME
+
+# set environment variables
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# install system dependencies
+RUN apt-get update && apt-get install -y \
+    python3-dev \
+    gcc \
+    libpq-dev \
+    netcat \
+    libmagic-dev
+
+# install python dependencies
+COPY requirements/ $APP_HOME/requirements/
+RUN pip install --upgrade pip && pip install -r requirements/prod.txt
+
+# copy entrypoint.prod.sh
+COPY ./entrypoint.prod.sh .
+RUN sed -i 's/\r$//g' $APP_HOME/entrypoint.prod.sh
+RUN chmod +x $APP_HOME/entrypoint.prod.sh
+
+# copy project
+COPY . $APP_HOME
+
+# run entrypoint.prod.sh
+ENTRYPOINT ["/app/keeper/entrypoint.prod.sh"]

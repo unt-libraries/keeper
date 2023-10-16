@@ -18,7 +18,7 @@ class AccessionForm(ModelForm):
             'description': Textarea(attrs={'rows': 5})
         }
 
-    if not getattr(settings, 'DEBUG', False):
+    if not getattr(settings, 'DEBUG', True):
         # Only include the captcha field if not in DEBUG mode
         captcha = ReCaptchaField()
 

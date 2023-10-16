@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Containerfile
+    command: python manage.py runserver 0.0.0.0:8000 --settings=$DJANGO_SETTINGS_MODULE
+    volumes:
+      - .:/app/keeper
+      - ./private-media:/app/private-media
+    ports:
+      - "8000:8000"
+    env_file:
+      # podman-compose currently does not work with any other env_file names
+      - .env
+    depends_on:
+      - db
+    userns_mode: "keep-id"
+  db:
+    image: docker.io/postgres:15.4
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    env_file:
+      # podman-compose currently does not work with any other env_file names
+      - .env
+    environment:
+      POSTGRES_DB: $DATABASES_NAME
+      POSTGRES_USER: $DATABASES_USER
+      POSTGRES_PASSWORD: $DATABASES_PASSWORD
+    userns_mode: "keep-id"
