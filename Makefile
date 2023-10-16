@@ -42,8 +42,8 @@ create-nginx:
 		--name keeper_nginx \
 		-v static_volume:/app/keeper/static:z \
 		-v ../private-media:/app/keeper/private-media:z \
-		-v ./nginx/server.key:/etc/nginx/ssl/server.key \
-		-v ./nginx/server.crt:/etc/nginx/ssl/server.crt \
+		-v ../ssl_certs/privkey.pem:/etc/nginx/ssl/privkey.pem \
+		-v ../ssl_certs/fullchain.pem:/etc/nginx/ssl/fullchain.pem \
 		--requires keeper_web,keeper_db \
 		keeper_nginx_prod
 
