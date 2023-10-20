@@ -2,7 +2,7 @@
 
 create-pod:
 	@echo "Creating keeperpod..."
-	@podman pod create --name keeperpod --userns=keep-id -p 1337:8443 -p 8000:8000
+	@podman pod create --name keeperpod --userns=keep-id -p 1337:8080 -p 8000:8000
 
 create-dirs:
 	@echo "Creating directories..."
@@ -42,14 +42,16 @@ create-nginx:
 		--name keeper_nginx \
 		-v static_volume:/app/keeper/static:z \
 		-v ../private-media:/app/keeper/private-media:z \
-		-v ../ssl_certs/privkey.pem:/etc/nginx/ssl/privkey.pem \
-		-v ../ssl_certs/fullchain.pem:/etc/nginx/ssl/fullchain.pem \
 		--requires keeper_web,keeper_db \
 		keeper_nginx_prod
 
 start-pod:
 	@echo "Starting keeperpod..."
 	@podman pod start keeperpod
+
+start-service:
+	@echo "Starting pod-keeperpod service..."
+	@systemctl --user start pod-keeperpod
 
 migrate:
 	@echo "Running migrations..."
@@ -69,6 +71,10 @@ build-all: create-pod create-dirs create-db build-web create-web build-nginx cre
 stop:
 	@echo "Stopping keeperpod..."
 	@podman pod stop keeperpod
+
+stop-service:
+	@echo "Stopping pod-keeperpod service..."
+	@systemctl --user stop pod-keeperpod
 
 remove:
 	@echo "Removing keeperpod..."
