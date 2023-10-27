@@ -83,3 +83,15 @@ remove:
 prune-all:
 	@echo "Pruning all podman stuff..."
 	@podman system prune --all --volumes
+
+recreate: stop remove build-all start-pod
+	@echo "Recreated keeperpod successfully!"
+
+recreate-service: stop-service remove build-all start-service
+	@echo "Recreated pod-keeperpod service successfully!"
+
+fresh-recreate: stop remove prune-all build-all start-pod
+	@echo "Freshly recreated keeperpod successfully!"
+
+fresh-recreate-service: stop-service remove prune-all build-all start-service
+	@echo "Freshly recreated pod-keeperpod service successfully!"
