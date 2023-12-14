@@ -10,109 +10,105 @@ the UNT Libraries Special Collections. It can be found at [https://www.library.u
 Requirements
 ------------
 
+* [Podman](https://podman.io/) or [Docker](https://www.docker.com/)
+  * This project was developed to run on rootless Podman. Docker may work as a dropin replacement, but it has not been tested.
+* [Podman Compose](https://github.com/containers/podman-compose)
+
+Optional:
 * [Python 3.5+](https://www.python.org/downloads/)
 * [Django 4](https://www.djangoproject.com/download/)
 * [MySQL](https://www.mysql.com/) or other database for Django
-* [Yarn](https://yarnpkg.com/en/) or [npm](https://www.npmjs.com/)
+* [Yarn](https://yarnpkg.com/en/)
 
-Installation
-------------
+Build
+Migrate, which will create private-media and postgres_data directories
+start prod
+collectstatic
+<!-- Change permissions for mounted directories -->
+<!-- podman machine ssh to run unshare -->
+make build-all
+make stop
+systemctl --user start pod-keeperpod
 
-It is recommended that you create a Python virtual environment (`venv`) for this project. Doing so will allow you to install
-the requirements locally for the project instead of installing to your system-wide Python environment. These
-instructions assume you're using Linux. If you are not, or want more information on Python virtual environments,
-you may find it [here](https://docs.python.org/3.8/library/venv.html).
+Dump data
+ssh libdigiapp15
+cd /home/keeper/current/keeper/
+source ../env/bin/activate
+python manage.py dumpdata --settings=tests.settings.production --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 > ~/datadump.json
 
-1. Install this project from GitHub.
+Installation for Development
+----------------------------
 
-    ```sh
-    pip install git+git://github.com/unt-libraries/keeper.git
-    ```
-
-2. Create a venv for this project by issuing the following command in the project root:
-
-    ```sh
-    python -m venv .venv
-    ```
-
-    It may be necessary for you to use `python3` instead of `python`. This creates a virtual environment in the `.venv`
-    directory in the project root. You may create your virtual environment in a different directory if you'd like, but this
-    location is already ignored by git.
-
-3. Activate your virtual environment with:
+1. Download this project from GitHub.
 
     ```sh
-    source .venv/bin/activate
+    git clone https://github.com/unt-libraries/keeper
     ```
 
-    Your command prompt should now be prepended by `(.venv)`, indicating that you are working on the virtual environment.
-    You should issue this command any time you begin working on the project.
-
-    You may deactivate the virtual environment with the `deactivate` command.
-
-4. Install the development environment requirements.
+2. Change the permissions on the `entrypoint.sh` file to allow it to be executed.
 
     ```bash
-    (.venv) $ pip install -r requirements/dev.txt
+    chmod +x entrypoint.sh
     ```
 
-    Depending your installation, you may need to use the `pip3` command instead.
+3. Copy .env.template to .env and edit the values as needed.
 
-    If you receive MySQL-related errors, you may need to install `libmysqlclient-dev` on Linux or 
-    `brew install mysql` on MacOS. You will also need `python3-dev` if you don't already have it installed.
+    ```bash
+    cp .env.template .env
+    ```
 
-    If you get an error that `bdist_wheel` is not installed, run `pip install wheel` and then run the requirements
-    installation command again.
+4. Build the containers with Podman Compose.
 
-5. Generate a secret key and copy it to your `secrets.json` file.
+    ```bash
+    yarn build
+    ```
+
+5. Start the containers with Podman Compose.
+
+    ```bash
+    yarn start
+    ```
+
+6. In a separate terminal, run the Django migrations.
+
+    ```bash
+    yarn migrate
+    ```
+
+7. Generate a secret key and copy it to your `.env` file.
 
     ```bash
     python -c 'import random; print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))'
     ```
 
-6. Create a MySQL user and add credentials to `secrets.json`. Depending on your OS, MySQL may be started
-    with `sudo /etc/init.d/mysql start`. Skip this step if you already have a MySQL admin user.
+8. Create a superuser for the Django admin site.
 
     ```bash
-    mysql -u root -p
+    yarn createsuperuser
     ```
 
-    ```mysql
-    mysql> CREATE USER 'keeper_admin'@'localhost' IDENTIFIED BY '<new_password>';
-    ```
-
-7. Use your admin to create a new database in MySQL, create a new user, grant privileges, and add the name to secrets.json
-
-    ```bash
-    mysql -u keeper_admin -p
-    ```
-
-    ```mysql
-    mysql> CREATE DATABASE keeper;
-    mysql> CREATE USER 'keeper_user'@'localhost' IDENTIFIED BY '<new_password>';
-    mysql> GRANT ALL PRIVILEGES ON keeper.* to 'keeper_user'@'localhost';
-    ```
-
-8. Run the migrate command with the settings argument. In this case, we're using dev settings.
-
-    ```bash
-    python manage.py migrate --settings=tests.settings.dev
-    ```
-
-9. Create a superuser for the Django admin site.
-
-    ```bash
-    python manage.py createsuperuser --settings=tests.settings.dev
-    ```
-
-10. Launch the Django development server.
-
-    ```bash
-    python manage.py runserver --settings=tests.settings.dev
-    ```
-
-    The app can be accessed at `http://localhost:8000` and the admin site can be accessed
+9. The app can be accessed at `http://localhost:8000` and the admin site can be accessed
     at `http://localhost:8000/admin`.
+
+
+Installation for Production
+---------------------------
+
+Building the project for production is similar to building for development, but there are a few key
+differences and it will take consideration of your production environment.
+
+Current Podman versions do not support env files named anything but `.env`, even if specified in
+the compose file, so the values will need to be changed in your `.env` file. There are prod versions
+of yarn commands that will use the prod compose file and prod Django settings.
+
+Because the version of Podman-compose available to our production servers does not support the
+necessary networking options, we used a Makefile and the Podman pods system. That file can be reviewed
+for the commands necessary to run the project in production.
+
+Production requires the collection of static files, which is not necessary in development.
+
+The location of `private-media` and `postgres_data` will need to be changed to match your production 
+environment. For our production environment, they are at the same level as the project directory, not inside it.
 
 Directory structure
 -------------------
@@ -129,23 +125,9 @@ Some (not all) notable directories and files:
 * `src/` - Source files for static JavaScript and CSS.
 * `tests/` - Django project directory.
   * `settings/` - Settings files for each environment, but most customization should be in secrets.json.
-* `secrets.json.template` - Use this to create `secrets.json` (see below) in the same directory.
 
 Configuration
 -------------
-
-Copy the contents of `secrets.json.template` to a new file named `secrets.json`
-
-* `FILENAME`: "secrets.json"
-* `SECRET_KEY`: Created by Django
-* `DATABASES_NAME`: Database name
-* `DATABASES_USER`: Database user
-* `DATABASES_PASSWORD`: Database password
-* `DATABASES_HOST`: "localhost" or database IP
-* `DATABASES_PORT`: Database port
-* `RECAPTCHA_PUBLIC_KEY`: Provided by [Google reCAPTCHA](https://www.google.com/recaptcha/admin)
-* `RECAPTCHA_PRIVATE_KEY`: Provided by [Google reCAPTCHA](https://www.google.com/recaptcha/admin)
-* `ALLOWED_HOSTS`: Allowed hosts for Django
 
 The app allows uploading of the following file MIME types. Accepted MIME types can be edited in
 `keeper/constants.py`.
@@ -171,20 +153,19 @@ Building static files
 
 If you make any changes to the JS or CSS in `src/`, you'll need to rebuild the static files.
 
-This project uses Yarn, but you can use NPM if you'd like.
-
 * `$ yarn` in project root to install `node_modules` dependencies
 * `$ gulp vendor-scripts` to copy vendor scripts from node_modules to static
-* `$ gulp` will generate CSS and JS and watch for changes
-* `$ gulp sass` to generate CSS
-* `$ gulp sass:watch` to watch for CSS changes
-* `$ gulp  scripts` to generate JS
-* `$ gulp scripts:watch` to watch for changes
+* `$ yarn watchAssets` will generate CSS and JS and watch for changes
+* `$ yarn buildCss` to generate CSS
+* `$ gulp buildScripts` to generate JS
+* `$ gulp vendor-scripts` to copy vendor scripts from yarn to static
 
 Gulp configuration can be changed in `gulp/config.js`.
 
 Testing
 -------
+
+WIP: TESTING DOCUMENTATION IS OUT OF DATE SINCE CONTAINERIZATION
 
 Tests are written with [pytest](https://docs.pytest.org/en/latest/),
 [pytest-django](https://pytest-django.readthedocs.io/en/latest/), and [tox](https://tox.readthedocs.io/en/latest/).

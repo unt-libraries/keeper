@@ -97,3 +97,7 @@ target/
 .history/
 
 .DS_Store
+postgres_data/
+private-media/
+
+.DS_Store

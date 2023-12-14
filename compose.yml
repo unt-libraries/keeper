@@ -16,11 +16,13 @@ services:
       - .env
     depends_on:
       - db
-    userns_mode: "keep-id"
   db:
     image: docker.io/postgres:15.4
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      # This volume works for MacOS
+      # - ./postgres_data:/var/lib/pg_data/
+      # This volume works for Linux
+      - postgres_data:/var/lib/postgresql/data
     env_file:
       # podman-compose currently does not work with any other env_file names
       - .env
@@ -28,4 +30,6 @@ services:
       POSTGRES_DB: $DATABASES_NAME
       POSTGRES_USER: $DATABASES_USER
       POSTGRES_PASSWORD: $DATABASES_PASSWORD
-    userns_mode: "keep-id"
+
+volumes:
+  postgres_data:
