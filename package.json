@@ -6,7 +6,7 @@
     "name": "Jason Ellis",
     "email": "jason.ellis@unt.edu"
   },
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "npm@11.0.0",
   "scripts": {
     "build": "podman-compose build",
     "buildProd": "podman-compose -f compose.prod.yml build",
@@ -23,9 +23,9 @@
     "webExec": "podman-compose exec web",
     "collectstatic": "podman-compose exec -e DJANGO_SETTINGS_MODULE=tests.settings.production web python manage.py collectstatic --noinput --clear",
     "prune": "podman system prune --all --volumes",
-    "buildCss": "yarn gulp sass",
-    "buildScripts": "yarn gulp scripts",
-    "watchAssets": "yarn gulp",
+    "buildCss": "npx gulp sass",
+    "buildScripts": "npx gulp scripts",
+    "watchAssets": "npx gulp",
     "test": "tox"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-notify": "^4.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "5.1.0",
+    "gulp-sass": "^6.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
@@ -52,7 +52,7 @@
     "popper.js": "1.16.1",
     "pretty-hrtime": "^1.0.3",
     "require-dir": "^1.2.0",
-    "sass": "^1.49.9",
+    "sass": "^1.83.4",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^4.0.0"

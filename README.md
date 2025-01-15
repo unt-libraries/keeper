@@ -18,23 +18,8 @@ Optional:
 * [Python 3.5+](https://www.python.org/downloads/)
 * [Django 4](https://www.djangoproject.com/download/)
 * [MySQL](https://www.mysql.com/) or other database for Django
-* [Yarn](https://yarnpkg.com/en/)
+* [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-Build
-Migrate, which will create private-media and postgres_data directories
-start prod
-collectstatic
-<!-- Change permissions for mounted directories -->
-<!-- podman machine ssh to run unshare -->
-make build-all
-make stop
-systemctl --user start pod-keeperpod
-
-Dump data
-ssh libdigiapp15
-cd /home/keeper/current/keeper/
-source ../env/bin/activate
-python manage.py dumpdata --settings=tests.settings.production --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 > ~/datadump.json
 
 Installation for Development
 ----------------------------
@@ -60,19 +45,19 @@ Installation for Development
 4. Build the containers with Podman Compose.
 
     ```bash
-    yarn build
+    npm run build
     ```
 
 5. Start the containers with Podman Compose.
 
     ```bash
-    yarn start
+    npm run start
     ```
 
 6. In a separate terminal, run the Django migrations.
 
     ```bash
-    yarn migrate
+    npm run migrate
     ```
 
 7. Generate a secret key and copy it to your `.env` file.
@@ -84,7 +69,7 @@ Installation for Development
 8. Create a superuser for the Django admin site.
 
     ```bash
-    yarn createsuperuser
+    npm run createsuperuser
     ```
 
 9. The app can be accessed at `http://localhost:8000` and the admin site can be accessed
@@ -99,7 +84,7 @@ differences and it will take consideration of your production environment.
 
 Current Podman versions do not support env files named anything but `.env`, even if specified in
 the compose file, so the values will need to be changed in your `.env` file. There are prod versions
-of yarn commands that will use the prod compose file and prod Django settings.
+of npm commands that will use the prod compose file and prod Django settings.
 
 Because the version of Podman-compose available to our production servers does not support the
 necessary networking options, we used a Makefile and the Podman pods system. That file can be reviewed
@@ -153,12 +138,12 @@ Building static files
 
 If you make any changes to the JS or CSS in `src/`, you'll need to rebuild the static files.
 
-* `$ yarn` in project root to install `node_modules` dependencies
+* `$ npm run install` in project root to install `node_modules` dependencies
 * `$ gulp vendor-scripts` to copy vendor scripts from node_modules to static
-* `$ yarn watchAssets` will generate CSS and JS and watch for changes
-* `$ yarn buildCss` to generate CSS
+* `$ npm run watchAssets` will generate CSS and JS and watch for changes
+* `$ npm run buildCss` to generate CSS
 * `$ gulp buildScripts` to generate JS
-* `$ gulp vendor-scripts` to copy vendor scripts from yarn to static
+* `$ gulp vendor-scripts` to copy vendor scripts from npm to static
 
 Gulp configuration can be changed in `gulp/config.js`.
 

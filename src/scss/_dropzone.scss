@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .dropzone {
   border: none;
   background: none;
@@ -19,7 +21,7 @@
 }
 
   .dropzone-form__drag-hover {
-    border-color: darken(#dddddd, 50%); // panel-default color
+    border-color: color.scale(#dddddd, $lightness: -50%); // panel-default color
     background-color: #7AC143; // @unt_bright_green
   }
 

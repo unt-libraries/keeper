@@ -1,11 +1,8 @@
 // const { readFileSync } = require(`fs`);
-const pnp = require('pnpapi');
-const virtualLocator = pnp.topLevel;
-const physicalLocator = pnp.findPackageLocator(pnp.getPackageInformation(virtualLocator).packageLocation);
-const modulesDir = physicalLocator.reference
 const appname = 'keeper';
 const dest = `./${appname}/static/${appname}`;
 const src = './src';
+const modulesDir = './node_modules';
 
 module.exports = {
   sass: {
@@ -22,10 +19,10 @@ module.exports = {
     dest: `${dest}/js`,
     vendor_dest: `${dest}/js/vendor`,
     common_libs: {
-      bootstrap: `${pnp.resolveToUnqualified('bootstrap', modulesDir)}dist/js/bootstrap.bundle.min.js`,
-      html5shiv: `${pnp.resolveToUnqualified('html5shiv', modulesDir)}dist/html5shiv.min.js`,
-      jquery: `${pnp.resolveToUnqualified('jquery', modulesDir)}/dist/jquery.min.js`,
-      parsleyjs: `${pnp.resolveToUnqualified('parsleyjs', modulesDir)}/dist/parsley.min.js`,
+      bootstrap: `${modulesDir}dist/js/bootstrap.bundle.min.js`,
+      html5shiv: `${modulesDir}dist/html5shiv.min.js`,
+      jquery: `${modulesDir}/dist/jquery.min.js`,
+      parsleyjs: `$vendor}/dist/parsley.min.js`,
     },
   },
   browserify: {
