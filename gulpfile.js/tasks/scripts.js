@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const handleErrors = require('../util/handleErrors');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
-const _ = require('lodash');
 const uglify = require('gulp-uglify');
 const sourcemaps = require('gulp-sourcemaps');
 const config = require('../config').browserify;

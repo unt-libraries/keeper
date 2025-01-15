@@ -1,13 +1,8 @@
 const gulp = require('gulp');
-const _ = require('lodash');
 const config = require('../config').scripts;
 
 function vendorScripts() {
-  const paths = [];
-
-  _.forEach(config.common_libs, (path) => {
-    paths.push(path);
-  });
+  const paths = Object.values(config.common_libs);
 
   return gulp.src(paths)
       .pipe(gulp.dest(config.vendor_dest));

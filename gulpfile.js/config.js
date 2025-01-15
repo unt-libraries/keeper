@@ -19,10 +19,9 @@ module.exports = {
     dest: `${dest}/js`,
     vendor_dest: `${dest}/js/vendor`,
     common_libs: {
-      bootstrap: `${modulesDir}dist/js/bootstrap.bundle.min.js`,
-      html5shiv: `${modulesDir}dist/html5shiv.min.js`,
-      jquery: `${modulesDir}/dist/jquery.min.js`,
-      parsleyjs: `$vendor}/dist/parsley.min.js`,
+      bootstrap: `${modulesDir}/bootstrap/dist/js/bootstrap.bundle.min.js`,
+      jquery: `${modulesDir}/jquery/dist/jquery.min.js`,
+      parsleyjs: `${modulesDir}/parsleyjs/dist/parsley.min.js`,
     },
   },
   browserify: {

@@ -10,4 +10,5 @@ module.exports = {
   sassWatch,
   scripts,
   scriptsWatch,
+  vendorScripts,
 }
