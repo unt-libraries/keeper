@@ -1,8 +1,7 @@
 django-parsley==0.7
 django-private-storage==3.1
 django-recaptcha==3.0.0
-psycopg2==2.9.7
+psycopg2==2.9.10
 python-magic==0.4.27
 Unipath==1.1
-wheel==0.41.0
 zipstream==1.1.4
