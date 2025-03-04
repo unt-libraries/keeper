@@ -167,15 +167,15 @@ main_bar:
   - text: Home
     type: link
     classes:
-    url: /
+    url: https://library.unt.edu/ # EDITED to use absolute URL
   - text: Accounts Login
     type: link
     classes: "d-inline d-lg-none"
-    url: /accounts-login/
+    url: https://library.unt.edu/accounts-login/ # EDITED to use absolute URL
   - text: Ask Us
     type: link
     classes: "d-inline d-lg-none"
-    url: /ask-us/
+    url: https://library.unt.edu/ask-us/ # EDITED to use absolute URL
   - text: Doing Research
     type: mega-menu
     classes:
@@ -1135,13 +1135,13 @@ footer:
   # Social media links found in urls.yaml
   locations:
     - name: Willis
-      url: /willis/
+      url: https://library.unt.edu/willis/ # EDITED
     - name: Sycamore
-      url: /sycamore/
+      url: https://library.unt.edu/sycamore/ # EDITED
     - name: Discovery Park
-      url: /discovery-park/
+      url: https://library.unt.edu/discovery-park/ # EDITED
     - name: Frisco
-      url: /frisco/
+      url: https://library.unt.edu/frisco/ # EDITED
 
 
 ##########

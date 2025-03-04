@@ -5,7 +5,7 @@
           {% if item.url %}
             <h2 class="{{ omni.html_classes.sidebar.heading }}">
               <a class="{{ omni.html_classes.sidebar.heading_link }}"
-                 href="{{ item.url }}">
+                 href="{{ omni.config.parent_url }}{{ item.url }}">
                 {{ item.heading }}</a>
             </h2>
           {% else %}

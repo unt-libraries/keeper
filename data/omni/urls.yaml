@@ -118,7 +118,7 @@ social_media:
   - id           : library-more
     title        : More Social Media Channels, Podcasts, etc.
     icon_class   : fas fa-ellipsis fa-fw
-    url          : /social/
+    url          : https://library.unt.edu/social/ # EDITED to use absolute url
     division     : all
     department   : all
     active       : true

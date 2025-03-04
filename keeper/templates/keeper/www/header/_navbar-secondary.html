@@ -20,7 +20,7 @@ BREADCRUMBS AND HOURS DROPDOWN
 
       <li class="{{ omni.html_classes.breadcrumbs.item }}">
         <a class="{{ omni.html_classes.breadcrumbs.link }}"
-           href="/special-collections/">
+           href="{{ omni.config.parent_url }}/special-collections/">
           Special Collections
         </a>
       </li>
@@ -35,7 +35,7 @@ BREADCRUMBS AND HOURS DROPDOWN
     </ol>
     <div class="{{ omni.html_classes.hours.wrapper }}"
          id="breadcrumb-hours-item-1-dropdown">
-      <a href="{{ urls.calendar.hours }}"
+      <a href="{{ omni.urls.calendar.hours }}"
          id="breadcrumb-hours-item-1"
          class="{{ omni.html_classes.hours.btn }}"
          data-bs-toggle="dropdown">

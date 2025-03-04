@@ -128,14 +128,14 @@ FOOTER
           <div class="{{ omni.html_classes.footer.depository_container }}">
             <a id="footer-fdl"
                class="{{ omni.html_classes.footer.link }} {{ omni.html_classes.footer.gov_link }}"
-               href="{{ urls.library.gov_info }}">
+               href="{{ omni.urls.library.gov_info }}">
               {% with use="svg-federal-depository" decorative=False viewBox="0 0 442 394" title="Federal Depository logo" classes=omni.html_classes.footer.depository_svg %}
                 {% include 'keeper/www/utils/_svg.html' %}
               {% endwith %}
             </a>
             <div class="{{ omni.html_classes.footer.depository_text }}">
               The University Libraries are a designated
-              <a href="{{ urls.library.gov_info }}"
+              <a href="{{ omni.urls.library.gov_info }}"
                  class=" {{ omni.html_classes.footer.space_link }}">
                 Federal Depository Library</a>.
             </div>

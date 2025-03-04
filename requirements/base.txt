@@ -3,5 +3,6 @@ django-private-storage==3.1
 django-recaptcha==3.0.0
 psycopg2==2.9.10
 python-magic==0.4.27
+pyyaml==6.0.2
 Unipath==1.1
 zipstream==1.1.4
