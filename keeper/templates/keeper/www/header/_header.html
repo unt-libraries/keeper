@@ -1,0 +1,80 @@
+{% comment %}
+################
+TEMPLATE ASSIGNS
+################{% endcomment %}
+{% comment %}
+#################################
+HEADER: BRANDING, MAIN NAVIGATION
+#################################{% endcomment %}
+
+<header id="top"
+        class="{{ omni.html_classes.header.container }}"
+        aria-label="Site Header">
+  <div class="{{ omni.html_classes.header.inner_container }}"
+       id="hd-container">
+    <section class="{{ omni.html_classes.header.navbar }}"
+             id="hd-section">
+      {% comment %}<!-- ###### UNT BRAND ####### -->{% endcomment %}
+      <a href="{{ omni.config.institution_url }}"
+         id="hd-brand"
+         class="{{ omni.html_classes.header.brand_link }}">
+        {% comment %}<!-- ###### DESKTOP IMAGE ####### -->{% endcomment %}
+        {% with use="svg-unt-lettermark-eagle-combo" viewBox="0 0 96.8 37.8" title="University of North Texas Homepage" desc="UNT Lettermark and Diving Eagle." classes=omni.html_classes.header.desktop_svg %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+        {% comment %}<!-- ###### MOBILE IMAGE ####### -->{% endcomment %}
+        {% with use="svg-unt-wordmark-eagle-combo" viewBox="0 0 60 11" title="University of North Texas Homepage" desc="UNT Wordmark and Diving Eagle." classes=omni.html_classes.header.mobile_svg %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+      </a>
+      {% comment %}<!-- ###### MOBILE MENU EXPAND BUTTON ####### -->{% endcomment %}
+      <div class="{{ omni.html_classes.header.navbar_mobile_controls }}">
+        <button id="main-navbar-mobile-search"
+                class="{{ omni.html_classes.header.navbar_search }}"
+                data-bs-toggle="collapse"
+                data-bs-target="#offcanvas-search"
+                aria-controls="offcanvas-search"
+                type="button">
+          {% with use="svg-magnifying-glass" decorative=True viewBox="0 0 512 512" title="Search" classes="svg-inline--fa fa-fw" %}
+            {% include 'keeper/www/utils/_svg.html' %}
+          {% endwith %}
+          <span class="visually-hidden">
+                        Search
+                       </span>
+
+        </button>
+        <button class="{{ omni.html_classes.header.navbar_toggler }}"
+                id="main-navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#main-navbar"
+                aria-controls="main-navbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          {% with use="svg-bars" decorative=True viewBox="0 0 512 512" title="Menu" %}
+            {% include 'keeper/www/utils/_svg.html' %}
+          {% endwith %}
+          <span class="visually-hidden">
+                        Menu
+                       </span>
+        </button>
+      </div>
+      {% comment %}<!-- ###### SITE TITLE(S) ####### -->{% endcomment %}
+      <div id="hd-titles"
+           class="{{ omni.html_classes.header.title_wrapper }}">
+        {% if omni.config.subtitle %}
+          <a href="{{ omni.config.parent_url }}"
+             id="hd-subtitle"
+             class="{{ omni.html_classes.header.subtitle_link }}">
+            {{ omni.config.subtitle }}</a>
+        {% endif %}
+        <h1 class="{{ omni.html_classes.header.title_heading }}">
+          <a href="/"
+             id="hd-title"
+             class="{{ omni.html_classes.header.title_link }}">
+            {{ omni.config.title }}</a>
+        </h1>
+      </div>{% comment %}<!-- #hd-titles -->{% endcomment %}
+    </section>{% comment %}<!-- #hd-section -->{% endcomment %}
+  </div>{% comment %}<!-- #hd-container -->{% endcomment %}
+</header>{% comment %}<!-- #top -->{% endcomment %}

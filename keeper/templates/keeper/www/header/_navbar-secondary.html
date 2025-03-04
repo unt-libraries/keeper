@@ -1,0 +1,56 @@
+{% comment %}
+################
+TEMPLATE ASSIGNS
+################{% endcomment %}
+
+{% comment %}
+########################
+BREADCRUMBS AND HOURS DROPDOWN
+########################{% endcomment %}
+<nav aria-label="breadcrumbs and hours"
+     class="{{ omni.html_classes.navbars.secondary.container }}">
+  <div class="{{ omni.html_classes.navbars.secondary.inner_container }}">
+    <ol class="{{ omni.html_classes.breadcrumbs.list }}">
+      <li class="{{ omni.html_classes.breadcrumbs.item }}">
+        <a class="{{ omni.html_classes.breadcrumbs.link }}"
+           href="{{ omni.config.parent_url }}">
+          Home
+        </a>
+      </li>
+
+      <li class="{{ omni.html_classes.breadcrumbs.item }}">
+        <a class="{{ omni.html_classes.breadcrumbs.link }}"
+           href="/special-collections/">
+          Special Collections
+        </a>
+      </li>
+
+      <li class="{{ omni.html_classes.breadcrumbs.current_item }}">
+        <a class="{{ omni.html_classes.breadcrumbs.link_current }}"
+           aria-current="page"
+           href="{{ omni.config.url }}">
+          {{ omni.config.title }}
+        </a>
+      </li>
+    </ol>
+    <div class="{{ omni.html_classes.hours.wrapper }}"
+         id="breadcrumb-hours-item-1-dropdown">
+      <a href="{{ urls.calendar.hours }}"
+         id="breadcrumb-hours-item-1"
+         class="{{ omni.html_classes.hours.btn }}"
+         data-bs-toggle="dropdown">
+        {% with use="svg-clock" decorative=True viewBox="0 0 512 512" title="clock" %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+        <span class="d-none d-lg-inline">
+          Willis:
+        </span>
+        <span id="todays-date"
+              class="d-none d-xl-inline">
+        </span>
+        <span class="live-hours d-none d-lg-inline"
+              data-untl-hours-id="{{ omni.js_configs.hours.spaces.0.cid }}"></span>
+      </a>
+    </div>
+  </div>
+</nav>

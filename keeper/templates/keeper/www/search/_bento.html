@@ -1,0 +1,51 @@
+{% comment %}
+########################
+GLOBAL SEARCH TOOL.
+########################{% endcomment %}
+<form id="search-all-form-offcanvas"
+      action="{{ omni.urls.library.search }}"
+      method="GET"
+      role="search"
+      aria-label="Search Multiple Library Sites"
+      class="{{ omni.html_classes.search_forms.bento.search_form }}">
+  <div class="{{ omni.html_classes.search_forms.bento.input_group }}"
+       data-bs-theme="dark">
+    <input class="{{ omni.html_classes.search_forms.bento.search_input }}"
+           id="bento-offcanvas-q"
+           name="q"
+           aria-label="{{ omni.utils.strings.bento_label }}"
+           type="search"
+           placeholder="{{ omni.utils.strings.bento_label }}">
+    <button type="button"
+            class="{{ omni.html_classes.search_forms.bento.search_bonus_btn }} proxyable-icon d-none">
+      <span class="{{ omni.html_classes.search_forms.bento.copy_icon }}"
+            title="copy/paste icon"
+            aria-hidden="true"></span>
+    </button>
+    <button type="button"
+            class="{{ omni.html_classes.search_forms.bento.search_bonus_btn }} d-none">
+      <span class="{{ omni.html_classes.search_forms.bento.other_url_icon }}"
+            aria-hidden="true"
+            data-bs-toggle="tooltip"
+            data-bs-title="{{ omni.utils.strings.paywall_url }}"></span>
+    </button>
+
+    <button type="submit"
+            class="{{ omni.html_classes.search_forms.bento.search_submit_btn }}">
+      {% include 'keeper/www/head/_search_icon.html' %}
+      <span class="d-none d-lg-inline">
+        {{ omni.utils.strings.search }}
+      </span>
+    </button>
+    <button type="button"
+            class="{{ omni.html_classes.search_forms.bento.search_submit_btn }} {{ omni.html_classes.search_forms.bento.dropdown_toggle_btn }}"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+    <span class="d-none d-lg-inline">
+      {{ omni.utils.strings.refine }}
+    </span>
+    </button>
+    <div class="{{ omni.html_classes.search_forms.bento.dropdown_menu }}"
+         id="bento-offcanvas-other-search-options"></div>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+{% comment %}
+####################
+Reusable SVG include
+####################
+
+Variables:
+
+- classes     : STRING  : optional. HTML classes to add to svg.
+- decorative  : BOOLEAN : optional. If True, image is decorative and hidden
+- viewBox     : STRING  : required. 4 spaces seperated ints or floats to represent viewbox
+- width:      : INT.    : optional. Width value.
+- height:     : INT.    : optional. Height value.
+- style       : STRING  : optional. Inline CSS styles.
+- title       : STRING  : optional. Accessible descriptive text.
+- desc        : STRING  : optional. Additional descriptive text.
+- use         : STRING  : required. reference name without hash of svg symbol to use.
+
+Unfortunately, Django requires that all be passed on the same line, so we can't make this more readable
+
+Example Usage:
+{% with use="svg-up-left-arrow-box" decorative=False viewBox="0 0 512 512" width=50 height=50 title="accessible title" desc="accessible description as needed" classes="svg-inline--fa fa-flip-horizontal" %}
+  {% include 'keeper/www/utils/_svg.html' %}
+{% endwith %}
+
+{% endcomment %}
+<svg class="{{ classes | default:"svg-inline--fa" }}"
+     {% if decorative %}aria-hidden="true" {% else %} role="img" {% endif %}
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="{{ viewBox }}"
+     {% if style %} style="{{ style }}" {% endif %}
+     {% if width %} width="{{ width }}" {% endif %}
+     {% if height %} height="{{ height }}" {% endif %}>
+  {% if title %}<title>{{ title }}</title>{% endif %}
+  {% if desc %}<desc>{{ desc }}</desc>{% endif %}
+  <use href="#{{ use }}"></use>
+</svg>

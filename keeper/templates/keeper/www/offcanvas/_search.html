@@ -1,0 +1,32 @@
+{% comment %}
+########################
+GLOBAL SEARCH TOOL.
+########################{% endcomment %}
+<div class="{{ omni.html_classes.offcanvas.search.wrapper }}"
+     id="offcanvas-search">
+  <div class="{{ omni.html_classes.offcanvas.search.container }}">
+    <div class="{{ omni.html_classes.offcanvas.search.header }}">
+      <button type="button"
+              class="{{ omni.html_classes.offcanvas.search.esc }}"
+              data-bs-toggle="collapse"
+              data-bs-target="#offcanvas-search">
+        close
+        {% with use="svg-xmark" viewBox="0 0 512 512" decorative=True title="close" classes="svg-inline--fa" %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+      </button>
+    </div>
+    <div class="{{ omni.html_classes.offcanvas.search.body }}">
+      {% include 'keeper/www/search/_bento.html' %}
+      <p class="{{ omni.html_classes.offcanvas.search.suffix }}">
+        {% with use="svg-circle-exclamation" viewBox="0 0 512 512" decorative=True title="notice" classes="svg-inline--fa fa-fw me-2 fa-lg text-warning" %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+        Some items are only available on campus
+        or will require authentication via
+        <a class="{{ omni.html_classes.offcanvas.search.links }}"
+           href="{{ omni.urls.unt.ams }}">EUID and Password</a> at the point of use.
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+# This is frontmatter from www.pages.library.unt.edu/_collections/_services/keeper.md
+title: Keeper
+summary_statement: Submit your digital memories of UNT to the University Archive with this simple tool.
+department: special-collections
+navigation: special-collections
+service_category:
+  - Other Services
+buttons:
+  - title: "Try Keeper Now"
+    url: https://keeper.library.unt.edu
+list_weight: 0
+list_visibility: visible
+service_id: keeper
+permalink: /special-collections/keeper/
+redirect_from:
+  - keeper
+author: jce0084
+published: true
+date: 2017-10-18 13:29:46
+modified: 2017-10-18 13:34:13
+dyk:
+  - text: "Share your photos and videos with the University Archives 'Keeper' App."
+  - text: "Got photos of a UNT event on your phone? Share them with us with the 'Keeper' App."
+  - text: "You can preserve photos of your time at UNT using our 'Keeper' App."

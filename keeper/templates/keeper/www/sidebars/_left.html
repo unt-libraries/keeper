@@ -1,0 +1,41 @@
+<div class="{{ omni.html_classes.sidebar.wrapper }}">
+  <div id="sidebar-data">
+    <section class="{{ omni.html_classes.sidebar.section }}">
+        {% for item in omni.navigation.special_collections %}
+          {% if item.url %}
+            <h2 class="{{ omni.html_classes.sidebar.heading }}">
+              <a class="{{ omni.html_classes.sidebar.heading_link }}"
+                 href="{{ item.url }}">
+                {{ item.heading }}</a>
+            </h2>
+          {% else %}
+            <h2 class="{{ omni.html_classes.sidebar.heading }}">
+              {{ item.heading }}
+            </h2>
+          {% endif %}
+          <ul id="left-nav-{{ item.heading | default:"item" | slugify }}" class="{{ omni.html_classes.sidebar.nav }}">
+            {% for nav in item.list  %}
+              <li class="{{ omni.html_classes.sidebar.nav_item }}">
+                <a class="{{ omni.html_classes.sidebar.nav_link }} {% if nav.title == 'Keeper' %} active" aria-current="page{% endif %}"
+                   href="{{ omni.config.parent_url }}{{ nav.url }}" {% if nav.target %}target="_blank" rel="noopener"{% endif %}>
+                  {{ nav.title }}
+                </a>
+                {% if nav.child %}
+                  <ul class="{{ omni.html_classes.sidebar.nav_list_child }}">
+                    {% for entry in nav.child %}
+                      <li class="{{ omni.html_classes.sidebar.nav_list_child_item }}">
+                        <a class="{{ omni.html_classes.sidebar.nav_list_child_link }} {% if include.page_url == entry.url %} active" aria-current="page{% endif %}"
+                           href="{{ omni.config.parent_url }}{{ entry.url }}" {% if nav.target %}target="_blank" rel="noopener"{% endif %}>
+                          {{ entry.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+    </section>
+  </div>
+</div>

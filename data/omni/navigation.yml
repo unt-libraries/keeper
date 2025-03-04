@@ -1,0 +1,1243 @@
+#
+# Values changed from source marked with 'EDITED' comment
+# Data from project www.pages.library.unt.edu/data/navigation.yml appended for left sidebar links
+#
+##########################################
+# Navigation Trees for the site
+##########################################
+
+#############################################
+# Dropdown Menu appearing on library homepage
+# as last tab, providing direct links to
+# misc system search engines.
+#############################################
+home_search_dropdown:
+  - text: Other Searches
+    type: dropdown
+    icon_classes:
+    classes:
+    url: /search/
+    min_width: 370
+    items:
+      - text: >-
+          You can submit a search in the following systems from the 'refine'
+          button, on the 'start searching' tab or jump to a system directly here:
+        type: text
+        classes: small text-secondary-subtle pt-2 fst-italic
+      - text:
+        type: divider
+        classes:
+      - text: "Online Articles"
+        type: link
+        url: https://untexas.summon.serialssolutions.com/
+      - text: "Cataloged Books & More"
+        type: link
+        url: https://discover.library.unt.edu/
+      - text: "UNT Digital Collections"
+        type: link
+        url: https://digital2.library.unt.edu/search/
+      - text: "Archival Finding Aids"
+        type: link
+        url: https://archives.library.unt.edu/search/
+      - text: Subject & Course Guides
+        type: link
+        url: https://guides.library.unt.edu/srch.php
+      - text: This Website
+        type: link
+        url: https://search.unt.edu/s/search.html?query=&f.Tabs%7Cuni-nt-web=Website&collection=uni-nt-search&scope=library.unt.edu,-guides.library.unt.edu,-blogs.library.unt.edu,-guides.library.unt.edu,-archives.library.unt.edu,-hoc.library.unt.edu,-journals.library.unt.edu,-openbooks.library.unt.edu,-omeka.library.unt.edu
+
+
+################################################
+# Menu appearing at the top-most position in the
+# page template. Mostly Standard UNT links.
+# Custom Library dropdowns for system logins,
+# and 'for audience' type links.
+# Note: Search toggle is hard coded to template
+################################################
+top_bar:
+  - text: MyUNT
+    type: link
+    classes:
+    url:  https://my.unt.edu/
+  - text: Canvas
+    type: link
+    classes:
+    url:  https://canvas.unt.edu/
+  - text: Student Email
+    type: link
+    classes:
+    url:  https://eagleconnect.unt.edu/
+  - text: UNT Directory
+    type: link
+    classes: me-4
+    url:  https://www.unt.edu/find-people-departments.html
+  - text: Accounts
+    type: dropdown
+    icon_classes: "fa-duotone fa-user-lock"
+    classes:
+    url: https://library.unt.edu/accounts-login/ # EDITED to use absolute URL
+    min_width: 370
+    items:
+      - text: >-
+          Login to access your account in one of the following systems:
+        type: text
+        classes: small text-secondary-subtle pt-2 fst-italic
+      - text:
+        type: divider
+        classes:
+      - text: Catalog
+        type: link
+        classes:
+        url: https://library.unt.edu/accounts-login/ # EDITED to use absolute URL
+      - text: >
+          Renew items, check the status of holds, and review assessed fines.
+        type: text
+        classes: small text-secondary-subtle pt-2
+      - text:
+        type: divider
+        classes:
+      - text: Illiad
+        type: link
+        classes:
+        url: https://ill.library.unt.edu/illiad/
+      - text: >-
+          Interlibrary loan, distance learning, & material delivery requests.
+        type: text
+        classes: small text-secondary-subtle pt-2
+      - text:
+        type: divider
+        classes:
+      - text: Aeon
+        type: link
+        classes:
+        url: https://aeon.library.unt.edu/logon
+      - text: >-
+          Manage request for Special Collections materials.
+        type: text
+        classes: small text-secondary-subtle pt-2
+      - text:
+        type: divider
+        classes:
+      - text: >-
+          Note: Off-campus access to subscription databases
+          may require login at the time of use.
+        type: text
+        classes: small text-secondary-subtle py-2 fst-italic
+  - text: Info For
+    type: dropdown
+    icon_classes: "fa-duotone fa-users"
+    classes:
+    url:  "#"
+    items:
+      - text: Undergraduate Students
+        type: link
+        classes:
+        url:  https://library.unt.edu/services/for-undergraduate-students/ # EDITED to use absolute URL
+      - text: Graduate Students
+        type: link
+        classes:
+        url:  https://library.unt.edu/services/for-graduate-students/ # EDITED to use absolute URL
+      - text: Faculty & Staff
+        type: link
+        classes:
+        url:  https://library.unt.edu/services/for-faculty/ # EDITED to use absolute URL
+      - text: Community Members & Visitors
+        type: link
+        classes:
+        url:  https://library.unt.edu/services/for-community-visitors/ # EDITED to use absolute URL
+      - text:
+        type: divider
+        classes:
+      - text: Off Campus Users
+        icon_classes: "fas fa-signs-post me-2"
+        type: link
+        classes:
+        url:  https://library.unt.edu/services/on-off-campus-access/ # EDITED to use absolute URL
+      - text: Persons With Disabilities
+        icon_classes: "fas fa-universal-access me-2"
+        type: link
+        classes:
+        url:  https://library.unt.edu/services/persons-with-disabilities/ # EDITED to use absolute URL
+
+
+##########################################
+# Main Navbar Mega Menu.
+##########################################
+main_bar:
+  - text: Home
+    type: link
+    classes:
+    url: /
+  - text: Accounts Login
+    type: link
+    classes: "d-inline d-lg-none"
+    url: /accounts-login/
+  - text: Ask Us
+    type: link
+    classes: "d-inline d-lg-none"
+    url: /ask-us/
+  - text: Doing Research
+    type: mega-menu
+    classes:
+    url: "/research/"
+    columns:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Search Systems
+            url:
+            classes:
+            items:
+              - text: "Online Articles"
+                #annotation: >-
+                type: link
+                url: https://untexas.summon.serialssolutions.com/
+                caret_icon: "fad fa-magnifying-glass fa-sm fa-fw"
+                icons:
+                  - icon_classes: "fad fa-magnifying-glass-plus fa-fw"
+                    text: "Advanced Search"
+                    url: https://untexas.summon.serialssolutions.com/#!/advanced
+              - text: "Cataloged Books & More"
+                #annotation: >-
+                type: link
+                url: https://discover.library.unt.edu/
+                caret_icon: "fad fa-magnifying-glass fa-sm fa-fw"
+                icons:
+                  - icon_classes: "fad fa-magnifying-glass-plus fa-fw"
+                    text: "Advanced Search"
+                    url: https://discover.library.unt.edu/advanced/
+              - text: "Databases & E-Resources"
+                #annotation: >-
+                type: link
+                url: https://guides.library.unt.edu/az.php?
+                caret_icon: "fad fa-magnifying-glass fa-sm fa-fw"
+                icons:
+                  - icon_classes: "fad fa-magnifying-glass-plus fa-fw"
+                    text: "Other Online Materials: e-books, journals, etc."
+                    url: https://discover.library.unt.edu/?f%5Baccess_facet%5D%5B%5D=Online
+              - text: "Archival Finding Aids"
+                #annotation: >-
+                type: link
+                url: https://archives.library.unt.edu/
+                caret_icon: "fad fa-magnifying-glass fa-sm fa-fw"
+              - text: "UNT Digital Collections"
+                #annotation: >-
+                type: link
+                url: https://digital2.library.unt.edu/search/
+                caret_icon: "fad fa-magnifying-glass fa-sm fa-fw"
+                icons:
+                  - icon_classes: "fak fa-unt-eagle fa-fw"
+                    text: "UNT Digital Library"
+                    url: https://digital.library.unt.edu
+                  - icon_classes: "fak fa-pth-mark fa-fw text-danger"
+                    text: "The Portal to Texas History"
+                    url: https://texashistory.unt.edu
+                  - icon_classes: "fak fa-ok-mark fa-fw text-warning-emphasis"
+                    text: "The Gateway to Oklahoma History"
+                    url: https://gateway.okhistory.org
+      - classes: "col-lg-4"
+        groups:
+          - heading: Getting Started
+            url:
+            classes:
+            items:
+              - text: How to Conduct Library Research
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/library-research
+              - text: Media & Information Literacy
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/medialiteracy/media-information-fluency
+              - text: Assistance with Grant-Funded Research
+                type: link
+                url: /services/grants/
+                classes:
+              - text: Finding Datasets
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/datasets
+              - text: Government Information Connection
+                type: link
+                classes: stretched-link
+                url: /government-information/
+              - text: Literature Review Process
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/literature-review
+              - text: Research Methods for Social Sciences
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/rmss
+      - classes: "col-lg-4"
+        groups:
+          - heading: Advanced Research Support
+            url:
+            classes:
+            items:
+              - text: UNT Scholarly Works
+                type: link
+                url: /scholarly-works/
+                classes:
+              - text: Research Data Management
+                type: link
+                url: /services/research-data-management/
+                classes:
+              - text: Open Access Information
+                type: link
+                icons:
+                  - icon_classes: "fas fa-arrow-up-right-from-square"
+                    text: "External Link: Open Access at UNT"
+                url: https://openaccess.unt.edu/
+                classes: stretched-link
+              - text: Copyright Advisory Services
+                type: link
+                url: /services/copyright-advisory/
+                classes:
+              - text: Scholarly Publishing Services
+                type: link
+                url: /services/scholarly-publishing/
+                classes:
+              - text: Increase Your Scholarly Impact
+                type: link
+                url: https://guides.library.unt.edu/scholarlyimpact
+                classes:
+              - text: Research Fellowships
+                type: link
+                url: /research-fellowships/
+                classes:
+  - text: Borrowing
+    type: mega-menu
+    classes:
+    url: /services/borrowing/
+    columns:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Checking Out Materials
+            url:
+            classes:
+            items:
+              - text: Overview
+                type: link
+                url: /services/borrowing/
+                classes:
+              - text: Paying Fines
+                type: link
+                url: /services/paying-fines/
+                classes:
+              - text: Renewals
+                type: link
+                url: /services/renewing-materials/
+                classes:
+              - text: Returning Items
+                type: link
+                url: /policies/returning-items/
+                classes:
+              - text: Course Reserves
+                type: link
+                url: /services/course-reserves/
+                classes:
+              - text: Circulation Policies & Procedures
+                type: link
+                url: /policies/#borrowing
+                classes:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Delivery Services
+            url:
+            classes:
+            items:
+              - text: Online Holds
+                type: link
+                url: /services/online-holds/
+                classes:
+              - text: Distance Learning
+                type: link
+                url: /services/distance-learning/
+                classes:
+              - text: Media Booking & Courier
+                type: link
+                url: /services/media-courier/
+                classes:
+          - heading: From Other Libraries
+            url:
+            classes:
+            items:
+              - text: Interlibrary Loan (ILL) & Document Delivery
+                type: link
+                url: /services/ill-document-delivery/
+                classes:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Equipment
+            url:
+            classes:
+            items:
+              - text: Spark Equipment
+                type: link
+                url: https://guides.library.unt.edu/spark/overview?#s-lib-ctab-31359216-2
+              - text: Laptops
+                type: link
+                url: /services/laptop-checkout/
+              - text: Music Equipment Checkout
+                type: link
+                url: https://guides.library.unt.edu/music-library-equipment-checkout
+              - text: Other Equipment
+                type: link
+                url: https://guides.library.unt.edu/equipment-guide
+          - heading: Additional Information
+            url:
+            classes:
+            items:
+              - text: All Services
+                type: link
+                url: /services/
+  - text: Getting Help
+    type: mega-menu
+    classes:
+    url: https://guides.library.unt.edu
+    columns:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Talk to an Expert
+            url:
+            classes:
+            items:
+              - text: Ask Us! (Phone, Email, Live Chat)
+                type: link
+                classes:
+                url: "/ask-us/"
+              - text: Subject Librarians
+                type: link
+                classes: stretched-link
+                url: /subject-librarians/
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+              - text: Undergraduate Engagement & Research
+                type: link
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /undergraduate-engagement-research/
+                annotation:
+              - text: Research Support Services
+                type: link
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /research-support-services/
+          - heading: Scholarly/Professional Help
+            url:
+            classes:
+            items:
+              - text: Scholarly Communications
+                type: link
+                classes:
+                url: /services/scholarly-communication-outreach/
+              - text: Copyright Advisory Services
+                type: link
+                classes:
+                url: /services/copyright-advisory/
+              - text: Library Instruction
+                type: link
+                classes:
+                url: /services/instruction/
+      - classes: "col-lg-4"
+        groups:
+          - heading: Help with Borrowed Items
+            url:
+            classes:
+            items:
+              - text: Access Services
+                annotation: >-
+                  Borrowing, Delivery, ILL, Fines, etc.
+                type: link
+                classes: stretched-link
+                url: /access-services/
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+          - heading: Topical Help
+            url:
+            classes:
+            items:
+              - text: Subject & Course Guides
+                type: link
+                classes:
+                url: https://guides.library.unt.edu
+          - heading: Additional Needs
+            url:
+            classes:
+            items:
+              - text: Off Campus Users
+                icons:
+                  - icon_classes: "fas fa-signs-post"
+                    text: "Help for Off Campus Users"
+                type: link
+                classes: stretched-link
+                url:  /services/on-off-campus-access/
+              - text: Persons With Disabilities
+                icons:
+                  - icon_classes: "fas fa-universal-access"
+                    text: "Accommodations for Library Users"
+                type: link
+                classes: stretched-link
+                url:  /services/persons-with-disabilities/
+      - classes: "col-lg-4"
+        groups:
+          - heading: Help with Technology & Printing
+            url:
+            classes:
+            items:
+              - text: Spark Makerspace Appointments
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/spark/engage
+              - text: Computing, Laptops, & Student Printing
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/spark/Computing
+              - text: On/Off Campus Access, Wi-Fi, etc.
+                type: link
+                classes:
+                url: /services/on-off-campus-access/
+
+          - heading: Outside & Self Help
+            url:
+            classes:
+            items:
+              - text: Help Yourself Campaign
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/helpyourself
+              #- text: Wellbeing & Safety
+              #  type: link
+              #  icons:
+              #    - icon_classes: "fas fa-arrow-up-right-from-square"
+              #      text: "External Link: UNT Student Affairs"
+              #  classes: stretched-link
+              #  url: https://studentaffairs.unt.edu/wellbeing-and-safety
+  - text: Teaching & Learning
+    type: mega-menu
+    classes:
+    url: "/research/"
+    columns:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Course Support for Students
+            url:
+            classes:
+            items:
+              - text:  "Search Reserves by Course Code"
+                type: link
+                url: https://iii.library.unt.edu/search/r
+              - text:  "Search Reserves by Instructor Name"
+                type: link
+                url: https://iii.library.unt.edu/search/p
+              - text: "Subject & Course Guides"
+                type: link
+                url: https://guides.library.unt.edu/
+          - heading: Other Learning Support
+            url:
+            classes:
+            items:
+              - text:  First Year Experience & Orientation
+                type: link
+                url: https://guides.library.unt.edu/fye
+              - text:  Tutoring
+                type: link
+                url: /services/tutoring/
+      - classes: "col-lg-4"
+        groups:
+          - heading: Writing, Citing, and More
+            url: /spaces/
+            classes:
+            items:
+              - text: Citation and Style Guide
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/citations-style-guides
+              - text: Plagiarism
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/plagiarism
+              - text: Technical Communication Guide
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/technical-communication-guide
+              - text: RefWorks
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/rwnew
+              - text: Writing a Dissertation or Thesis Proposal
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/dissertation-thesis-proposal
+      - classes: "col-lg-4"
+        groups:
+          - heading: For Faculty
+            url:
+            classes:
+            items:
+              - text: Instruction & Classroom Support
+                type: link
+                classes:
+                url: /services/for-faculty/#instruction--classroom-support
+              - text: Copyright Quick Reference Guide
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/sccopyright
+              - text: Placing Items on Reserves
+                type: link
+                classes:
+                url: /services/placing-items-on-reserves/
+              - text: Collection Development
+                type: link
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /collection-development
+              - text: Click to Count
+                type: link
+                classes:
+                url: /click2count/
+  - text: Spaces & Technology
+    type: mega-menu
+    classes:
+    url: /spaces/
+    columns:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Locations
+            url: /spaces/
+            classes:
+            items:
+              - text: Willis
+                type: link
+                url: /willis/
+                caret_icon: fas fa-university
+                classes:
+              - text: Media
+                type: link
+                url: /media/
+                caret_icon: fas fa-diagram-nested ms-2 fa-sm
+                icons:
+                classes:
+              - text: Music
+                type: link
+                url: /music/
+                caret_icon: fas fa-diagram-nested ms-2 fa-sm
+                classes:
+              - text: Special Collections
+                type: link
+                url: /special-collections/
+                caret_icon: fas fa-diagram-nested ms-2 fa-sm
+                classes:
+              - text: Sycamore
+                type: link
+                url: /sycamore/
+                caret_icon: fas fa-university
+                classes:
+              - text: Discovery Park
+                type: link
+                url: /discovery-park/
+                caret_icon: fas fa-university
+                classes:
+              - text: Frisco Landing
+                type: link
+                url: /frisco/
+                caret_icon: fas fa-university
+                classes:
+              - text:
+                type: divider
+                classes:
+              - text: UNT Dallas Library
+                type: link
+                url: https://library.untdallas.edu/home
+                icons:
+                  - icon_classes: "fas fa-arrow-up-right-from-square"
+                    text: "External Link: UNT Dallas Library"
+                classes: stretched-link
+              - text: "Lewis Health Science Library: Fort Worth"
+                type: link
+                url: https://library.unthsc.edu/
+                icons:
+                  - icon_classes: "fas fa-arrow-up-right-from-square"
+                    text: "External Link: UNT Health Science Library"
+                classes: stretched-link
+      - classes: "col-lg-4"
+        groups:
+          - heading: Technology
+            url:
+            classes:
+            items:
+              - text: Laptop Lending
+                type: link
+                classes:
+                url: /services/laptop-checkout/
+              - text: Technology & Computing
+                type: link
+                classes:
+                url: /services/technology-computing/
+              - text: Printing, Scanning, Photocopies
+                type: link
+                classes:
+                url: /services/printing-scanning-copies/
+              - text: On & Off Campus Access
+                type: link
+                classes:
+                url: /services/on-off-campus-access/
+              - text: Bypassing Paywalls
+                type: link
+                classes:
+                url: /proxy-tools/
+          - heading: Study & Reservations
+            url:
+            classes:
+            items:
+              - text: Study Rooms & Pods
+                type: link
+                classes:
+                icons:
+                  - icon_classes: fas fa-user-clock
+                    text: Reserve a Room or Pod
+                    url: https://calendar.library.unt.edu/allspaces
+                url: https://calendar.library.unt.edu/reserve/
+              - text: Lockers
+                type: link
+                classes:
+                url: /services/lockers/
+              - text: Noise Levels
+                type: link
+                classes:
+                url: /spaces/#finder
+      - classes: "col-lg-4"
+        groups:
+          - heading: Outside the Box
+            url:
+            classes:
+            items:
+              - text: The Spark Makerspace
+                type: link
+                classes:
+                icons:
+                url: https://guides.library.unt.edu/spark
+              - text: OneButton Studios
+                type: link
+                classes:
+                icons:
+                  - icon_classes: fas fa-user-clock
+                    text: Reserve a OneButton Studio
+                    url: https://calendar.library.unt.edu/calendar
+                url: https://calendar.library.unt.edu/spaces?lid=8722&gid=35204&c=0
+              - text: Reserve eSports Stations
+                type: link
+                icons:
+                  - icon_classes: fas fa-user-clock
+                    text: Reserve an eSports Station
+                    url: https://calendar.library.unt.edu/calendar
+                classes:
+                url: https://calendar.library.unt.edu/reserve/spaces/medialibrary
+              - text: The Soundbox Music Technology Lab
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/music-library-equipment-checkout
+              - text: Media Transfer Services
+                type: link
+                classes:
+                url: /services/media-transfer/
+              - text: Game Collection
+                type: link
+                classes:
+                url: https://guides.library.unt.edu/Game-Collection
+          - heading: Rules & Policies
+            url:
+            classes:
+            items:
+              - text: Space Use, Conduct, Special Collections, & Lockers
+                type: link
+                classes:
+                url: /policies/#libraries-use
+  - text: News & Events
+    type: dropdown
+    classes:
+    dropdown_classes: dropdown-menu-end
+    url: /news/
+    items:
+      - text: Calendar of Events (All)
+        type: link
+        classes:
+        url: https://calendar.library.unt.edu/calendar/
+      - text: Reference, Instruction, Classes, & Workshops
+        type: link
+        classes:
+        icon_classes: fas fa-diagram-nested ms-2 fa-sm
+        url: https://calendar.library.unt.edu/calendar?cid=-1&t=d&d=0000-00-00&cal=-1&ct=65845,65844,48449,50579,48438,54405,48442,48439,50485&inc=0
+      - text: Media & Gaming, Music, Special Collections
+        type: link
+        classes:
+        icon_classes: fas fa-diagram-nested ms-2 fa-sm
+        url: https://calendar.library.unt.edu/calendar?cid=-1&t=m&d=0000-00-00&cal=-1&ct=48447,50578,48436&inc=0
+      - text: Spark Makerspace Trainings
+        type: link
+        classes:
+        icon_classes: fas fa-diagram-nested ms-2 fa-sm
+        url: https://calendar.library.unt.edu/calendar?cid=-1&t=d&d=0000-00-00&cal=-1&ct=53993,53994,53996,53995,64302&inc=0
+      - text: Safety, Wellbeing, Etc.
+        type: link
+        classes:
+        icon_classes: fas fa-diagram-nested ms-2 fa-sm
+        url: https://calendar.library.unt.edu/calendar?cid=-1&t=d&d=0000-00-00&cal=-1&ct=57531,63105&inc=0
+      - text:
+        type: divider
+        classes:
+      - text: News
+        type: link
+        classes:
+        url: /news/
+      - text: Exhibits
+        type: link
+        classes:
+        url: https://exhibits.library.unt.edu/
+      - text: Lecture Series
+        type: link
+        classes:
+        url: /lecture-series/
+      - text: Social Media, Videos, Podcasts, Etc.
+        type: link
+        classes:
+        url: "/social/"
+      - text:
+        type: divider
+        classes:
+      - text: "New to the Catalog"
+        type: link
+        classes:
+        url: https://discover.library.unt.edu/?Author%2FCreator=&f%5Bnewly_added_facet%5D%5B%5D=months_3&genre=&op=AND&search_field=advanced&sort=publication_sort%2Bdesc%2C%2Btitle_sort%2Basc
+      - text: "UNT Press: Recently Published"
+        type: link
+        classes:
+        url: https://untpress.unt.edu/#newly-published
+      - text: "UNT Digital Collections: Recently Added"
+        type: link
+        classes:
+        url: https://digital2.library.unt.edu/search/?q=&t=fulltext&sort=added_d&fq=
+  - text: About
+    type: mega-menu
+    classes:
+    url: /about/
+    columns:
+      - classes: "col-lg-4"
+        groups:
+          - heading: People
+            url:
+            classes:
+            items:
+              - text: Staff Directory
+                type: link
+                url: /people/
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+              - text: Subject Librarians
+                type: link
+                url: /subject-librarians/
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+              - text: Job Opportunities
+                type: link
+                url: /jobs/
+                classes: stretched-link
+              - text: Departmental Directory
+                type: link
+                url: /departments/
+                classes:
+          - heading: Get Involved
+            url:
+            classes:
+            items:
+              - text: Student Library Ambassador Board
+                type: link
+                url: /student-ambassador-board/
+                classes:
+              - text: University Library Committee
+                type: link
+                url: https://facultysenate.unt.edu/standing-committees/university-library-committee
+                classes:
+              - text: Research Fellowships
+                type: link
+                url: /research-fellowships/
+                classes:
+              - text: What's Happening in the Library?
+                type: link
+                url: https://calendar.library.unt.edu/calendar?cid=-1&t=g&d=0000-00-00&cal=-1&inc=0
+                classes:
+      - classes: "col-lg-4"
+        groups:
+          - heading: Administrative
+            url:
+            classes:
+            items:
+              - text: Administrative Office
+                type: link
+                url: /administrative-office/
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+              - text: Collection Management
+                type: link
+                url: /collection-management/
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+              - text: Digital Libraries
+                type: link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /digital-libraries/
+                classes: stretched-link
+              - text: Facilities & Systems
+                type: link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /facilities-operations/
+                classes: stretched-link
+              - text: IT Services
+                type: link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /it-services/
+                classes: stretched-link
+              - text: Public Services
+                type: link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /public-services/
+                classes: stretched-link
+              - text: Special Libraries
+                type: link
+                icons:
+                  - icon_classes: "fas fa-users fa-fw"
+                    text: "Includes Contacts"
+                url: /special-libraries/
+              - text: UNT Press
+                type: link
+                url: https://untpress.unt.edu/
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-arrow-up-right-from-square"
+                    text: "External Link: UNT Press"
+          - heading: Find Us
+            url:
+            classes:
+            items:
+              - text: Locations & Floor Maps
+                type: link
+                url: /spaces/
+                classes:
+              - text: Hours of Operation
+                type: link
+                url: https://calendar.library.unt.edu/hours
+                classes:
+              - text: Tours
+                type: link
+                url: /services/tours/
+                classes:
+
+      - classes: "col-lg-4"
+        groups:
+          - heading: Contributing
+            url:
+            classes:
+            items:
+              - text: Online Giving
+                type: link
+                url: https://one.unt.edu/giving/unt-libraries
+                classes: stretched-link
+                icons:
+                  - icon_classes: "fas fa-dollar-sign fa-fw"
+                    text: "External Link: UNT Giving"
+              - text: Material Donations
+                type: link
+                url: /policies/gifts/
+                classes:
+              - text: Portal to Texas History & Digital Library Partnerships
+                type: link
+                url: /digital-projects-unit/partners/
+                classes:
+              - text: Archive Your UNT Memories with Keeper
+                type: link
+                url: /special-collections/keeper/
+                classes:
+          - heading: Documentation & Forms
+            url:
+            classes:
+            items:
+              - text: Policies
+                type: link
+                url: /policies/
+                classes:
+              - text: Forms
+                type: link
+                url: /forms/
+                classes:
+              - text: Strategic Directions
+                type: link
+                url: /administrative-office/strategic-directions/
+                classes:
+              - text: Harmful Content and Other Statements
+                type: link
+                url: /about/statements/
+                classes:
+              - text: Suggest a Purchase
+                type: link
+                url: /forms/new-materials-request/
+                classes:
+
+
+###################################
+# Hours dropdown appearing on the
+# right side of the breadcrumb bar.
+###################################
+breadcrumb_hours:
+  - text: Hours
+    type: dropdown
+    classes:
+    dropdown_classes: dropdown-menu-end
+    url: https://calendar.library.unt.edu
+    # min_width: 370
+    items:
+      - text: Willis
+        type: hour
+        cid: 12207
+        url: /willis/
+        class:
+        icon_classes: fad fa-university fa-fw fa-sm text-secondary
+      - text: Service Desk
+        type: hour
+        cid: 12988
+        url: /access-services/
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Spark Makerspace
+        type: hour
+        cid: 17562
+        url: https://guides.library.unt.edu/spark
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Spark Desk
+        type: hour
+        cid: 12220
+        url: https://guides.library.unt.edu/spark
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Media
+        type: hour
+        cid: 22445
+        url: /media/
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Music Desk
+        type: hour
+        cid: 12986
+        url: /music/
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Music Soundbox
+        type: hour
+        cid: 23374
+        url: https://guides.library.unt.edu/music-library-equipment-checkout
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Special Collections
+        type: hour
+        cid: 12987
+        url: /special-collections/
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text:
+        type: divider
+        classes:
+      - text: Discovery Park
+        type: hour
+        cid: 12240
+        url: /discovery-park/
+        class:
+        icon_classes: fad fa-university fa-fw fa-sm text-secondary
+      - text: Spark @ Discovery Park
+        type: hour
+        cid: 12242
+        url: https://guides.library.unt.edu/spark
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text:
+        type: divider
+        classes:
+      - text: Sycamore
+        type: hour
+        cid: 12989
+        url: /sycamore/
+        class:
+        icon_classes: fad fa-university fa-fw fa-sm text-secondary
+      - text:
+        type: divider
+        classes:
+      #      - text: UNT @ Frisco
+      #        type: hour
+      #        cid: 20468
+      #        url:
+      #        class:
+      #        icon_classes: fad fa-university fa-fw fa-sm text-secondary
+      - text: Frisco Landing
+        type: hour
+        cid: 20469
+        url: /frisco/
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Spark @ Frisco
+        type: hour
+        cid: 20470
+        url: https://guides.library.unt.edu/spark
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text: Spark Desk @ Frisco
+        type: hour
+        cid: 20496
+        url: https://guides.library.unt.edu/spark
+        class:
+        icon_classes: fad fa-diagram-nested fa-fw fa-sm text-secondary
+      - text:
+        type: divider
+        classes:
+      - text: Full Schedule
+        type: link
+        url: https://calendar.library.unt.edu/hours
+        class:
+        icon_classes: fad fa-calendar-clock fa-fw fa-sm text-secondary
+
+
+###################
+# footer link lists
+###################
+footer:
+  # Social media links found in urls.yaml
+  locations:
+    - name: Willis
+      url: /willis/
+    - name: Sycamore
+      url: /sycamore/
+    - name: Discovery Park
+      url: /discovery-park/
+    - name: Frisco
+      url: /frisco/
+
+
+##########
+# Colophon
+# Links appearing in the bottom most link lists of the system
+##########
+colophon:
+  - row: one
+    classes: fw-bold
+    items:
+      - text: MyUNT
+        type: link
+        classes:
+        url: https://my.unt.edu/
+      - text: Canvas
+        type: link
+        classes:
+        url: https://canvas.unt.edu/
+      - text: Student Email
+        type: link
+        classes:
+        url: https://eagleconnect.unt.edu/
+      - text: UNT Directory
+        type: link
+        classes:
+        url: https://www.unt.edu/find-people-departments.html
+      - text: Campus Map
+        type: link
+        classes:
+        url: https://map.unt.edu/
+      - text: Jobs at UNT
+        type: link
+        classes:
+        url: https://jobs.untsystem.edu/
+  - row: two
+    classes:
+    items:
+      - text: Disclaimer
+        type: link
+        classes:
+        url: https://www.unt.edu/disclaimer.html
+      - text: AA/EOE/ADA
+        type: link
+        classes:
+        url: https://www.unt.edu/ada.html
+      - text: Privacy
+        type: link
+        classes:
+        url: https://www.unt.edu/privacy.html
+      - text: Electronic Accessibility
+        type: link
+        classes:
+        url: https://policy.unt.edu/policy/14-005
+      - text: Required Links
+        type: link
+        classes:
+        url: https://www.unt.edu/required-links.html
+      - text: UNT Home
+        type: link
+        classes:
+        url: https://www.unt.edu/
+
+
+###################
+# Special Collections data added from www.pages.library.unt.edu/data/navigation.yml
+###################
+special_collections: # EDITED: to use _ instead of - for python
+  - heading: Special Collections
+    url: /special-collections/
+    list:
+      - title: Rare and Unique Materials
+        url: /special-collections/rare-unique/
+
+      - title: Archives and Manuscripts
+        url: /special-collections/archives-manuscripts/
+
+      - title: Recursos en español
+        url: /special-collections/recursos-en-espanol/
+
+      - title: Research
+        url: /services/special-collections-research/
+
+      - title: Policies & Forms
+        url: /special-collections/policies-forms/
+
+      - title: Classroom & Group Visits
+        url: /services/special-collections-visitors/
+
+      - title: University Archive
+        url: /special-collections/archives-manuscripts/university-archive/
+
+      - title: Keeper
+        url: /special-collections/keeper/
+
+  - heading: Part of
+    url:
+    list:
+      - title: Special Libraries Division
+        url: /special-libraries/

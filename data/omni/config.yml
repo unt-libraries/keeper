@@ -1,0 +1,111 @@
+##############################
+# About
+##############################
+# This config file contains generic variables and settings used throughout the theme.
+# When this theme is included in a jekyll project, use of the jekyll-data plugin will make all variables available to the project site as well
+# You can copy/override any of these variables as needed in the project site's main config file.
+
+##############################
+# Metadata
+##############################
+title                     : "Keeper" # Use "University Libraries" if this project is the main subdomain, else the project's name
+subtitle                  : University Libraries # or comment out for main library subdomain.
+description              : Share and archive your UNT memories.
+url                      : "https://keeper.library.unt.edu" # Current site's URL. Can match parent_url if this is the parent site. Include trailing slash.
+parent_url               : "https://library.unt.edu"   # This should never be unt.edu only used in cases of a subsite of a unt subdomain. Include trailing slash.
+short_title               : Libraries
+
+##############################
+# Organization Info
+##############################
+organization_long_name   : University Libraries
+organization_short_name  : UNT Libraries
+institution              : UNT
+institution_long          : University of North Texas
+institution_url          : "https://www.unt.edu"
+
+
+##############################
+# Universal settings to all UNT Libraries sites and should not be edited on a per-site basis
+##############################
+organization             : "libraries"
+email                    : "askus@unt.edu"
+phone                    : "940.565.2411"
+toll_free                : "1.877.872.0264" # EDITED key to use _ instead of - for python compatibility
+physical_address         : "1506 W Highland St"
+mailing_address          : "1155 Union Circle #305190"
+city                     : "Denton"
+state                    : "TX"
+postal_code              : "76203-5017"
+country_code             : "US"
+latitude                 : "33.2100684"
+longitude                : "-97.1489542"
+
+##############################
+# NOTE Social Media links here are deprecated and moved to site.data.urls.social_media
+# leaving these here for now on the off chance that I've missed a template dependency
+##############################
+social:
+  - name                 : facebook
+    url                  : "https://www.facebook.com/"
+    id                   : "unt.libraries"
+    label                : "The UNT Libraries are on Facebook"
+    icon                 : fab fa-facebook-f
+    deprecated           : true
+  - name                 : x
+    url                  : "https://x.com/"
+    id                   : "unt_libraries"
+    label                : "Follow the UNT Libraries on X"
+    icon                 : fab fa-x-twitter
+    deprecated           : true
+  - name                 : youtube
+    url                  : "https://www.youtube.com/channel/"
+    id                   : "UCcbS9fXWKE1SpUTpl1sNB6Q"
+    label                : "UNT Libraries Youtube Channel"
+    icon                 : fab fa-youtube
+    deprecated           : true
+  - name                 : instagram
+    url                  : "https://www.instagram.com/"
+    id                   : "unt_libraries"
+    label                : "UNT Libraries on Instagram"
+    icon                 : fab fa-instagram
+    deprecated           : true
+  - name                 : github
+    url                  : "https://github.com/"
+    id                   : "unt-libraries"
+    label                : "UNT Libraries on Github"
+    icon                 : fab fa-github-alt
+    deprecated           : true
+
+associated_urls:
+  - name                  : newsletter
+    url                   : "https://eepurl.com/Qrv_r"
+    icon                  : fas fa-envelope
+    deprecated           : true
+  - name                  : wikipedia
+    url                   : "https://en.wikipedia.org/wiki/University_of_North_Texas_Libraries"
+    icon                  : fab fa-wikipedia-w
+    deprecated           : true
+
+# Icons and images used by facebook, twitter, and browsers
+social_img:
+  path                   : "/assets/images/branding/share.jpg?v=XBzo7A65W4"
+  alt                    : "University Libraries | UNT"
+  height                 : "1200"
+  width                  : "630"
+  mime_type              : "image/jpeg"
+
+logo_path                : "/assets/images/branding/untl.stacked.green.png"
+
+##############################
+# API and other API keys/IDs (Google analytics, maps, etc.)
+##############################
+ga_tracking_id:
+  production             : "UA-3629573-13"
+  beta                   : "UA-3629573-14"
+  development            : "UA-3629573-15"
+
+##############################
+# Breadcrumb iterator
+##############################
+breadcrumb_list          : [1, 2, 3, 4, 5]

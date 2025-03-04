@@ -1,0 +1,43 @@
+<script>
+  // Ensure {{ omni.js_configs.namespace }} exists
+  {{ omni.js_configs.namespace }} = {{ omni.js_configs.namespace }} || {};
+  // Create an analytics object within untLib
+  {{ omni.js_configs.namespace }}.analytics = {
+    /**
+     * Checks if DNT (Do Not Track) is enabled.
+     * @returns {boolean} - True if DNT is respected, otherwise false.
+     */
+    respectDnt: () =>
+      ['1', 'yes'].includes(
+        navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack
+      ),
+    /**
+     * Dynamically loads a script into the document head.
+     * @param {string} src - The source URL of the script to load.
+     * @param {Function} [onLoad] - Optional callback to execute once the script loads.
+     */
+    loadScript: (src, onLoad = () => {}) => {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = src;
+      script.onload = onLoad;
+      document.head.appendChild(script);
+    },
+    /**
+     * Initializes Google Analytics 4 (GA4) tracking.
+     */
+    initializeGA4: function () {
+      this.loadScript('https://www.googletagmanager.com/gtag/js?id={{ omni.js_configs.analytics.google.ga4.property_id }}', () => {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ omni.js_configs.analytics.google.ga4.property_id }}');
+      });
+    },
+  };
+
+  // Respect DNT for analytics related loads
+  if (!{{ omni.js_configs.namespace }}.analytics.respectDnt()) {
+    {{ omni.js_configs.namespace }}.analytics.initializeGA4();
+  }
+</script>

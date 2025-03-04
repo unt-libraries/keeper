@@ -1,0 +1,43 @@
+{% comment %}
+########################
+BOTTOM-MOST NAVIGATION BAR
+# UNT Links, Copyright statement, Hidden GitLab Link(s)
+########################{% endcomment %}
+<div id="colophon"
+     class="{{ omni.html_classes.colophon.container }}">
+  <div class="{{ omni.html_classes.colophon.flag_divider }}"
+       id="flag-divider">
+    <hr class="{{ omni.html_classes.colophon.hr }}">
+    <a href="{{ include.urls.misc.state_of_texas }}" class="{{ omni.html_classes.colophon.flag_link }}">
+      {% with use="svg-unt-flag" decorative=True viewBox="0 0 47.3 26" width=47.3 height=26 title="State of Texas" classes=omni.html_classes.colophon.flag_icon %}
+        {% include 'keeper/www/utils/_svg.html' %}
+      {% endwith %}
+    </a>
+  </div>{% comment %}#flag-divider{% endcomment %}
+  <div class="{{ omni.html_classes.colophon.row }}">
+    <div class="{{ omni.html_classes.colophon.wordmark_wrapper }}">
+      <a href="{{ omni.config.institution_url }}"
+         class="{{ omni.html_classes.colophon.unt_brand_classes }}">
+        {% with use="svg-unt-wordmark" decorative=False viewBox="0 0 411.381 86.706" width=411.381 height=86.706 title=omni.config.institution_long classes=omni.html_classes.colophon.wordmark_svg style="max-width:300px;" %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+      </a>
+    </div>
+    <div class="{{ omni.html_classes.colophon.links_outer_column }}">
+      {% for row in omni.navigation.colophon %}
+      <div class="{{ omni.html_classes.colophon.links_row }} {{ row.classes }}">
+        {% for item in row.items %}
+        <a class="{{ omni.html_classes.colophon.nav_link_classes }} {{ item.classes }}"
+           href="{{ item.url }}">
+          {{ item.text }}
+        </a>
+        {% endfor %}
+      </div>
+      {% endfor %}
+      <div class="{{ omni.html_classes.colophon.copyright }}">
+        &copy;
+        {% now "Y" %} {{ omni.config.institution_long }}. All Rights Reserved.
+      </div>{% comment %} copyright{% endcomment %}
+    </div>{% comment %}col{% endcomment %}
+  </div>{% comment %}row{% endcomment %}
+</div>{% comment %}#colophon{% endcomment %}

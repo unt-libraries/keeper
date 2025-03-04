@@ -1,0 +1,73 @@
+{% comment %}
+########################
+TOP-MOST NAVIGATION BAR: UNT Links, GLOBAL SEARCH
+########################{% endcomment %}
+{% comment %}
+################
+TEMPLATE ASSIGNS
+################{% endcomment %}
+<nav class="{{ omni.html_classes.top_bar.container }}"
+     id="topbar-wrapper"
+     aria-label="UNT Shared Links and Top Level Menus">
+  <div class="{{ omni.html_classes.top_bar.inner_container }}"
+       id="topbar-wrapper-inner">
+    <a href="{{ omni.config.institution_url }}"
+       class="{{ omni.html_classes.top_bar.brand_link }}">
+      {% with use="svg-up-left-arrow-box" decorative=True viewBox="0 0 512 512" title="external link" classes=omni.html_classes.top_bar.brand_svg %}
+        {% include 'keeper/www/utils/_svg.html' %}
+      {% endwith %}
+      {{ omni.config.institution_long }}
+    </a>
+    <div class="{{ omni.html_classes.top_bar.nav_wrapper }}"
+         id="top-bar-lg">
+      {% for entry in omni.navigation.top_bar %}
+        {% if entry.type == "link" %}
+          <a id="top-bar-item-{{ forloop.counter }}"
+             class="{{ omni.html_classes.top_bar.link }} {{ entry.classes }}"
+             href="{{ entry.url }}">{% if entry.icon_classes %}
+            <span class="fa-fw {{ entry.icon_classes }}"></span>
+            {% endif %}{{ entry.text }}</a>
+        {% endif %}
+        {% if entry.type == "dropdown" %}
+          <div class="{{ omni.html_classes.top_bar.dropdown_wrapper }}"
+               id="top-bar-item-{{ forloop.counter }}-dropdown">
+            <a href="{{ entry.url | default:"#" }}"
+               id="top-bar-item-{{ forloop.counter }}"
+               class="{{ omni.html_classes.top_bar.btn }} dropdown-toggle {{ entry.classes }}"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">{% if entry.icon_classes %}
+              <span class="fa-fw {{ entry.icon_classes }}"
+                    aria-hidden="true"
+                    title="{{ entry.text }}"></span>
+              {% endif %}
+              {{ entry.text}}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <a href="{{ "/ask-us/" }}"
+         id="top-bar-item-{{ omni.navigation.top_bar.size | add:1 }}"
+         class="{{ omni.html_classes.top_bar.btn }} me-2">
+        {% with use="svg-comments-questions" decorative=True viewBox="0 0 640 512" title="questions" classes="svg-inline--fa fa-fw" %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+        Ask Us
+      </a>
+      <button
+          id="top-bar-item-{{ omni.navigation.top_bar.size | add:2 }}"
+          class="{{ omni.html_classes.top_bar.btn }}"
+          data-bs-toggle="collapse"
+          data-bs-target="#offcanvas-search"
+          aria-controls="offcanvas-search"
+          type="button">
+        {% with use="svg-magnifying-glass" decorative=True viewBox="0 0 512 512" title="search" classes="svg-inline--fa fa-fw" %}
+          {% include 'keeper/www/utils/_svg.html' %}
+        {% endwith %}
+        Search
+        <kbd class="bg-secondary-subtle"
+             data-bs-toggle="tooltip"
+             data-bs-title="search shortcut key '/'">/</kbd>
+      </button>
+    </div>
+  </div>{% comment  %}#topbar-wrapper-inner{% endcomment %}
+</nav>{% comment  %}#topbar-wrapper{% endcomment %}

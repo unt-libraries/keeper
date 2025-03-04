@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US"
+      class="no-js"
+      data-bs-theme="light">
+{% include 'keeper/www/head/_head.html' %}
+
+<body class="{{ omni.html_classes.default.body }}" >
+  {% include 'keeper/www/utils/_svg-symbols.html' %}
+  {% include 'keeper/www/offcanvas/_search.html' %}
+  {% include 'keeper/www/header/_skip-links.html' %}
+  {# include 'keeper/www/header/_global-alert.html' #}
+  {% include 'keeper/www/header/_top-bar.html' %}
+  {% include 'keeper/www/header/_header.html' %}
+  {% include 'keeper/www/header/_navbar-primary.html' %}
+  {% include 'keeper/www/header/_navbar-secondary.html' %}
+
+  <header class="{{ omni.html_classes.title.title_outer }}"
+          aria-label="Page Title and Overview">
+    <div class="{{ omni.html_classes.title.title_wrapper }}">
+      <div class="{{ omni.html_classes.title.title_container }}">
+        {% comment %}
+        <!-- NO Summary, NO Buttons, No Reservable -->
+        {% endcomment %}
+        <h2 id="page-title"
+            class="{{ omni.html_classes.title.title }}">
+          {{ omni.page.title }}
+        </h2>
+        <div class="{{ omni.html_classes.title.summary_text }}">
+          {{ omni.page.summary_statement }}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {# Content #}
+  <main class="{{ omni.html_classes.main.container }}"
+        aria-label="Page Content: {{ request.resolver_match.app_name.title }}"
+        id="main-container">
+    <div class="{{ omni.html_classes.main.inner_container }}">
+        <div class="{{ omni.html_classes.main.section_aside_wrapper }}">
+
+          <section id="content" class="{{ omni.html_classes.main.section_double }}">
+            {% block content %}{% endblock content %}
+          </section>
+          {% include 'keeper/www/sidebars/_left.html' %}
+        </div>
+    </div>
+  </main>
+
+  {# Footer #}
+  {% include 'keeper/www/footer/_footer.html' %}
+  {% include 'keeper/www/offcanvas/_chat.html' %}
+  {% include 'keeper/www/modals/_maps.html' %}
+
+  {# Footer scripts #}
+  {% include 'keeper/www/footer/_scripts.html' %}
+  {% block scripts_footer %}{% endblock %}
+</body>
+</html>

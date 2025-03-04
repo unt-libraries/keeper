@@ -1,0 +1,86 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    {% comment %}
+        ##################
+        # Preconnects
+        ##################
+    {% endcomment %}
+    {% for url in utils.preconnects.urls %}
+        <link href="{{ url }}"
+              rel="preconnect"
+              crossorigin>
+    {% endfor %}
+
+    {% comment %}
+        ##################
+        # Page Metadata, Social Graphs, Canonical URLs, etc.
+        ##################
+    {% endcomment %}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ request.resolver_match.app_name.title }}{% endblock %} - University Libraries - UNT</title>
+    <meta name="description"
+          content="{{ omni.config.description}}">
+    <link rel="canonical"
+          href="{{ CANONICAL_PATH }}">
+    {% comment %}
+        ##################
+        # FONTS
+        ##################
+    {% endcomment %}
+    <link rel="stylesheet"
+          href="{{ omni.utils.cdn_font.url }}"
+          media="print"
+          onload="this.media='all'; this.onload=null;">
+    <noscript>
+        <link rel="stylesheet"
+              href="{{ omni.utils.cdn_font.url }}">
+    </noscript>
+    {% comment %}
+        ##################
+        # FONT ICONS.
+        ##################
+    {% endcomment %}
+    <style>
+        {% include 'keeper/www/head/_head.styles.fontawesome.css' %}
+    </style>
+    {% for style in omni.utils.font_awesome.styles %}
+        <script src="{{ omni.utils.omni.vendor | add:"fontawesome/js/" | add:style | add:".min.js?v=" | add:omni.utils.font_awesome.version.number }}"></script>
+    {% endfor %}
+    <script src="{{ omni.utils.omni.vendor | add:"fontawesome/js/fontawesome.min.js" | add:"?v=" | add:omni.utils.font_awesome.version.number }}"
+            data-auto-add-css="false"
+            data-mutate-approach="sync"></script>
+    {% if omni.utils.font_awesome.conflict_detect.script %}
+        <script src="{{ omni.utils.omni.vendor | add:"fontawesome/js/" | add:"conflict-detection.min.js?v=" | add:omni.utils.font_awesome.version }}"
+                data-fa-detection-timeout="{{ omni.utils.font_awesome.conflict_detect.timeout | default:2000 }}"></script>
+    {% endif %}
+    {% comment %}
+        ##################
+        # CSS
+        ##################
+    {% endcomment %}
+    {% block stylesheets %}
+        {# Inherited from main library site #}
+        <link rel="stylesheet" href="{{ omni.utils.omni.styles | add:"main.min.css" }}">
+
+        {# Keeper CSS #}
+        <link rel="stylesheet" href="{% static 'keeper/css/style.min.css' %}">
+    {% endblock stylesheets %}
+
+    {% comment %}
+        ##################
+        # JAVASCRIPT (HEAD PRIORITY)
+        ##################
+    {% endcomment %}
+    {% block scripts %}
+        {# Only load analytics if in production #}
+        {% if not DEBUG %}
+            {% include 'keeper/www/head/_analytics.html' %}
+        {% endif %}
+    {% endblock scripts %}
+
+    {% block favicons %}
+        {% include 'keeper/www/head/_icons.html' %}
+    {% endblock %}
+</head>

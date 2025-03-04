@@ -1,0 +1,35 @@
+<aside aria-label="Chat">
+  <div class="{{ omni.html_classes.offcanvas.chat.wrapper }}"
+       id="chat-offcanvas"
+       data-bs-scroll="true"
+       tabindex="-1"
+       aria-labelledby="offcanvas-chat-title">
+    <div class="{{ omni.html_classes.offcanvas.chat.header }}">
+      <h5 id="offcanvas-chat-title"
+          class="{{ omni.html_classes.offcanvas.chat.title }}" >
+        Chat with Us
+      </h5>
+      <button type="button"
+              class="{{ omni.html_classes.offcanvas.chat.close_btn }}"
+              data-bs-dismiss="offcanvas">
+      </button>
+    </div>
+    <div class="{{ omni.html_classes.offcanvas.chat.body }}">
+      <div id="{{ omni.utils.springshare.libanswers.widget_id }}"></div>
+      <div id="offcanvas-ask-us"></div>
+    </div>
+  </div>
+  <button class="{{ omni.html_classes.offcanvas.chat.trigger_btn }} d-none"
+          id="global-chat-btn"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#chat-offcanvas"
+          aria-controls="chat-offcanvas">
+    {% with use="svg-message-dots" decorative=True viewBox="0 0 512 512" title="search" classes="svg-inline--fa fa-fw" %}
+      {% include 'keeper/www/utils/_svg.html' %}
+    {% endwith %}
+    <span id="global-chat-btn-text">
+      Chat with Us
+    </span>
+  </button>
+</aside>

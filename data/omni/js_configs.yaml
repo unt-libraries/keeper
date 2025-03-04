@@ -1,0 +1,131 @@
+# Changes from www source marked with # EDITED
+# window JS namespace for inline scripts
+namespace: window.untLib
+
+# event related config
+events:
+  apiURL: https://calendar.library.unt.edu/1.0/events
+  apiArgs:
+    cal_id: 12568
+    iid: 5063
+    key: 8fb13b2978ace62120c2afa1721b54dc
+    days: 30
+    #date: '2024-04-01'
+    limit: 100
+  storageKey: 'unt_lib.v2.todaysEvents'
+  categories:
+    spark:
+      - spark
+      - makerspace
+    music:
+      - music
+    digitalProjects:
+      - digital projects
+    publicServices:
+      - public services
+    specialCollections:
+      - special collection
+    media:
+      - game
+      - gaming
+      - media
+    taco:
+      - taco
+      - maintenance
+    tutoring:
+      - writing center
+      - tutoring
+      - learning center
+  allowedCampusIds:
+    - 5951  # discovery park "campus"
+    - 7548  # frisco "campus"
+    - 5950  # sycamore "campus"
+    - 5949  # willis "campus"
+  ignore:
+    - hold
+    - maintenance
+    - placeholder
+    - presenter time
+    - private
+    - room maintenance
+    - setup
+    - set up
+    - taco test
+    - tear down
+    - teardown
+    - test event
+    - site walk
+    - inspection
+    - internal
+    - libtaco
+    - libcal
+    - libapps
+    - pac meet
+    - facilities
+
+hours:
+  storageKey: 'unt_lib.v2.hours'
+  expires: 1800000 # seconds: 30 * 60 * 1000, # 30 minutes
+  calendarUrl: 'https://library.unt.edu' # library proxy url; springshare: 'https://calendar.library.unt.edu',
+  endPoint: '/api/libcal/hours/' # library proxy path endpoint; springshare: '/api/1.0/hours/'
+  pubKey: "8fb13b2978ace62120c2afa1721b54dc" # springshare api key (older api)
+  spaces: # see https://calendar.library.unt.edu/admin/hours#s-lc-tab-libraries
+    - name: Willis
+      cid: 12207
+    - name: Library Service Desk
+      cid: 12988
+    - name: The Spark Service Desk
+      cid: 12220
+    - name: The Spark Makerspace
+      cid: 17562
+    - name: Media Library
+      cid: 22445
+    - name: Music Library
+      cid: 12986
+    - name: Music Library Soundbox
+      cid: 23374
+    - name: Special Collections
+      cid: 12987
+    - name: Discovery Park Library
+      cid: 12240
+    - name: Spark Makerspace @ DP
+      cid: 12242
+    - name: Sycamore Library
+      cid: 12989
+    - name: UNT @ Frisco
+      cid: 20468
+    - name: Frisco Landing Library
+      cid: 20469
+    - name: Spark @ Frisco
+      cid: 20470
+    - name: Spark Service Desk @ Frisco
+      cid: 20496
+    - name: Library Annex
+      cid: 12991
+    #-name: RCoB Study Spaces
+    #  cid:  1967
+
+shortcuts:
+  storageKey: 'unt_lib.v2.shortcuts'
+  expires: 15638400 # expires in 6 months
+
+
+chat:
+  storageKey: 'unt_lib.v2.chatActive'
+  apiURL: 'https://api2.libanswers.com'
+  endpoint: '/1.0/chat/widgets/status/26930'
+  widgetUrl: 'https://unt.libanswers.com/load_chat.php?hash=9279f20504044072454e342f7472f5d665421500906281355ba7d5cffe62aa0a'
+
+heroes:
+  storageKey: 'unt_lib.v2.heroes'
+
+global_alert:
+  storageKey: 'unt_lib.v2.global_alerts'
+
+
+analytics:
+  google:
+    ga4:
+      property_id: "G-LXJP4MHV86" # EDITED: to use Keeper GA4 property
+  siteimprove:
+    url: "https://siteimproveanalytics.com/js/siteanalyze_8543.js"

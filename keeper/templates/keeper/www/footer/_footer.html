@@ -1,0 +1,149 @@
+{% comment %}
+########################
+FOOTER
+########################{% endcomment %}
+
+<footer aria-label="University Branding and links, Partner Links, and Contact Information"
+        class="{{ omni.html_classes.footer.footer_element }}">
+  <div class="{{ omni.html_classes.footer.eagle_background }}"></div>
+  <div id="main-footer"
+       class="{{ omni.html_classes.footer.container }}">
+    <div class="{{ omni.html_classes.footer.inner_container }}">
+      <div class="{{ omni.html_classes.footer.row }}">
+        <div class="{{ omni.html_classes.footer.eagle_col }}"
+             id="footer-col-1">
+          <a href="{{ omni.config.institution_url }}"
+             class="{{ omni.html_classes.footer.eagle_link }}"
+             aria-label="UNT Home Site">
+            {% with use="svg-unt-diving-eagle" decorative=False viewBox="0 0 11 12.104" title="Diving Eagle Logo" classes=omni.html_classes.footer.eagle_svg %}
+              {% include 'keeper/www/utils/_svg.html' %}
+            {% endwith %}
+          </a>
+        </div>{% comment %}#end footer-col-1{% endcomment %}
+        <div class="{{ omni.html_classes.footer.center_col }}"
+             id="footer-col-2">
+          <h2 class="{{ omni.html_classes.footer.heading }}">
+            <a href="{{ omni.config.url }}"
+               class="{{ omni.html_classes.footer.link }}">
+              {{ omni.config.title }}
+            </a>
+          </h2>
+          <div class="{{ omni.html_classes.footer.address_container }}">
+            <div class="{{ omni.html_classes.footer.address }}"
+                 id="footer-address-physical">
+              <div id="footer-map-dot-wrapper">
+                {% with use="svg-location-dot" decorative=True viewBox="0 0 512 512" title="Map Location Dot" classes=omni.html_classes.footer.address_icon %}
+                  {% include 'keeper/www/utils/_svg.html' %}
+                {% endwith %}
+              </div>
+              <div class="{{ omni.html_classes.footer.address_info }}"
+                   id="footer-address-info-links">
+                {% for space in omni.navigation.footer.locations %}
+                  <a href="{{ space.url }}"
+                     class="{{ omni.html_classes.footer.space_link }}">
+                    {{ space.name }}
+                  </a>{% if forloop.revcounter0 != 0 %}&nbsp;|&nbsp;{% endif %}
+                {% endfor %}
+              </div>{% comment %}#end footer-address-info-links{% endcomment %}
+            </div>{% comment %}#end footer-address-physical{% endcomment %}
+            <div class="{{ omni.html_classes.footer.address }}"
+                 id="footer-address-mailing">
+              <div id="footer-mail-svg-wrapper">
+                {% with use="svg-envelope" decorative=True viewBox="0 0 512 512" title="Envelope" classes=omni.html_classes.footer.address_icon %}
+                  {% include 'keeper/www/utils/_svg.html' %}
+                {% endwith %}
+              </div>
+              <div id="footer-address-mail">
+                {{ omni.config.mailing_address }}
+                <div>
+                  {{ omni.config.city }}, {{ omni.config.state }} {{ omni.config.postal_code }}
+                </div>
+              </div>{% comment %}#end address-mail{% endcomment %}
+            </div>{% comment %}#end footer-address-mailing{% endcomment %}
+            <div class="{{ omni.html_classes.footer.address }}"
+                 id="footer-address-email">
+              <div id="footer-plain-wrapper">
+                {% with use="svg-paper-plane" decorative=True viewBox="0 0 512 512" title="Paper Plane Icon" classes=omni.html_classes.footer.address_icon %}
+                  {% include 'keeper/www/utils/_svg.html' %}
+                {% endwith %}
+              </div>
+              <a href="mailto:{{ omni.config.email }}"
+                 class="{{ omni.html_classes.footer.space_link }}">
+                {{ omni.config.email }}
+              </a>
+            </div>{% comment %}#end footer-address-email{% endcomment %}
+            <div class="{{ omni.html_classes.footer.address }}"
+                 id="footer-address-phone">
+              <div id="footer-telephone-svg-wrapper">
+                {% with use="svg-telephone" decorative=True viewBox="0 0 512 512" title="Telephone Icon" classes=omni.html_classes.footer.address_icon %}
+                  {% include 'keeper/www/utils/_svg.html' %}
+                {% endwith %}
+              </div>
+              <a href="tel:{{ omni.config.phone | cut:'+1-' | cut:'-' | cut:'.' }}"
+                 class="{{ omni.html_classes.footer.space_link }}">
+                {{ omni.config.phone }}
+              </a>
+            </div>{% comment %}#end footer-address-phone{% endcomment %}
+            <div class="{{ omni.html_classes.footer.address }}"
+                 id="footer-address-tollfree">
+              <div id="footer-tollfree-svg-wrapper">
+                {% with use="svg-phone-square" decorative=True viewBox="0 0 512 512" title="Paper Plane Icon" classes=omni.html_classes.footer.address_icon %}
+                  {% include 'keeper/www/utils/_svg.html' %}
+                {% endwith %}
+              </div>
+              <a href="tel:{{ omni.config.toll_free | cut:'-' | cut:'.' }}"
+                 class="{{ omni.html_classes.footer.space_link }}">
+                Toll Free: {{ omni.config.toll_free | cut:"+1-" }}
+              </a>
+            </div>{% comment %}#end footer-address-tollfree{% endcomment %}
+          </div>{% comment %}#end address{% endcomment %}
+        </div>{% comment %}#end footer-col2{% endcomment %}
+
+        <div class="{{ omni.html_classes.footer.last_col }}"
+             id="footer-col-3">
+          {% if omni.urls.social_media %}
+            <h3 class="{{ omni.html_classes.footer.heading }}">
+              Follow Us
+            </h3>
+            <p>Keep up with us on your favorite social media platform.</p>
+            <nav class="{{ omni.html_classes.footer.social_nav }}"
+                 aria-label="Footer Social Media Links">
+              {% for item in omni.urls.social_media %}
+                {% if item.department == 'all' %}
+                  <a aria-label="{{ item.name }}"
+                     href="{{ item.url }}"
+                     class="{{ omni.html_classes.footer.social_icon }}"
+                     data-bs-toggle="tooltip"
+                     data-bs-title="{{ item.title }}"
+                     title="{{ item.title }}">
+                    <span aria-hidden="true" class="{{ item.icon_class }}" title="{{ item.title }}"></span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </nav>
+          {% endif %}
+          <h3 class="{{ omni.html_classes.footer.heading }}">
+            Partnerships
+          </h3>
+          <div class="{{ omni.html_classes.footer.depository_container }}">
+            <a id="footer-fdl"
+               class="{{ omni.html_classes.footer.link }} {{ omni.html_classes.footer.gov_link }}"
+               href="{{ urls.library.gov_info }}">
+              {% with use="svg-federal-depository" decorative=False viewBox="0 0 442 394" title="Federal Depository logo" classes=omni.html_classes.footer.depository_svg %}
+                {% include 'keeper/www/utils/_svg.html' %}
+              {% endwith %}
+            </a>
+            <div class="{{ omni.html_classes.footer.depository_text }}">
+              The University Libraries are a designated
+              <a href="{{ urls.library.gov_info }}"
+                 class=" {{ omni.html_classes.footer.space_link }}">
+                Federal Depository Library</a>.
+            </div>
+          </div>{% comment %}# end row{% endcomment %}
+        </div>{% comment %}# end footer-col-3{% endcomment %}
+      </div>{% comment %}#end row{% endcomment %}
+    </div>{% comment %}#end container-3xl{% endcomment %}
+  </div>{% comment %}#end main-footer{% endcomment %}
+
+{% include 'keeper/www/footer/_colophon.html' %}
+</footer>

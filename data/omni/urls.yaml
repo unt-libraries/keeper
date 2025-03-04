@@ -1,0 +1,374 @@
+###################################################
+# Convenience storage location for commonly used URLs
+###################################################
+
+# unt
+unt:
+  home: https://unt.edu
+  search: https://search.unt.edu/s/search.html
+  ams: https://ams.untsystem.edu
+  transportation: https://transportation.unt.edu/
+  parking_map: https://experience.arcgis.com/experience/5b6f7d38a75b4f6e84c81eae31216267/?draft=true
+
+# www links
+library:
+  home: https://library.unt.edu
+  search: https://library.unt.edu/search
+  gov_info: https://library.unt.edu/government-information/
+  rss: https://library.unt.edu/news/rss/
+
+# summon
+summon:
+  home: https://untexas.summon.serialssolutions.com
+  search: https://untexas.summon.serialssolutions.com/#!/search
+
+# finding aids
+finding_aids:
+  home: https://findingaids.library.unt.edu
+  search: https://archives.library.unt.edu/search
+
+# digital library
+digital_collections:
+  digital2_home: https://digital2.library.unt.edu
+  digital2_search: https://digital2.library.unt.edu/search/
+
+# discover
+discover:
+  home: https://discover.library.unt.edu
+  empty_search_result: https://discover.library.unt.edu/?utf8=%E2%9C%93&search_field=text
+
+# exhibits
+exhibits:
+  home: https://exhibits.library.unt.edu
+
+# libguides
+libguides:
+  home: https://guides.library.unt.edu
+  az: https://guides.library.unt.edu/az.php
+  search: https://guides.library.unt.edu/srch.php
+
+# libanswers
+libanswers:
+  standalone_general_chat: https://unt.libanswers.com/chat/widget/9279f20504044072454e342f7472f5d665421500906281355ba7d5cffe62aa0a
+
+# libcal
+calendar:
+  hours: https://calendar.library.unt.edu/hours
+  events: https://calendar.library.unt.edu/calendars?cid=-1&t=d # list view of events
+
+# iii links
+iii:
+  home: https://iii.library.unt.edu
+  search_reserves_code: https://iii.library.unt.edu/search/r
+  search_reserves_instructor: https://iii.library.unt.edu/search/p
+
+# bento links
+bento:
+  default: https://library.unt.edu/search
+  args:
+    boxes:
+      reserves: "courses,guides,librarian,booksAndMore,articles,referenceWorks"
+
+# other
+misc:
+  state_of_texas: https://texas.gov
+
+
+#######################################
+# Social Media Links, Icons, and Labels
+#######################################
+social_media:
+  # Primary Social Media Links
+  - id           : library-facebook
+    title        : UNT Libraries (Facebook)
+    icon_class   : fab fa-facebook-f fa-fw
+    url          : https://www.facebook.com/unt.libraries
+    division     : all
+    department   : all
+    active       : true
+  - id           : library-twitter
+    title        : UNT Libraries (X)
+    icon_class   : fab fa-x-twitter fa-fw
+    url          : https://x.com/unt_libraries
+    division     : all
+    department   : all
+    active       : true
+  - id           : library-instagram
+    title        : UNT Libraries (Instagram)
+    icon_class   : fab fa-instagram fa-fw
+    url          : https://www.instagram.com/unt_libraries
+    division     : all
+    department   : all
+    active       : true
+  - id           : library-youtube
+    title        : UNT Libraries (YouTube)
+    icon_class   : fab fa-youtube fa-fw
+    url          : https://www.youtube.com/channel/UCcbS9fXWKE1SpUTpl1sNB6Q
+    division     : all
+    department   : all
+    active       : true
+  - id           : library-newsletter
+    title        : UNT Libraries (E-mail Newsletter)
+    icon_class   : fas fa-envelope fa-fw
+    url          : https://eepurl.com/Qrv_r
+    division     : all
+    department   : all
+    active       : true
+  # convenience link allowing a 'more' link to all social channels.
+  - id           : library-more
+    title        : More Social Media Channels, Podcasts, etc.
+    icon_class   : fas fa-ellipsis fa-fw
+    url          : /social/
+    division     : all
+    department   : all
+    active       : true
+  ## Items below are the social media channels for individual departments
+  # Digital Libraries
+  - id           : portal-facebook
+    title        : The Portal to Texas History (Facebook)
+    icon_class   : fab fa-facebook fa-fw
+    url          : https://www.facebook.com/ThePortalToTexasHistory
+    division     : digital-libraries
+    department   : digital-libraries
+    active       : true
+  - id           : tx4t-youtube
+    title        : Texas History for Teachers (YouTube Playlist)
+    icon_class   : fab fa-youtube fa-fw
+    url          : https://www.youtube.com/playlist?list=PLjdZcAp5Ay1vl38gh9BlqN8LYslNZ2wIK
+    division     : digital-libraries
+    department   : digital-libraries
+    active       : true
+  - id           : digital-github
+    title        : UNT Libraries (Github)
+    icon_class   : fab fa-github-alt fa-fw
+    url          : https://github.com/unt-libraries
+    division     : digital-libraries
+    department   : digital-libraries
+    active       : true
+  # Media
+  - id           : media-discord
+    title        : Media Library (Discord)
+    icon_class   : fas fa-gamepad-modern fa-fw
+    url          : https://discord.com/invite/NswwyJ2
+    division     : special-libraries
+    department   : media
+    active       : true
+  - id           : media-instagram
+    title        : Media Library (Instagram)
+    icon_class   : fab fa-instagram fa-fw
+    url          : https://www.instagram.com/untmedialibrary/
+    division     : special-libraries
+    department   : media
+    active       : true
+  - id           : media-youtube
+    title        : Media Library Highlights (YouTube Playlist)
+    icon_class   : fab fa-square-youtube fa-fw
+    url          : https://www.youtube.com/watch?v=YNjMwNgzxzc&list=PLjdZcAp5Ay1spIkp0fyTS6QkbIXWIGPqf
+    division     : special-libraries
+    department   : media
+    active       : false
+  # Music
+  - id           : music-facebook
+    title        : Music Library (Facebook)
+    icon_class   : fab fa-facebook-f fa-fw
+    url          : https://www.facebook.com/untmusiclibrary
+    division     : special-libraries
+    department   : music
+    active       : true
+  - id           : music-instagram
+    title        : Music Library (Instagram)
+    icon_class   : fab fa-instagram fa-fw
+    url          : https://www.instagram.com/untmusiclibrary/
+    division     : special-libraries
+    department   : music
+    active       : true
+  - id           : music-x
+    title        : Music Library (X)
+    icon_class   : fab fa-x-twitter fa-fw
+    url          : https://x.com/untmusiclibrary?lang=en
+    division     : special-libraries
+    department   : music
+    active       : false
+  - id           : music-spotify
+    title        : Music Library (Spotify)
+    icon_class   : fab fa-spotify fa-fw
+    url          : https://open.spotify.com/user/31xuyntknyuknial5bjj2pfyni6i
+    division     : special-libraries
+    department   : music
+    active       : true
+  - id           : local-independent-music-initiative-of-texas-facebook
+    title        : Local / Independent Music Initiative of Texas (Facebook)
+    icon_class   : fab fa-facebook fa-fw
+    url          : https://www.facebook.com/LIMITunt/
+    division     : special-libraries
+    department   : music
+    active       : true
+  # Public Services
+  - id           : public-services-talon
+    title        : Talon to Talon
+    icon_class   : fas fa-feather-pointed fa-fw
+    url          : https://inscribe.education/main/unt/6754110229505900/libraries/all-content
+    division     : public-services
+    department   : public-services
+    active       : true
+  - id           : openaccess-x
+    title        : OpenAccess @ UNT (X)
+    icon_class   : fab fa-x-twitter fa-fw
+    url          : https://x.com/OAatUNT
+    division     : public-services
+    department   : public-services
+    active       : true
+  - id           : sycamore-pinterest
+    title        : Sycamore (Pinterest)
+    icon_class   : fab fa-pinterest fa-fw
+    url          : https://www.pinterest.com/sycamorelib/
+    division     : public-services
+    department   : sycamore
+    active       : true
+  # Special Collections
+  - id           : special-collections-facebook
+    title        : Special Collections (Facebook)
+    icon_class   : fab fa-facebook-f fa-fw
+    url          : https://www.facebook.com/UNTSpecColl/
+    division     : special-libraries
+    department   : special-collections
+    active       : true
+  - id           : special-collections-x
+    title        : Special Collections (X)
+    icon_class   : fab fa-x-twitter fa-fw
+    url          : https://x.com/untspeccoll
+    division     : special-libraries
+    department   : special-collections
+    active       : true
+  - id           : special-collections-youtube
+    title        : Special Collections Highlights (YouTube Playlist)
+    icon_class   : fab fa-square-youtube fa-fw
+    url          : https://www.youtube.com/playlist?list=PLjdZcAp5Ay1uAlkYgwG1TLMj4kmdSTn0I
+    division     : special-libraries
+    department   : special-collections
+    active       : false
+  # UNT Press
+  - id           : unt-press-website
+    title        : UNT Press (Website)
+    icon_class   : fas fa-books fa-fw
+    url          : https://untpress.unt.edu/
+    division     : unt-press
+    department   : unt-press
+    active       : true
+  - id           : unt-press-facebook
+    title        : UNT Press (Facebook)
+    icon_class   : fab fa-facebook-f fa-fw
+    url          : https://www.facebook.com/UniversityOfNorthTexasPress
+    division     : unt-press
+    department   : unt-press
+    active       : true
+  - id           : unt-press-x
+    title        : UNT Press (X)
+    icon_class   : fab fa-x-twitter fa-fw
+    url          : https://x.com/untpress
+    division     : unt-press
+    department   : unt-press
+    active       : true
+  - id           : unt-press-pinterest
+    title        : UNT Press (Pinterest)
+    icon_class   : fab fa-pinterest fa-fw
+    url          : https://www.pinterest.com/untpress0263/
+    division     : unt-press
+    department   : unt-press
+    active       : true
+
+
+####################################
+# Podcasts produced by the libraries
+####################################
+podcasts:
+  - title: First Chair Chats (UNT Music Library)
+    publication: 2020-2022
+    description: |
+      Panelists from the UNT community and local area come together to address
+      a specific topic and answer audience questions.
+    providers:
+      - label: Youtube
+        url: https://www.youtube.com/playlist?list=PLjdZcAp5Ay1ukmDptJplmR0ZPsdSfcZT5
+
+  - title: From the Archive (UNT Music Library)
+    publication: 2016-2019
+    description: |
+      Podcast from the University of North Texas Music Library highlighting
+      materials from their collections.
+    providers:
+      - label: UNT Digital Library Archive
+        url: https://digital.library.unt.edu/search/?q=&t=fulltext&sort=added_d&fq=dc_type%3Asound&fq=str_title_serial%3AFrom+the+Archives
+
+  - title: Reel To Real Classics
+    publication: Periodic
+    description: |
+      Reel to Real Classics is a group that promotes a dialogue on variety of
+      social, cultural, and historical topics through the examination of
+      classic film.
+    providers:
+      - label: SoundCloud
+        url: https://soundcloud.com/r2rc
+      - label: Podbean
+        url: https://reeltorealclassics.podbean.com/
+
+  - title: UNT MindSpark
+    publication: 04/2020 - Present
+    description: |
+      The maker movement generated the recent increase in innovation spaces such
+      as a makerspace. Student makers at UNT explore various topics
+      surrounding making, the Maker Mindset, and the Maker movement. We have
+      a few series that focus on a range of topics from how various spaces
+      developed their unique makerspace/fablab/techgym/design studio/etc. to
+      meeting our makers to a series on specific technologies that are
+      either in our makerspace or new in the maker community. Join us for a
+      journey into the maker minds and spaces that inspire us.
+    providers:
+      - label: Amazon Music
+        url: https://music.amazon.com/podcasts/bd0b95cb-85cc-41a0-8a27-418c61fe9d1d/unt-mindspark
+      - label: Apple Podcasts
+        url: https://podcasts.apple.com/us/podcast/unt-mindspark/id1522948210?uo=4
+      - label: Spotify
+        url: https://open.spotify.com/show/3kBjaJXfEuE38TOB4zOvX1
+
+
+####################################
+# Blogs
+####################################
+blogs:
+  - title: Comics Studies at UNT
+    division: public-services
+    department: research-support-services
+    active: true
+    url: https://blogs.library.unt.edu/comics
+  - title: Scholar Speak
+    division: public-services
+    department: access-services
+    active: true
+    url: https://blogs.library.unt.edu/scholar-speak
+  - title: Sycamore Stacks
+    division: public-services
+    department: sycamore
+    active: true
+    url: https://blogs.library.unt.edu/sycamore-stacks
+  - title: 125 Year Archival Retrospective
+    division: special-libraries
+    department: special-collections
+    active: true
+    url: https://blogs.library.unt.edu/unt125
+  - title: Portal to Texas History News
+    division: digital-libraries
+    department: digital-libraries
+    active: true
+    url: https://news.texashistory.unt.edu/
+  - title: The Spark Blog
+    division: facilities-operations
+    department: facilities-operations
+    active: true
+    url: https://guides.library.unt.edu/spark/blog
+  - title: UNT Library Blogs (Includes Archived Sites)
+    division: facilities-operations
+    department: facilities-operations
+    active: false
+    url: https://blogs.library.unt.edu/
+

@@ -1,0 +1,27 @@
+{% load static %}
+<script src="{% static 'keeper/inherit/vendor/jquery.min.js' %}?v=3.5.0"></script>
+
+{# Inherited scripts from the main library site #}
+<script src="{{ omni.utils.omni.vendor | add:"bootstrap/js/bootstrap.bundle.min.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"tarekraafat/autoComplete.min.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"dayjs/dayjs.min.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"dayjs/plugin/timezone.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"dayjs/plugin/utc.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"dayjs/plugin/isBetween.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"dayjs/plugin/advancedFormat.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"lazysizes/lazysizes.min.js" }}"></script>
+<script src="{{ omni.utils.omni.vendor | add:"mark/mark.min.js" }}"></script>
+
+{% if site.data.alerts.global_alert.enabled %}
+  <script src="{{ omni.utils.omni.scripts | add:"display.alerts.js" }}" type="module"></script>
+{% endif %}
+
+<script>
+  {# Override the domain we use to reach the dropdowns.json before JS is loaded #}
+  window.untLib ??= {};
+  window.untLib.dropdownConfig ??= {
+    baseURL: "https://beta.library.unt.edu",
+  };
+</script>
+
+<script src="{{ omni.utils.omni.scripts | add:"main.js" }}" type="module"></script>

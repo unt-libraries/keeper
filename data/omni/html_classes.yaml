@@ -1,0 +1,368 @@
+###################
+# template layouts
+###################
+# default template
+default:
+  body:
+  content_wrapper: "content container-fluid"
+  content_container: "container-3xl"
+
+##############
+# Skip link
+##############
+skip:
+  nav: "visually-hidden-focusable overflow-hidden"
+  container: "container-fluid p-0"
+  link: "btn btn-dark text-bg-dark p-3 rounded-0 border-lime border-2 w-100"
+
+##############
+# alerts
+##############
+alerts:
+  global:
+    button: "btn btn-link border-1 border-light alert-link btn-sm link-underline-opacity-0 align-self-start"
+    base_background: "container-fluid alert fade show mb-0 py-4 rounded-0" # see site.data.global_alert for added styles
+    base_alert: " container-3xl d-flex align-items-center justify-content-between" # see site.data.info.global_alert for added styles
+    text_wrapper: "px-3"
+
+  page:
+    base_background: "container-fluid alert mb-0 py-4 rounded-0"
+    base_alert: "container-3xl d-flex px-lg-0"
+
+##############
+# Top Bar
+##############
+top_bar:
+  container: "container-fluid p-0 m-0 bg-secondary-subtle d-none d-lg-block"
+  inner_container: "container-3xl d-flex justify-content-between"
+  brand_link: "icon-link link-dark-green link-underline-opacity-0 link-underline-opacity-75-hover small fw-semibold"
+  brand_svg: "svg-inline--fa fa-flip-horizontal fa-sm text-black"
+  nav_wrapper: "nav text-uppercase h6 py-1 align-items-center"
+  dropdown_wrapper: "dropdown nav-link-decoration-hover pe-2 focus-ring focus-ring-dark"
+  link: "top-bar-item link-body-emphasis nav-link nav-link-small px-2 nav-link-decoration-hover"
+  btn: "top-bar-item link-dark-green nav-link nav-link-small bg-white border-white text-uppercase fw-bold icon-link rounded-3 p-1 px-2"
+
+##############
+# Dropdowns
+##############
+dropdowns:
+  dropdown_menu: dropdown-menu dropdown-menu-end border-start border-end pb-0 border-light-subtle border-0 mt-n1 ff-normal shadow-lg
+  dropdown_last_item: border-bottom border-light-green border-3
+  mega_menu: border-0 border-3 border-bottom border-light-green dropdown-menu ff-normal mt-n1 w-100 vh-50 vh-lg-unset overflow-auto shadow-lg
+  mega_headings: border-1 border-bottom border-lime-green h6 text-dark-green text-uppercase
+  mega_heading_links: link-dark-green link-underline-opacity-0
+  mega_links: text-secondary link-success link-underline-opacity-0 link-underline-opacity-100-hover d-block
+  mega_icon_links: link-success link-underline-opacity-0 link-underline-opacity-0-hover
+  mega_link_annotation: annotation d-none d-md-block border-bottom border-1 border-light-subtle small py-2 text-light-emphasis fw-normal fst-italic
+
+##############
+# Header
+##############
+header:
+  container: "container-fluid p-0"
+  inner_container: "container-3xl p-0"
+  navbar: "navbar navbar-expand-lg pb-0 pb-lg-2 px-lg-2"
+  brand_link: "ms-2 ms-lg-0 mb-2 mb-lg-0"
+  desktop_svg: "d-none d-lg-block logo hd-logo hd-lg-logo"
+  mobile_svg: "d-inline d-lg-none logo hd-lg-logo"
+  title_wrapper: "bg-lg-white bg-secondary-subtle border-lg-3 border-lg-success border-start-lg ms-lg-3 ps-lg-3 w-100 w-lg-auto"
+  title_heading: "m-0 p-2 p-lg-0 lh-1 h3"
+  subtitle_link: "text-uppercase link-dark-green link-underline-opacity-0 link-underline-opacity-100-hover m-0 px-2 px-lg-0 pt-1 pt-lg-0 d-block"
+  title_link: "text-uppercase link-dark-green link-underline-opacity-0 link-underline-opacity-100-hover"
+  navbar_mobile_controls: "btn-group me-2"
+  navbar_toggler: "navbar-toggler icon-link border-0"
+  navbar_search: "navbar-toggler icon-link border-0 bg-transparent"
+
+
+##############
+# Navbars
+##############
+navbars:
+  main:
+    container: "container-fluid p-0"
+    inner_container: "container-3xl p-0"
+    navbar: "navbar navbar-expand-lg pb-0 pb-lg-2 px-lg-2 py-0"
+    nav: "collapse navbar-collapse justify-content-start"
+    shim: "d-none d-xxl-inline-block me-lg-3 ms-lg-4 main-navbar-shim"
+    nav_inner: "main-navbar-nav navbar-nav"
+    nav_link: "nav-link nav-link-decoration-hover px-1 mx-1 mb-0 mb-xl-1 h5 fs-6 fs-xl-5"
+    dropdown_wrapper: "dropdown"
+    dropdown_svg: "svg-inline--fa fa-xs text-light-charcoal opacity-50"
+    mega_menu_wrapper: "mega-menu"
+  secondary:
+    container: "container-fluid bg-black p-3 border-top border-5 border-unt-green mt-lg-2"
+    inner_container: "container-3xl d-flex justify-content-between flex-wrap-reverse p-0"
+
+##############
+# Breadcrumbs
+##############
+breadcrumbs:
+  list: "breadcrumb justify-content-start p-0 m-0 text-white"
+  item: "breadcrumb-item"
+  current_item: "breadcrumb-item d-none d-lg-inline"
+  link: "link-light link-underline-opacity-100 text-capitalize"
+  link_current: "link-light text-uppercase fw-bold link-underline-opacity-0"
+
+##############
+# Title
+##############
+title:
+  title_outer: "position-relative"
+  title_wrapper: "title-header container-fluid text-bg-dark-green text-white p-0"
+  title_container: "container-3xl py-2 py-lg-5"
+  inner: "d-lg-flex justify-content-lg-between"
+  title: "h1 fs-4 fs-md-2 fs-lg-1 mb-2 mb-lg-0"
+  summary_text: "small text-white mt-2 mt-lg-auto d-md-flex justify-content-md-between"
+  summary_btn: "btn position-relative z-1"
+
+##############
+# MAIN
+##############
+main:
+  container: "container-fluid"
+  inner_container: "container-3xl g-0 g-lg-4"
+  section_aside_wrapper: "row"
+  section_single: "content py-4"
+  section_double: "content p-4 col-md-8 col-lg-9 order-1 order-md-2"
+  content_inner: "markdown-content breathing-room"
+  raw_class: "content"
+
+##############
+# Sidebar
+##############
+sidebar:
+  wrapper: "sidebar sidebar--left col-md-4 col-lg-3 order-2 order-md-1 py-4"
+  section: "border-end"
+  intro: "small"
+  heading: "h5 text-uppercase"
+  heading_link: ""
+  prefix: "small"
+  nav: "nav flex-column nav--sidebar mb-3"
+  nav_item: "nav-item"
+  nav_link: "sidebar-link nav-link"
+  nav_list_child: "list-unstyled"
+  link_list_child_item: "nav-item"
+  nav_list_child: "nav-link"
+
+################
+# Hours Dropdown
+################
+
+hours:
+  wrapper: "text-white dropdown"
+  btn: "btn btn-sm btn-outline-lime-green dropdown-toggle"
+
+##############
+# Heroes
+##############
+heroes:
+  container: "hero-blur container-fluid hero hero-window position-relative bg-dark p-0 d-none d-sm-block"
+
+  #blur_wrapper: "hero-blur hero-background z-1 position-absolute top-0 bottom-0 start-0 end-0"
+  #blur: "hero-blur-overlay position-absolute top-0 bottom-0 start-0 end-0"
+  #backdrop: "hero-backdrop h-100 w-100"
+  copy_wrapper: "copy-wrapper position-absolute top-50 start-50 translate-middle z-3  w-sm-75"
+  tabs: "nav nav-pills bg-transparent mb-2 d-none d-lg-flex"
+  tab_item: "nav-item me-1"
+  tab_btn: "search-tab btn btn-dark btn-outline-light-green"
+  tab_pane: "tab-pane fade"
+  copy: "hero-copy tab-content p-lg-5 p-sm-4 text-bg-dark border border-1 border-black bg-opacity-90"
+
+  blurb: "hero-blurb fs-5 d-none d-lg-block"
+  dyk_wrapper: "mt-4 small lead fs-6 d-none d-lg-block"
+  dyk_link: "link-underline-opacity-0 link-offset-3-hover link-underline-opacity-50-hover link-light"
+  dky_refresh_btn: "btn btn-sm btn-link link-lime-green link-underline-opacity-0"
+
+  carousel:
+    wrapper: "carousel slide carousel-fade container-3xl end-0 position-absolute start-0 top-0 z-2 p-0"
+    inner: "carousel-inner hero-window"
+    item: "hero-background carousel-item z-1 h-100"
+    btn_group: "hero-btn-group position-absolute bottom-0 end-0 mb-2 me-2 z-3 mw-50 text-truncate text-nowrap d-none d-sm-inline-block"
+    btn: "btn btn-sm btn-dark-teal position-absolute bottom-0 end-0 mb-2 me-2 z-3 mw-50 text-truncate text-nowrap d-none d-sm-inline-block"
+    toggle_btn: "toggle-plain btn btn-sm btn-outline-light ms-1 position-absolute bottom-0 start-0 mb-2 ms-2 z-3 mw-50 d-none d-sm-inline-block"
+    prev: "carousel-control carousel-control-prev dashed-focus-inverted d-none"
+    next: "carousel-control carousel-control-next dashed-focus-inverted d-none"
+
+  standard:
+    wrapper: "container-3xl end-0 start-0 top-0 z-2 p-0"
+    item: "hero-background z-1 h-100"
+    item_embed: "bg-black container end-0 p-0 position-absolute start-0 top-0 z-2"
+    copy_wrapper: "copy-wrapper position-absolute top-50 start-50 translate-middle z-3 w-100 w-lg-75"
+    copy: "hero-copy tab-content p-5 text-bg-dark border border-1 border-black"
+    iframe: "mw-3xl-50 mw-lg-auto mw-xl-66 start-50 translate-middle-x"
+
+
+##############
+# Filters
+##############
+filters:
+  container: "position-relative "
+  wrapper: "pb-2 pb-lg-4"
+  inner: "pb-2 pb-lg-4"
+  heading: "text-uppercase border-bottom border-3 border-lime-green d-inline-block fs-3 fs-xl-1"
+  search_input: "form-control form-control-lg dashed-focus-inverted"
+  search_select: "filter-controls form-select form-select-lg w-xl-75 dashed-focus-inverted"
+  search_label: "fs-5 fw-bold mb-2"
+
+
+##############
+# Search Forms
+##############
+search_forms:
+  bento:
+    search_form: "search"
+    input_group: "input-group"
+    search_input: "h4 mb-0 form-control form-control-lg border-0 border-bottom border-1 border-light rounded-0 dashed-focus-inverted text-white bg-dark-charcoal proxyable-target"
+    search_submit_btn: "btn btn-outline-light-green btn btn-lg btn-dark dashed-focus-inverted"
+    search_bonus_btn: "btn btn-outline-light-teal btn btn-lg btn-dark dashed-focus-inverted"
+    copy_icon: "fas fa-paste"
+    other_url_icon: "fad fa-file-lock"
+    search_btn_group: "btn-group dropdown d-flex"
+    search_col: "col col-lg-4 col-xl-3 mb-2 h4"
+    search_common_btn: "btn btn-link dropdown-item text-start w-100 text-light-green"
+    dropdown_toggle_btn: "dropdown-toggle dropdown-toggle-split"
+    dropdown_menu: "dropdown-menu dropdown-menu-end"
+
+  databases:
+    input_group: "input-group position-relative"
+    input: "h4 mb-0 form-control form-control-lg border-0 border-bottom border-1 border-light rounded-0 dashed-focus-inverted text-white bg-dark-charcoal"
+    button: "btn btn-outline-light-green btn btn-lg btn-dark dashed-focus-inverted"
+    favorites: "favorites-wrapper mt-3 d-none"
+    favorites_icon: "fad fa-bookmark fa-fw text-warning"
+    dropdown_wrapper: "dropdown-menu dropdown-menu-end"
+
+  reserves:
+    input_group: "input-group position-relative"
+    input: "h4 mb-0 form-control form-control-lg border-0 border-bottom border-1 border-light rounded-0 dashed-focus-inverted text-white bg-dark-charcoal"
+    button: "btn btn-outline-light-green btn btn-lg btn-dark dashed-focus-inverted"
+    related_block: "mt-4 lead fs-6"
+    related_block_icon: "fad fa-bookmark fa-fw text-warning"
+    related_block_link: "btn btn-success btn-sm"
+
+  subjects:
+    input_group: "input-group position-relative"
+    input: "h4 mb-0 form-control form-control-lg border-0 border-bottom border-1 border-light rounded-0 dashed-focus-inverted"
+    button: "btn btn-outline-light-green btn btn-lg btn-dark dashed-focus-inverted"
+
+
+#########
+# Blocks
+#########
+blocks:
+  grid_cards:
+    container: "container-fluid py-4"
+    container_theme: "bg-body-secondary"
+    inner_container: "container-3xl my-4"
+    rows: "row gx-4 justify-content-center row-cols-1 row-cols-md-2"
+    card_wrapper: "card-wrapper col mb-4 mb-mb-0" #"card-wrapper col-12 col-md-6 col-lg-auto flex-fill w-lg-25 mb-4 mb-lg-0"
+    card: "card shadow-lg shadow-dark rounded-0 p-2 h-100"
+    header: "card-header text-uppercase text-secondary-subtle border-bottom border-secondary-subtle border-1 small bg-transparent"
+    title: "card-title h5 fw-semibold"
+    body: "card-body"
+    link: ""
+    image: "h-100 card-img object-fit-cover"
+    image_body: "bg-opacity-75 card-img-overlay text-bg-dark"
+
+  text:
+    container: "container-fluid py-4"
+    container_theme: "bg-white"
+    inner_container: "container-3xl my-4"
+    title: "h1 text-uppercase"
+    link: "link-dark-green"
+    text: "lead fs-5"
+    button_group: "btn-group"
+    button: "btn btn-unt-green"
+    icon_class:
+    list_rows: "row gx-4 mt-4 pt-4 border-top border-1 border-secondary-subtle"
+    list_cols: "col-12 col-md-6 col-lg-auto"
+    list_headings: "h5"
+    list_icon: "fad fa-squirrel"
+    list_item: "mb-3"
+    list_item_link: "link-dark-green"
+    list_item_added_text: "text-secondary fst-italic"
+    media_row: "row row-cols-2"
+    media_column: "col-12 col-lg-6 text-center order-2"
+    media_text_column: "col-lg-6 order-1"
+    media_image: "img-fluid img-thumbnail"
+    media_image_link: "d-inline-block has-hidden-link-indicator btn btn-link btn-outline-light-green p-0"
+    media_image_figure: "figure mb-0"
+    media_image_figcaption: "figure-caption text-start fst-italic"
+    media_audio: "ratio ratio-21x9"
+    media_audio_caption: "figcaption text-start small fst-italic"
+
+##########
+# Footer
+##########
+footer:
+  footer_element: "text-bg-dark pb-4 position-relative"
+  eagle_background: "ft-eagle-mobile position-absolute top-0 w-100 h-100"
+  container: "footer container-fluid py-5 px-md-5 m-0 position-relative"
+  inner_container: "container-3xl"
+  row: "row d-flex justify-content-around"
+  eagle_col: "d-none d-xl-block col-xl-3 col-2xl-2"
+  eagle_link: "link-success link-underline-opacity-0"
+  eagle_svg: "logo ft-logo"
+  center_col: "col-lg-6 col-xl-4"
+  heading: "h2"
+  link: "link-lime link-underline-success text-white"
+  gov_link: "w-75 w-lg-33 w-md-50"
+  address_container: "address list-unstyled fs-5"
+  address: "d-flex justify-content-start mb-3"
+  address_icon: "svg-inline--fa fa-fw me-2"
+  address_info: "address-info"
+  last_col: "col-lg-6 col-xl-4"
+  last_col_row: "row"
+  social_nav: "mb-4"
+  space_link: "link-lime text-white link-underline-opacity-10 link-underline-opacity-100-hover"
+  social_icon: "btn btn-outline-lime rounded-circle text-white border-white border border-2 px-2 me-1"
+  depository_container: "d-flex justify-content-start"
+  depository_svg: "svg-inline--fa img-fluid me-4"
+  depository_text: "fs-5"
+
+##########
+# Colophon
+##########
+colophon:
+  container: "colophon container-fluid w-2xl-50 w-lg-75 w-xl-66 position-relative"
+  flag_divider: "flag-divider d-flex justify-content-center mb-4"
+  flag_link: "flag-link"
+  hr: "align-self-center divider mt-5 position-absolute py-3 text-white w-100"
+  flag_icon: "align-self-center mt-n-2"
+  row: "row"
+  wordmark_wrapper: "col-lg-4 d-flex justify-content-center"
+  wordmark_svg: "w-100"
+  links_outer_column: "col-lg-8"
+  links_row: "d-none d-sm-flex justify-content-center py-1 nav"
+  unt_brand_classes: "text-white link-success link-underline-opacity-0 link-underline-opacity-0-hover flex-fill"
+  nav_link_classes: "nav-item p-1 text-white link-lime link-underline-opacity-0 link-underline-opacity-100-hover"
+  copyright: "small d-block text-center"
+
+##########
+# Off Canvas
+##########
+offcanvas:
+  chat:
+    wrapper: "offcanvas offcanvas-end w-100 w-md-50 w-xl-33 text-bg-light-green"
+    header: "offcanvas-header"
+    esc: "text-uppercase fw-bold nav-link link-light border-bottom border-3 border-lime-green py-2 fs-5"
+    title: "offcanvas-title"
+    close_btn: "btn-close"
+    body: "offcanvas-body px-4"
+    trigger_btn: "btn btn-unt-green rounded-0 rounded-top position-fixed z-3 bottom-0 end-0 me-3 px-3"
+
+  search:
+    wrapper:  "collapse container-fluid text-bg-dark-charcoal py-2"
+    container:  "container-3xl mt-2 mb-4 px-2"
+    header:  "d-flex justify-content-end mb-3 pb-3"
+    esc:  "text-uppercase fw-bold nav-link link-light border-bottom border-3 border-lime-green py2 fs-6"
+    body:  "py-lg-4"
+    suffix: "mt-4"
+    links: "link-light-green dashed-focus-inverted"
+
+  generic:
+    wrapper: "offcanvas offcanvas-start w-100 w-md-50 w-xl-33 text-bg-light"
+    header: "offcanvas-header"
+    esc: "text-uppercase fw-bold nav-link link-light border-bottom border-3 border-lime-green py-2 fs-5"
+    title: "offcanvas-title"
+    close_btn: "btn-close"
+    body: "offcanvas-body px-4"

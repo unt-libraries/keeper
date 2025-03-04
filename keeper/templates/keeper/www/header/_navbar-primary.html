@@ -1,0 +1,70 @@
+{% comment %}
+##########################################################
+MAIN NAVIGATION BAR: DROPDOWNS, MEGA MENU, DESKTOP, MOBILE
+##########################################################{% endcomment %}
+{% comment %}
+################
+TEMPLATE ASSIGNS
+################{% endcomment %}
+<nav id="primary-navigation"
+     class="{{ omni.html_classes.navbars.main.container }}"
+     aria-label="Gateway pages to library services">
+  <div id="desktop-links"
+       class="{{ omni.html_classes.navbars.main.navbar }}">
+    <div class="{{ omni.html_classes.navbars.main.inner_container }}"
+         id="desktop-links-inner">
+      <nav id="main-navbar"
+           class="{{ omni.html_classes.navbars.main.nav }}"
+           aria-label="Main Navigation">
+        <div class="{{ omni.html_classes.navbars.main.shim }}"></div>
+        <div class="{{ omni.html_classes.navbars.main.nav_inner }}"
+             id="main-navbar-nav">
+          {% for entry in omni.navigation.main_bar %}
+            {% if entry.type == "link" %}
+              {% comment %}<!-- ###### REGULAR LINK ####### -->{% endcomment %}
+              <a id="main-bar-item-{{ forloop.counter }}"
+                 class="{{ omni.html_classes.navbars.main.nav_link }} {{ entry.classes|default:"" }}"
+                 href="{{ entry.url }}">
+                {{ entry.text }}
+              </a>
+            {% endif %}
+            {% if entry.type == "dropdown" %}
+              {% comment %}<!-- ###### DROPDOWN LINK ####### -->{% endcomment %}
+              <div class="{{ omni.html_classes.navbars.main.dropdown_wrapper }}"
+                   id="main-bar-item-{{ forloop.counter }}-dropdown">
+                <a href="{{ entry.url }}"
+                   id="main-bar-item-{{ forloop.counter }}"
+                   class="{{ omni.html_classes.navbars.main.nav_link }} {{ entry.classes|default:"" }}"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false"
+                   role="button">
+                  {{ entry.text}}
+                  {% with use="svg-caret-down" decorative=True viewBox="0 0 320 512" title="open dropdown" classes=omni.html_classes.navbars.main.dropdown_svg %}
+                    {% include 'keeper/www/utils/_svg.html' %}
+                  {% endwith %}
+                </a>
+              </div>
+            {% endif %}
+            {% if entry.type == "mega-menu" %}
+              {% comment %}<!-- ###### MEGA MENUS LINK ####### -->{% endcomment %}
+              <div class="{{ omni.html_classes.navbars.main.mega_menu_wrapper }}"
+                   id="main-bar-item-{{ forloop.counter }}-dropdown">
+                <a href="{{ entry.url }}"
+                   id="main-bar-item-{{ forloop.counter }}-caret"
+                   class="{{ omni.html_classes.navbars.main.nav_link }} {{ entry.classes|default:"" }}"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false"
+                   role="button">
+                  {{ entry.text }}
+                  {% with use="svg-caret-down" decorative=True viewBox="0 0 320 512" title="open dropdown" classes=omni.html_classes.navbars.main.dropdown_svg %}
+                    {% include 'keeper/www/utils/_svg.html' %}
+                  {% endwith %}
+                </a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>{% comment %}<!-- END #main-navbar-nav -->{% endcomment %}
+      </nav>{% comment %}<!-- END #main-navbar -->{% endcomment %}
+    </div>{% comment %}<!-- #desktop-links-inner -->{% endcomment %}
+  </div>{% comment %}<!-- #desktop-links -->{% endcomment %}
+</nav>{% comment %}<!-- #primary-navigation -->{% endcomment %}

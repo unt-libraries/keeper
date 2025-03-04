@@ -1,0 +1,209 @@
+# Changes from www source marked with # EDITED
+_documentation: |
+  # This file contains various configuration settings for items that typically
+  # appear in the document head. Placement here allows for easier periodic updates
+  # and override behaviors in subsites rather than modifications to the template code
+
+preconnects:
+  _docs: |
+    A list of URL paths to preconnect to.
+
+  urls:
+    - https://fonts.gstatic.com
+    - https://lgapi-us.libapps.com
+
+
+cdn_font:
+  _docs: |
+    String path to a CDN or other Fonts stylesheet;
+    Currently Google Fonts Open Sans and Oswald are used.
+
+  url: "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,400&family=Oswald:wght@300;400&subset=latin-ext&display=swap"
+
+omni:
+  assets:  "https://library.unt.edu/assets/omni/" # EDITED: to use library www resources
+  data:    "https://library.unt.edu/assets/omni/data/" # EDITED: to use library www resources
+  images:  "https://library.unt.edu/assets/omni/images/" # EDITED: to use library www resources
+  scripts: "https://beta.library.unt.edu/assets/omni/scripts/" # EDITED: to use library www resources
+  styles:  "https://library.unt.edu/assets/omni/styles/" # EDITED: to use library www resources
+  vendor:  "https://library.unt.edu/assets/omni/vendor/" # EDITED: to use library www resources
+
+font_awesome:
+  _docs: |
+    Manage font-awesome icons scripts
+  version: # EDITED: to remove leading underscore for Django compatibility
+    kit: 261a22fc18 #unt-all; # CDN access via: https://kit.fontawesome.com/261a22fc18.js
+    number: 6.5.2
+  conflict_detect:
+    script: false # if true, renders the script
+    timeout: 2000 # milliseconds
+  styles:
+    - brands
+    - duotone
+    - solid
+    - custom-icons
+
+carousels:
+  speed: 10000
+
+springshare:
+  libanswers:
+    widget_id: "libchat_9279f20504044072454e342f7472f5d665421500906281355ba7d5cffe62aa0a"
+
+
+search_dropdowns:
+  default_bento:
+    - label: Online Articles
+      classes:
+      urlTemplate: https://untexas.summon.serialssolutions.com/#!/search?ho=t&include.ft.matches=f&fvf=IsFullText,true,f%7CIsPeerReviewed,true,f%7CContentType,Journal%20Article,f&l=en&q={query}
+    - label: Cataloged Books & More
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?q={query}&utf8=%E2%9C%93&search_field=text
+    - label: UNT Digital Collections
+      classes:
+      urlTemplate: https://digital2.library.unt.edu/search/?q={query}&t=fulltext
+    - label: Archival Finding Aids
+      classes:
+      urlTemplate: https://archives.library.unt.edu/search?q%5B%5D={query}&utf8=%E2%9C%93&op%5B%5D=
+    - label: Subject & Course Guides
+      classes:
+      urlTemplate: https://guides.library.unt.edu/srch.php?q={query}
+    - label: This Website
+      classes:
+      urlTemplate: https://search.unt.edu/s/search.html?query={query}&f.Tabs%7Cuni-nt-web=Website&collection=uni-nt-search&scope=library.unt.edu,-guides.library.unt.edu,-blogs.library.unt.edu,-guides.library.unt.edu,-archives.library.unt.edu,-hoc.library.unt.edu,-journals.library.unt.edu,-openbooks.library.unt.edu,-omeka.library.unt.edu
+    - type: divider
+    - label: Beyond our Collections
+      classes:
+      urlTemplate: https://untexas.summon.serialssolutions.com/#!/search?ho=f&include.ft.matches=f&fvf=ContentType,Book%20%2F%20eBook,t&l=en&q={query}
+
+
+  default_ers:
+    - label: E-Books
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Baccess_facet%5D%5B%5D=Online&f%5Bresource_type_facet%5D%5B%5D=books&q={query}&search_field=text
+    - label: E-Journals
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?f%5Baccess_facet%5D%5B%5D=Online&f%5Bresource_type_facet%5D%5B%5D=journals_periodicals&utf8=%E2%9C%93&q={query}&search_field=text
+    - label: Online Articles
+      classes:
+      urlTemplate: https://untexas.summon.serialssolutions.com/#!/search?ho=t&include.ft.matches=f&fvf=IsFullText,true,f%7CIsPeerReviewed,true,f%7CContentType,Journal%20Article,f&l=en&q={query}
+    - label: Online Government Documents
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?f%5Baccess_facet%5D%5B%5D=Online&f%5Bcollection_facet%5D%5B%5D=Government+Documents&utf8=%E2%9C%93&q={query}&search_field=text
+    - label: Online Media
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Baccess_facet%5D%5B%5D=Online&f%5Bcollection_facet%5D%5B%5D=Media+Library&q={query}&search_field=text
+    - label: Online Music
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?f%5Baccess_facet%5D%5B%5D=Online&f%5Bcollection_facet%5D%5B%5D=Music+Library&utf8=%E2%9C%93&q={query}&search_field=text
+  default_reserves:
+    - label: By Course Code
+      classes:
+      urlTemplate: https://iii.library.unt.edu/search/r?SEARCH={query}
+    - label: By Instructor
+      classes:
+      urlTemplate: https://iii.library.unt.edu/search/p?SEARCH={query}
+    - label: By Title
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?search_field=title&q={query}
+    - type: divider
+    - label: Subject & Course Guides
+      classes:
+      urlTemplate: https://guides.library.unt.edu/srch.php?q={query}
+    - type: divider
+    - label: Equipment
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bresource_type_facet%5D%5B%5D=equipment&q={query}&search_field=text
+
+
+  media_bento:
+    - label: Films & Videos
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bresource_type_facet%5D%5B%5D=video_film&q={query}&search_field=text
+    - label: Games
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bcollection_facet%5D%5B%5D=Media+Library&q={query}&search_field=text
+    - label: Equipment (Consoles & Accessories)
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bresource_type_facet%5D%5B%5D=games&q={query}&search_field=text
+    - type: divider
+    - label: Subscription Databases
+      classes:
+      urlTemplate: https://guides.library.unt.edu/az.php?q={query}&s=163477
+    - label: Digital Collections
+      classes:
+      urlTemplate: https://digital2.library.unt.edu/search/?q={query}&t=fulltext&fq=untl_institution%3AUNTLML
+    - label: Archival Finding Aids
+      classes:
+      urlTemplate: https://archives.library.unt.edu/search?utf8=%E2%9C%93&op%5B%5D=&op%5B%5D=OR&op%5B%5D=OR&q%5B%5D=%22media+library%22&q%5B%5D=film&q%5B%5D=video&limit=&field%5B%5D=&field%5B%5D=&field%5B%5D=&from_year%5B%5D=&from_year%5B%5D=&from_year%5B%5D=&to_year%5B%5D=&to_year%5B%5D=&to_year%5B%5D=&action=search&sort=&filter_q%5B%5D={query}&filter_from_year=&filter_to_year=&commit=Search
+
+
+  music_bento:
+    - label: Scores
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bresource_type_facet%5D%5B%5D=music_scores&q={query}&search_field=text
+    - label: Music Recordings
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bresource_type_facet%5D%5B%5D=music_recordings&q={query}&search_field=text
+    - label: Books
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bcollection_facet%5D%5B%5D=Music+Library&f%5Bresource_type_facet%5D%5B%5D=books&q={query}&search_field=text
+    - label: Reference
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bcollection_facet%5D%5B%5D=Music+Library&f%5Bshelf_facet%5D%5B%5D=Willis+4FL+Music+Reference&q={query}&search_field=text
+    - label: Online
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Baccess_facet%5D%5B%5D=Online&f%5Bcollection_facet%5D%5B%5D=Music+Library&q={query}&search_field=text
+    - type: divider
+    - label: Digital Collections
+      classes:
+      urlTemplate: https://digital.library.unt.edu/explore/partners/UNTML/browse/?q={query}&t=fulltext&sort=added_d
+    - label: Archival Finding Aids
+      classes:
+      urlTemplate: https://archives.library.unt.edu/repositories/3/search?utf8=%E2%9C%93&op%5B%5D=&q%5B%5D={query}&limit=&field%5B%5D=&from_year%5B%5D=&to_year%5B%5D=&commit=Search
+
+  special_collections_bento:
+    - label: Catalog (Special Collections)
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bcollection_facet%5D%5B%5D=Special+Collections&q={query}&search_field=text
+    - label: Digital Collections
+      classes:
+      urlTemplate: https://digital2.library.unt.edu/search/?q={query}&t=fulltext&fq=untl_institution%3AUNTA
+    - label: Archival Finding Aids
+      classes:
+      urlTemplate: https://archives.library.unt.edu/repositories/2/search?utf8=%E2%9C%93&op%5B%5D=&q%5B%5D={query}&limit=&field%5B%5D=&from_year%5B%5D=&to_year%5B%5D=&commit=Search
+
+  govinfo_bento:
+    - label: Catalog (Government Documents)
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bcollection_facet%5D%5B%5D=Government+Documents&q={query}&search_field=text
+    - label: Catalog (SuDoc Number)
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Bcollection_facet%5D%5B%5D=Government+Documents&q={query}&search_field=text&search_field=sudoc
+    - label: Digital Collections
+      classes:
+      urlTemplate: https://digital2.library.unt.edu/search/?q={query}&t=fulltext&fq=untl_institution%3AUNTGD
+    - label: Subject Guides
+      classes:
+      urlTemplate: https://guides.library.unt.edu/srch.php?q={query}&tag=government+information+connection
+
+
+
+strings:
+  bento_label: "Search many systems at once or refine to just one. Got a DOI? Copy/Paste it here."
+  search: "Search"
+  refine: "Refine"
+  paywall_url: "URL Found. If paywalled, view options."
+  tab_bento: "Start Searching"
+  tab_database: "Databases & E-Resources"
+  tab_reserves: "Course Reserves"
+  tab_reserves_related: "Related:"
+  tab_other_searches: "Other Searches"
+  desk_message: >-
+    Service desks begin closing procedures 10 minutes before the building or
+    posted hours. Hours are subject to change without notice. Always call
+    ahead when traveling a long distance.
+
+tooltips:
+  colophon:
+    staff_reporting: "Report changes to this page, library staff only"
