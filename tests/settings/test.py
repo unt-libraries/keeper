@@ -2,6 +2,8 @@ from .base import *
 
 DEBUG = True
 
+SECRET_KEY = os.environ.get('SECRET_KEY', 'testkey')
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'private-media-test')
 MEDIA_URL = '/private-media-test/'
 

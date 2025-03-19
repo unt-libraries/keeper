@@ -42,6 +42,7 @@ font_awesome:
     - duotone
     - solid
     - custom-icons
+    - regular # EDITED: added regular
 
 carousels:
   speed: 10000

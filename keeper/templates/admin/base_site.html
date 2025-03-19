@@ -2,16 +2,18 @@
 {% load static %}
 
 {% block extrastyle %}
-    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-brands-400.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-solid-900.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-regular-400.woff' %}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-duotone-900.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/webfonts/fa-light-300.woff2' %}" as="font" type="font/woff2" crossorigin>
+  {# Font Awesome icons and style changes #}
+  <script src="{{ omni.utils.omni.vendor | add:"fontawesome/js/regular.min.js?v=" | add:omni.utils.font_awesome.version.number }}"></script>
 
-    <link rel="stylesheet"
-          href="{% static 'keeper/inherit/vendor/@fortawesome/fontawesome-pro/css/all.min.css' %}?v=5.7.2"
-          media="print"
-          onload="this.media='all'; this.onload=null;">
+  <script src="{{ omni.utils.omni.vendor | add:"fontawesome/js/fontawesome.min.js" | add:"?v=" | add:omni.utils.font_awesome.version.number }}"
+          data-auto-add-css="false"
+          data-mutate-approach="sync"></script>
+
+  <style>
+    .fa-5x {
+      height: 10em;
+    }
+  </style>
 {% endblock extrastyle %}
 
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}

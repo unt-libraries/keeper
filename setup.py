@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 install_requires = [
     'django-parsley',
     'django-recaptcha',
-    'mysqlclient',
+    'psycopg2',
     'python-magic',
     'Unipath',
     'wheel==0.41.0',
