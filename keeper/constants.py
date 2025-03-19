@@ -7,6 +7,6 @@ ACCEPTED_FILE_TYPES = {"image/*": "file-image",
                        "audio/*": "file-audio",
                        "application/msword": "file-word",
                        "application/pdf": "file-pdf",
-                       "text/plain": "file-alt",
+                       "text/plain": "file-lines",
                        "text/html": "file-code"
                        }

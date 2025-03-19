@@ -2,148 +2,155 @@
 
 <div id="formContainer" class="card">
 
-    <form id="dropzoneUpload" class="form dropzone card-body" action="{% url 'keeper:submit' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+  <form id="dropzoneUpload" class="form dropzone card-body" action="{% url 'keeper:submit' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
 
     {% if error_message %}
-        <div id="formError" class="form__error">
-            <p>{{ error_message }}</p>
-        </div>
+      <div id="formError">
+          <p>{{ error_message }}</p>
+      </div>
     {% endif %}
 
-    <div id="totalProgressBar" class="dropzone-form__upload-progress--hidden">
-        Total Progress:
-        <div class="progress">
-            <div id="total-progress" class="progress-bar bg-success bg-striped progress-bar-animated" role="progressbar" aria-valuemin="0"
-                 aria-valuemax="100" aria-valuenow="0" data-dz-uploadprogress>
-            </div>
+    <div id="totalProgressBar" class="dropzone-form__upload-progress--hidden mb-4">
+      Total Progress:
+      <div class="progress">
+        <div id="total-progress" class="progress-bar bg-success bg-striped progress-bar-animated" role="progressbar" aria-valuemin="0"
+             aria-valuemax="100" aria-valuenow="0" data-dz-uploadprogress>
         </div>
+      </div>
     </div>
 
     <div id="dropzonePreviews" class="dropzone-previews clearfix">
-            {% include 'keeper/_dropzone_template.html' %}
-        </div>
+      {% include 'keeper/_dropzone_template.html' %}
+    </div>
 
-        <div id="dropzoneFormError" class="dropzone-form__error">
-            {{ file_form.non_field_errors }}
-            {{ file_form.file.errors }}
-        </div>
+    <div id="dropzoneFormError" class="dropzone-form__error">
+      {{ file_form.non_field_errors }}
+      {{ file_form.file.errors }}
+    </div>
 
-        <div id="dropzoneClickable" class="dropzone-form">
-
-            <div class="dropzone-form__message dz-message">
-                <label id="dropzoneMessageLabel" for="id_file-file">Click here or drag files to the window to upload.</label>
-            </div>
-
-        </div>
+    <div id="dropzoneClickable" class="dropzone-form">
+      <div class="dropzone-form__message dz-message">
+          <label id="dropzoneMessageLabel" for="id_file-file">Click here or drag files to the window to upload.</label>
+      </div>
+    </div>
 
     <fieldset>
-        {{ accession_form.non_field_errors }}
+      {{ accession_form.non_field_errors }}
 
-    <div class="row">
-        <div class="form-group col-sm-6 has-feedback">
-            <label class="col-form-label" for="{{ accession_form.first_name.id_for_label }}">
-                {{ accession_form.first_name.label }} *
-            </label>
-
-            {{ accession_form.first_name|add_class:'form-control' }}
-            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-        </div><!-- form-group -->
-
-        <div class="form-group col-sm-6 has-feedback">
-            <label class="col-form-label" for="{{ accession_form.last_name.id_for_label }}">
-                {{ accession_form.last_name.label }} *
-            </label>
-            {{ accession_form.last_name|add_class:'form-control' }}
-            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-        </div><!-- form-group -->
-    </div><!-- row -->
-
-        {% if affiliation_choices %}
-        <div class="form-group has-feedback">
-            <label class="col-form-label" for="{{ accession_form.affiliation.id_for_label }}">
-                {{ accession_form.affiliation.label }} *
-            </label>
-            {{ accession_form.affiliation|add_class:'form-control' }}
-            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-            <small class="form-text text-muted">Select the option that best describes your
-            relationship with UNT.</small>
-        </div><!-- form-group -->
-        {% endif %}
-
-        {% if organization_choices %}
-        <div class="form-group has-feedback">
-            <label class="col-form-label" for="{{ accession_form.organization.id_for_label }}">
-                {{ accession_form.organization.label }}
-            </label>
-            {{ accession_form.organization|add_class:'form-control' }}
-            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-        </div><!-- form-group -->
-        {% endif %}
-
-        <div class="form-group has-feedback">
-            <label class="col-form-label" for="{{ accession_form.email_address.id_for_label }}">
-                {{ accession_form.email_address.label }} *
-            </label>
-            {{ accession_form.email_address|add_class:'form-control' }}
-            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-            <small class="form-text text-muted">We'll only email you if we have questions about your submission.</small>
-        </div><!-- form-group -->
-
-        <div class="form-group has-feedback">
-            <label class="col-form-label" for="{{ accession_form.phone_number.id_for_label }}">
-                {{ accession_form.phone_number.label }}
-            </label>
-            {{ accession_form.phone_number|add_class:'form-control' }}
-            <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-        </div><!-- form-group -->
-
-        <div class="form-group has-feedback">
-            <label class="col-form-label" for="{{ accession_form.description.id_for_label }}">
-                {{ accession_form.description.label }}
-            </label>
-            <div class="form__field">
-                {{ accession_form.description|add_class:'form-control' }}
-                <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
-                <small class="form-text text-muted">
-                    Tell us about the files you are submitting-- who, what,
-                    where, and when is a good place to start. The more information
-                    the better! Please also indicate why these files are important to you.
-                </small>
-            </div><!-- form__field -->
-        </div><!-- form-group -->
-
-        <div id="checkbox" class="form-group">
-          <div class="form-check">
-            <label class="form-check-label form__label form__label--checkbox" for="donate-authorization">
-                <span id="checkboxTooltip" data-toggle="tooltip" ></span>
-                <input class="form-check-input form__input form__input--checkbox" id="donate-authorization"
-                       name="donate-authorization" type="checkbox" required="required" value="">
-                By checking this box I affirm that I own the property being submitted,
-                and unconditionally give, donate and bestow the materials submitted
-                to the University of North Texas Libraries.
-            </label>
-            <div class="invalid-feedback">Please affirm ownership by checking the box.</div>
-          </div>
-
+      <div class="row">
+        {# First name field #}
+        <div class="col-sm-6 has-feedback mb-4">
+          <label class="form-label" for="{{ accession_form.first_name.id_for_label }}">
+            {{ accession_form.first_name.label }} *
+          </label>
+          {{ accession_form.first_name|add_class:'form-control' }}
+          <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
         </div>
 
-        <div class="form-group">
-            {{ accession_form.captcha.errors }}
-            <div id="grecaptcha" class="g-recaptcha" data-callback="recaptcha_success"></div>
-            <div id="grecaptcha-required" class="error invalid-feedback" style="display:none;">reCaptcha is required.</div>
+        {# Last name field #}
+        <div class="col-sm-6 has-feedback mb-4">
+          <label class="form-label" for="{{ accession_form.last_name.id_for_label }}">
+            {{ accession_form.last_name.label }} *
+          </label>
+          {{ accession_form.last_name|add_class:'form-control' }}
+          <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+        </div>
+      </div><!-- row -->
+
+      {% if affiliation_choices %}
+        {# Affiliation field #}
+        <div class="has-feedback mb-4">
+          <label class="form-label" for="{{ accession_form.affiliation.id_for_label }}">
+            {{ accession_form.affiliation.label }} *
+          </label>
+          {{ accession_form.affiliation|add_class:'form-select form-control' }}
+          <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+          <small class="form-text text-muted">Select the option that best describes your
+          relationship with UNT.</small>
+        </div>
+      {% endif %}
+
+      {% if organization_choices %}
+        {# Organization field #}
+        <div class="has-feedback mb-4">
+          <label class="form-label" for="{{ accession_form.organization.id_for_label }}">
+              {{ accession_form.organization.label }}
+          </label>
+          {{ accession_form.organization|add_class:'form-control' }}
+          <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+        </div>
+      {% endif %}
+
+      <div class="row">
+        {# Email address field #}
+        <div class="col-sm-6 has-feedback mb-4">
+          <label class="form-label" for="{{ accession_form.email_address.id_for_label }}">
+            {{ accession_form.email_address.label }} *
+          </label>
+          {{ accession_form.email_address|add_class:'form-control' }}
+          <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+          <small class="form-text text-muted">We'll only email you if we have questions about your submission.</small>
         </div>
 
-        <button class="btn btn-success" id="submitButton" type="submit" disabled="disabled">
-            <i class="fas fa-cloud-upload-alt"></i>
-            Upload
-        </button>
+        {# Phone number field #}
+        <div class="col-sm-6 has-feedback mb-4">
+          <label class="form-label" for="{{ accession_form.phone_number.id_for_label }}">
+            {{ accession_form.phone_number.label }}
+          </label>
+          {{ accession_form.phone_number|add_class:'form-control' }}
 
-        <button class="btn btn-danger" id="removeAllButton" type="button" disabled="disabled">
-            <i class="fas fa-trash-alt"></i>
-            Remove all
-        </button>
+          <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+        </div>
+      </div><!-- row -->
 
+      {# Description field #}
+      <div class="has-feedback mb-4">
+        <label class="form-label" for="{{ accession_form.description.id_for_label }}">
+          {{ accession_form.description.label }}
+        </label>
+        {{ accession_form.description|add_class:'form-control accession-description-field' }}
+        <span class="invalid-feedback" aria-hidden="true" data-toggle="tooltip"></span>
+        <small class="form-text text-muted">
+            Tell us about the files you are submitting-- who, what,
+            where, and when is a good place to start. The more information
+            the better! Please also indicate why these files are important to you.
+        </small>
+      </div>
+
+      {# Ownership and rights acknowledgement #}
+      <div id="checkbox" class="mb-4">
+        <div class="form-check">
+          <input class="form-check-input" id="donate-authorization"
+                 name="donate-authorization" type="checkbox" required="required" value="">
+          <label class="form-check-label" for="donate-authorization">
+            <span id="checkboxTooltip" data-toggle="tooltip" ></span>
+            By checking this box I affirm that I own the property being submitted,
+            and unconditionally give, donate and bestow the materials submitted
+            to the University of North Texas Libraries.
+          </label>
+        </div>
+        <div class="invalid-feedback">Please affirm ownership by checking the box.</div>
+      </div>
+
+      {# reCaptcha #}
+      <div class="mb-4">
+        {{ accession_form.captcha.errors }}
+        <div id="grecaptcha" class="g-recaptcha" data-callback="recaptcha_success"></div>
+        <div id="grecaptcha-required" class="error invalid-feedback" style="display:none;">reCaptcha is required.</div>
+      </div>
+
+      {# Upload button #}
+      <button class="btn btn-success" id="submitButton" type="submit" disabled="disabled">
+          <i class="fas fa-cloud-upload-alt"></i>
+          Upload
+      </button>
+
+      {# Remove all button #}
+      <button class="btn btn-danger" id="removeAllButton" type="button" disabled="disabled">
+          <i class="fas fa-trash-alt"></i>
+          Remove all
+      </button>
     </fieldset>
 
     </form>

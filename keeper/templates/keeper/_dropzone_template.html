@@ -1,40 +1,36 @@
 {% load keeper_extras %}
 
 <div id="previewTemplate" class="dropzone-template">
-
-    <div>
-            <div class="row  dropzone-template__data">
-        <div class="dropzone-template__column col-md-5">
-            <div class="dropzone-template__data">
-                <img class="img-fluid" data-dz-thumbnail />
-            <div class="progress  file-progress  file-progress--hidden">
-                <div class="dropzone-template__progress progress-bar bg-success bg-striped progress-bar-animated" role="progressbar"
+  <div>
+    <div class="row  dropzone-template__data">
+      <div class="dropzone-template__column col-md-5">
+        <div class="dropzone-template__data">
+          <img class="img-fluid" data-dz-thumbnail />
+          <div class="progress  file-progress  file-progress--hidden mt-3">
+            <div class="dropzone-template__progress progress-bar bg-success bg-striped progress-bar-animated" role="progressbar"
                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress></div>
-                </div>
             </div>
-            <span class="dropzone-template__data  dropzone-template__filename" data-dz-name></span>
-            <div class="dropzone-template__column">
-                <span class="dropzone-template__data" data-dz-size></span>
-            </div>
+          </div>
+          <span class="dropzone-template__data  dropzone-template__filename" data-dz-name></span>
+          <div class="dropzone-template__column">
+            <span class="dropzone-template__data" data-dz-size></span>
+          </div>
+      </div>
 
-        </div>
-
-        <div class="dropzone-template__column dropzone-template__description col-md-7">
-            {{ file_form.file_description|add_class:'dropzone-template__data' }}
-            <span class="dropzone-template__data--result"></span>
-            <button class="btn btn-danger btn-sm float-right dropzone-template__remove-button" id="dzRemove" type="button" data-dz-remove >
-                <i class="fas fa-trash-alt"></i>
-                Remove
-            </button>
-        </div>
+      <div class="dropzone-template__column dropzone-template__description col-md-7">
+        {{ file_form.file_description|add_class:'dropzone-template__data' }}
+        <span class="dropzone-template__data--result"></span>
+        <button class="btn btn-danger btn-sm float-right dropzone-template__remove-button" id="dzRemove" type="button" data-dz-remove >
+          <i class="fas fa-trash-alt"></i>
+            Remove
+        </button>
+      </div>
     </div>
 
     <div class="row dropzone-template__error">
-        <div class="dropzone-template__column  col-md-12">
-            <strong class="error alert alert-danger" data-dz-errormessage>{{ file_form.errors }}</strong>
-        </div>
+      <div class="dropzone-template__column  col-md-12">
+        <strong class="error alert alert-danger" data-dz-errormessage>{{ file_form.errors }}</strong>
+      </div>
     </div>
-    </div>
-
-
+  </div>
 </div>
