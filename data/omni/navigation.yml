@@ -20,7 +20,7 @@ home_search_dropdown:
     min_width: 370
     items:
       - text: >-
-          You can submit a search in the following systems from the 'refine'
+          You can submit a search in the following systems from the 'everything'
           button, on the 'start searching' tab or jump to a system directly here:
         type: text
         classes: small text-secondary-subtle pt-2 fst-italic
@@ -752,7 +752,7 @@ main_bar:
               - text: Game Collection
                 type: link
                 classes:
-                url: https://guides.library.unt.edu/Game-Collection
+                url: https://guides.library.unt.edu/games
           - heading: Rules & Policies
             url:
             classes:

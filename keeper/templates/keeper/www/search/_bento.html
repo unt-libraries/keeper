@@ -29,14 +29,6 @@ GLOBAL SEARCH TOOL.
             data-bs-toggle="tooltip"
             data-bs-title="{{ omni.utils.strings.paywall_url }}"></span>
     </button>
-
-    <button type="submit"
-            class="{{ omni.html_classes.search_forms.bento.search_submit_btn }}">
-      {% include 'keeper/www/head/_search_icon.html' %}
-      <span class="d-none d-lg-inline">
-        {{ omni.utils.strings.search }}
-      </span>
-    </button>
     <button type="button"
             class="{{ omni.html_classes.search_forms.bento.search_submit_btn }} {{ omni.html_classes.search_forms.bento.dropdown_toggle_btn }}"
             data-bs-toggle="dropdown"
@@ -47,5 +39,12 @@ GLOBAL SEARCH TOOL.
     </button>
     <div class="{{ omni.html_classes.search_forms.bento.dropdown_menu }}"
          id="bento-offcanvas-other-search-options"></div>
+    <button type="submit"
+            class="{{ omni.html_classes.search_forms.bento.search_submit_btn }}">
+      {% include 'keeper/www/head/_search_icon.html' %}
+      <span class="d-none d-lg-inline">
+        {{ omni.utils.strings.search }}
+      </span>
+    </button>
   </div>
 </form>

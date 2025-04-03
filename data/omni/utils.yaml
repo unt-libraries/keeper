@@ -191,9 +191,10 @@ search_dropdowns:
 
 
 strings:
-  bento_label: "Search many systems at once or refine to just one. Got a DOI? Copy/Paste it here."
+  bento_label: "Search everything at once or choose one system. Got a DOI? Copy/Paste it here."
   search: "Search"
-  refine: "Refine"
+  refine: "Everything"
+  refine_db: "Databases"
   paywall_url: "URL Found. If paywalled, view options."
   tab_bento: "Start Searching"
   tab_database: "Databases & E-Resources"
