@@ -24,4 +24,15 @@
   };
 </script>
 
+<script src="{{ omni.utils.omni.scripts | add:"search-dropdowns.js" }}"></script>
+
+{# load json from yaml for script usage #}
+{{ omni.utils.search_dropdowns | json_script:"search_dropdowns_json" }}
+
+<script>
+  {{ omni.js_configs.namespace }}.searchDropdowns = JSON.parse(document.getElementById('search_dropdowns_json').textContent);
+  /** offcanvas dropdown init, all pages */
+  new SearchDropdown('bento-offcanvas-other-search-options', 'bento-offcanvas-q', {{ omni.js_configs.namespace }}.searchDropdowns["default_bento"]);
+</script>
+
 <script src="{{ omni.utils.omni.scripts | add:"main.js" }}" type="module"></script>
