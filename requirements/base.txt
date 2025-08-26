@@ -1,3 +1,4 @@
+dam @ git+https://github.com/unt-libraries/django-altcha-middleware.git
 django-parsley==0.7
 django-private-storage==3.1
 django-recaptcha==3.0.0

@@ -13,6 +13,7 @@ WORKDIR /app/keeper
 
 # install system dependencies
 RUN apt-get update && apt-get install -y \
+    git \
     python3-dev \
     build-essential \
     libpq-dev \
@@ -21,7 +22,7 @@ RUN apt-get update && apt-get install -y \
 
 # install python dependencies
 COPY requirements/ /app/keeper/requirements/
-RUN pip install --upgrade pip && pip install -r requirements/dev.txt
+RUN pip install --upgrade pip && pip install -r requirements/dev.txt --use-pep517
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh .

@@ -19,6 +19,7 @@ ENV PYTHONUNBUFFERED=1
 
 # install system dependencies
 RUN apt-get update && apt-get install -y \
+    git \
     python3-dev \
     gcc \
     libpq-dev \
@@ -27,7 +28,7 @@ RUN apt-get update && apt-get install -y \
 
 # install python dependencies
 COPY requirements/ $APP_HOME/requirements/
-RUN pip install --upgrade pip && pip install -r requirements/prod.txt
+RUN pip install --upgrade pip && pip install -r requirements/prod.txt --use-pep517
 
 # copy entrypoint.prod.sh
 COPY ./entrypoint.prod.sh .

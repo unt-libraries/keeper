@@ -29,4 +29,5 @@ urlpatterns = [
     re_path(r'', include('keeper.urls')),
     re_path(r'^admin/', admin.site.urls),
     re_path('^private-media/', include(private_storage.urls)),
+    re_path('', include('dam.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
