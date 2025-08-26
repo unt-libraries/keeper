@@ -24,7 +24,7 @@ omni:
   assets:  "https://library.unt.edu/assets/omni/" # EDITED: to use library www resources
   data:    "https://library.unt.edu/assets/omni/data/" # EDITED: to use library www resources
   images:  "https://library.unt.edu/assets/omni/images/" # EDITED: to use library www resources
-  scripts: "https://beta.library.unt.edu/assets/omni/scripts/" # EDITED: to use library www resources
+  scripts: "https://library.unt.edu/assets/omni/scripts/" # EDITED: to use library www resources
   styles:  "https://library.unt.edu/assets/omni/styles/" # EDITED: to use library www resources
   vendor:  "https://library.unt.edu/assets/omni/vendor/" # EDITED: to use library www resources
 
@@ -54,6 +54,9 @@ springshare:
 
 search_dropdowns:
   default_bento:
+    - label: Everything
+      classes:
+      urlTemplate: /search/?q={query}
     - label: Online Articles
       classes:
       urlTemplate: https://untexas.summon.serialssolutions.com/#!/search?ho=t&include.ft.matches=f&fvf=IsFullText,true,f%7CIsPeerReviewed,true,f%7CContentType,Journal%20Article,f&l=en&q={query}
@@ -79,6 +82,10 @@ search_dropdowns:
 
 
   default_ers:
+    - label: Databases
+      classes:
+      urlTemplate: https://discover.library.unt.edu/?f%5Baccess_facet%5D%5B%5D=Online&f%5Bresource_type_facet%5D%5B%5D=online_databases&q={query}&search_field=text
+      #urlTemplate: https://guides.library.unt.edu/az.php?q={query}
     - label: E-Books
       classes:
       urlTemplate: https://discover.library.unt.edu/?utf8=%E2%9C%93&f%5Baccess_facet%5D%5B%5D=Online&f%5Bresource_type_facet%5D%5B%5D=books&q={query}&search_field=text
@@ -193,8 +200,8 @@ search_dropdowns:
 strings:
   bento_label: "Search everything at once or choose one system. Got a DOI? Copy/Paste it here."
   search: "Search"
-  refine: "Everything"
-  refine_db: "Databases"
+  refine: "Limit To..."
+  refine_db: "Limit To..."
   paywall_url: "URL Found. If paywalled, view options."
   tab_bento: "Start Searching"
   tab_database: "Databases & E-Resources"

@@ -62,6 +62,9 @@ events:
     - libapps
     - pac meet
     - facilities
+    - unavailable
+    - renovation
+    - internal
 
 hours:
   storageKey: 'unt_lib.v2.hours'
