@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'parsley',
     'captcha',
+    'dam',
 )
 
 MIDDLEWARE = (
@@ -53,6 +54,7 @@ MIDDLEWARE = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'dam.middleware.AltchaMiddleware',
 )
 
 ROOT_URLCONF = 'tests.urls'
@@ -109,3 +111,9 @@ NOCAPTCHA = True
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 SESSION_COOKIE_HTTPONLY = True
+
+# Django Altcha Middleware settings
+
+ALTCHA_HMAC_KEY = os.environ.get('ALTCHA_HMAC_KEY', 'something')
+ALTCHA_MAX_NUMBER = int(os.environ.get('ALTCHA_MAX_NUMBER', 50000))
+# ALTCHA_MAX_NUMBER = 50000
