@@ -6,7 +6,7 @@
     "name": "Jason Ellis",
     "email": "jason.ellis@unt.edu"
   },
-  "packageManager": "npm@11.0.0",
+  "packageManager": "npm@11.5.2",
   "scripts": {
     "build": "podman-compose build",
     "buildProd": "podman-compose -f compose.prod.yml build",
@@ -32,7 +32,7 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "babelify": "10.0.0",
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.3.3",
     "browserify": "17.0.1",
     "dropzone": "5.9.3",
     "gulp": "^5.0.0",
@@ -51,5 +51,9 @@
   },
   "overrides": {
     "postcss": "^8.5.1"
+  },
+  "volta": {
+    "node": "22.18.0",
+    "npm": "11.5.2"
   }
 }
