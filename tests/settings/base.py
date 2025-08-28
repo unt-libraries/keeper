@@ -116,4 +116,6 @@ SESSION_COOKIE_HTTPONLY = True
 
 ALTCHA_HMAC_KEY = os.environ.get('ALTCHA_HMAC_KEY', 'something')
 ALTCHA_MAX_NUMBER = int(os.environ.get('ALTCHA_MAX_NUMBER', 50000))
-# ALTCHA_MAX_NUMBER = 50000
+ALTCHA_EXCLUDE_IPS = os.environ.get('ALTCHA_EXCLUDE_IPS', '').split() if os.environ.get('ALTCHA_EXCLUDE_IPS') else []
+ALTCHA_SITE_ICON_URL = '{}keeper/img/lettermark_one-line_diving_eagle_green_0.svg'.format(STATIC_URL)
+# ALTCHA_SITE_ICON_URL = 'https://library.unt.edu/assets/omni/images/icons/favicon.svg?v=omni'
