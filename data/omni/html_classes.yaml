@@ -114,6 +114,7 @@ title:
   title: "h1 fs-4 fs-md-2 fs-lg-1 mb-2 mb-lg-0"
   summary_text: "small text-white mt-2 mt-lg-auto d-md-flex justify-content-md-between"
   summary_btn: "btn position-relative z-1"
+  reserve_btn: "btn-dark"
 
 ##############
 # MAIN

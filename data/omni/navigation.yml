@@ -44,8 +44,7 @@ home_search_dropdown:
         url: https://guides.library.unt.edu/srch.php
       - text: This Website
         type: link
-        url: https://search.unt.edu/s/search.html?query=&f.Tabs%7Cuni-nt-web=Website&collection=uni-nt-search&scope=library.unt.edu,-guides.library.unt.edu,-blogs.library.unt.edu,-guides.library.unt.edu,-archives.library.unt.edu,-hoc.library.unt.edu,-journals.library.unt.edu,-openbooks.library.unt.edu,-omeka.library.unt.edu
-
+        url: https://search.unt.edu/s/search.html?query=&f.Tabs%7Cuni-nt-web=Website&collection=unt~sp-search&scope=library.unt.edu,-guides.library.unt.edu,-blogs.library.unt.edu,-guides.library.unt.edu,-archives.library.unt.edu,-hoc.library.unt.edu,-journals.library.unt.edu,-openbooks.library.unt.edu,-omeka.library.unt.edu
 
 ################################################
 # Menu appearing at the top-most position in the
@@ -413,21 +412,21 @@ main_bar:
                 icons:
                   - icon_classes: "fas fa-users fa-fw"
                     text: "Includes Contacts"
-              - text: Undergraduate Engagement & Research
+              - text: Research and Engagement
                 type: link
                 classes: stretched-link
                 icons:
                   - icon_classes: "fas fa-users fa-fw"
                     text: "Includes Contacts"
-                url: /undergraduate-engagement-research/
+                url: /research-engagement/
                 annotation:
-              - text: Research Support Services
+              - text: Teaching & Learning
                 type: link
                 classes: stretched-link
                 icons:
                   - icon_classes: "fas fa-users fa-fw"
                     text: "Includes Contacts"
-                url: /research-support-services/
+                url: /teaching-learning/
           - heading: Scholarly/Professional Help
             url:
             classes:

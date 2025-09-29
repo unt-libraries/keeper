@@ -74,7 +74,7 @@ search_dropdowns:
       urlTemplate: https://guides.library.unt.edu/srch.php?q={query}
     - label: This Website
       classes:
-      urlTemplate: https://search.unt.edu/s/search.html?query={query}&f.Tabs%7Cuni-nt-web=Website&collection=uni-nt-search&scope=library.unt.edu,-guides.library.unt.edu,-blogs.library.unt.edu,-guides.library.unt.edu,-archives.library.unt.edu,-hoc.library.unt.edu,-journals.library.unt.edu,-openbooks.library.unt.edu,-omeka.library.unt.edu
+      urlTemplate: https://search.unt.edu/s/search.html?query={query}&f.Tabs%7Cuni-nt-web=Website&collection=unt~sp-search&scope=library.unt.edu,-guides.library.unt.edu,-blogs.library.unt.edu,-guides.library.unt.edu,-archives.library.unt.edu,-hoc.library.unt.edu,-journals.library.unt.edu,-openbooks.library.unt.edu,-omeka.library.unt.edu
     - type: divider
     - label: Beyond our Collections
       classes:
