@@ -7,7 +7,7 @@ install_requires = [
     'psycopg2',
     'python-magic',
     'Unipath',
-    'wheel==0.41.0',
+    'wheel==0.46.2',
     'zipstream',
 ]
 
